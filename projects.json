@@ -1,0 +1,182 @@
+[
+  {
+    "id": "petcare",
+    "title": "PetCare",
+    "subtitle": "Тэжээвэр амьтны асаргааны апп",
+    "description": "Вакцины хуваарь, эмчийн цаг захиалга, байршил хянах, чат. Wireframe-ээс эцсийн UI, компонентын сан, промо видео хүртэл би хийсэн.",
+    "year": "2025",
+    "types": [
+      "mobile"
+    ],
+    "color": "#34353a",
+    "image": "assets/petcare.webp",
+    "figma": "https://www.figma.com/design/36iVosYz1YtLDbzsFElblz/-1?node-id=40-109136",
+    "title_en": "PetCare",
+    "subtitle_en": "Pet care, made simpler.",
+    "description_en": "Vaccination schedules, vet appointments, location tracking and chat. Designed from wireframes to the final UI, component library and promotional video."
+  },
+  {
+    "id": "nuudel",
+    "title": "Нүүдэл",
+    "subtitle": "Монголын аялал захиалах вэб",
+    "description": "Аялал хайх → сонгох → захиалга өгөх бүтэн урсгалыг 9 хуудсаар зурсан. 154 холбоостой прототип, үхмэл холбоос 0.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#f7e5c9",
+    "image": "assets/nuudel.webp",
+    "figma": "https://www.figma.com/design/0EzHfmgsBhrAWuLTHfyA8x/",
+    "title_en": "Nuudel",
+    "subtitle_en": "Discover and book Mongolia.",
+    "description_en": "A complete journey from finding a tour to booking it, across 9 pages. An interactive prototype with 154 connections."
+  },
+  {
+    "id": "park",
+    "title": "Park of Mongolia",
+    "subtitle": "Зугаа цэнгэлийн паркийн вэб + утас",
+    "description": "Тоглоом, газрын зураг, календарь, үнийн тооцоолуур, аялал төлөвлөгч. 17 вэб, 9 утасны дэлгэц, 390+ холбоос.",
+    "year": "2026",
+    "types": [
+      "web",
+      "mobile"
+    ],
+    "color": "#daf0ed",
+    "image": "assets/park.webp",
+    "figma": "https://www.figma.com/design/PiIhgqY3LS0eVVj62NuAZn/",
+    "title_en": "Park of Mongolia",
+    "subtitle_en": "Plan a day at the park.",
+    "description_en": "Attractions, maps, an event calendar, a price calculator and a trip planner. 17 web and 9 mobile screens with 390+ prototype connections."
+  },
+  {
+    "id": "tusla",
+    "title": "Tusla · Mongolia Helper",
+    "subtitle": "Монголд ирсэн жуулчны туслах апп + вэб",
+    "description": "“I need…” нүүр, eSIM 4 алхам, такси, нүүдэлчин туршлага, хамт аялагч. 46 утасны дэлгэц, 11 вэб, 270+ холбоос.",
+    "year": "2026",
+    "types": [
+      "web",
+      "mobile"
+    ],
+    "color": "#111d59",
+    "image": "assets/tusla.webp",
+    "figma": "https://www.figma.com/design/ZzJVZS5xW76XcWguaoMGHZ/",
+    "title_en": "Tusla · Mongolia Helper",
+    "subtitle_en": "A local companion for travellers.",
+    "description_en": "An “I need…” home, four-step eSIM setup, taxis, nomadic experiences and travel buddies. 46 mobile and 11 web screens."
+  },
+  {
+    "id": "mono",
+    "title": "МОНО эмийн сан",
+    "subtitle": "Эмийн сангийн вэб + утасны апп",
+    "description": "Эм захиалах, цахим жор барах, зүйчтэй зөвлөх, эм уух сануулга. Вэб 11 хуудас, апп 22 дэлгэц — нэг дизайн системээр.",
+    "year": "2026",
+    "types": [
+      "web",
+      "mobile"
+    ],
+    "color": "#e8f4ef",
+    "image": "assets/mono.webp",
+    "figma": "https://www.figma.com/design/nogbmNeuQxECo1yxD6L8o6/",
+    "title_en": "MONO Pharmacy",
+    "subtitle_en": "One system, web and mobile.",
+    "description_en": "Medicine ordering, digital prescriptions, pharmacist consultations and medicine reminders. 11 web pages and 22 app screens within one design system."
+  },
+  {
+    "id": "khuvaaya",
+    "title": "Хуваая",
+    "subtitle": "Зардал хуваах бүтээгдэхүүн",
+    "description": "Маркетинг вэб, 11 дэлгэцтэй систем, 35 дэлгэцтэй апп, QPay.",
+    "year": "2026",
+    "types": [
+      "web",
+      "mobile"
+    ],
+    "color": "#ede5fb",
+    "image": "assets/khuvaaya.webp",
+    "figma": "https://www.figma.com/design/cVAHn3o5ugRk2puzrohrcn/",
+    "title_en": "Khuvaaya",
+    "subtitle_en": "Share expenses with clarity.",
+    "description_en": "A marketing website, an 11-screen system and a 35-screen mobile app with QPay flows."
+  },
+  {
+    "id": "bizflow",
+    "title": "BizFlow",
+    "subtitle": "Жижиг бизнесийн систем",
+    "description": "Захиалга, бараа, мөнгө, харилцагч. 10 дэлгэцтэй самбар.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#eef0fc",
+    "image": "assets/bizflow.webp",
+    "figma": "https://www.figma.com/design/ByIo6Z7xlv1vZlH86zxL0b/",
+    "title_en": "BizFlow",
+    "subtitle_en": "A clearer view of small business.",
+    "description_en": "Orders, products, finances and customers in a 10-screen business dashboard."
+  },
+  {
+    "id": "recipes",
+    "title": "Хоолны жор",
+    "subtitle": "Жор, төлөвлөгөө, жагсаалт",
+    "description": "38 дэлгэц. Жор нэмэх, 7 хоногийн төлөвлөгөө, жагсаалт.",
+    "year": "2026",
+    "types": [
+      "mobile"
+    ],
+    "color": "#ffebe0",
+    "image": "assets/recipes.webp",
+    "figma": "https://www.figma.com/design/0tRg8T2iBtpgiLWRBdzA3S/ank",
+    "title_en": "Recipe Planner",
+    "subtitle_en": "Cook, plan and organise.",
+    "description_en": "38 screens for adding recipes, planning a week of meals and keeping a shopping list."
+  },
+  {
+    "id": "furniture",
+    "title": "Онлайн худалдаа",
+    "subtitle": "Тавилгын онлайн дэлгүүр",
+    "description": "360° харах, өнгө сонгох, сагс, төлбөр, захиалгын түүх.",
+    "year": "2025",
+    "types": [
+      "mobile"
+    ],
+    "color": "#f0ebff",
+    "image": "assets/furniture.webp",
+    "figma": "https://www.figma.com/design/DIPocfvsckmsVLrO5XhyAB/",
+    "title_en": "Furniture Store",
+    "subtitle_en": "Find the right piece.",
+    "description_en": "360° views, colour selection, cart, payment and order history."
+  },
+  {
+    "id": "procreditor",
+    "title": "Procreditor вэб",
+    "subtitle": "Байгууллагын танилцуулга",
+    "description": "1920px өргөнтэй light хувилбар. Үйлчилгээ, тооцоолуур.",
+    "year": "2025",
+    "types": [
+      "web"
+    ],
+    "color": "#e8f4fd",
+    "image": "assets/procreditor.webp",
+    "figma": "https://www.figma.com/design/rwth87OBXwIw0cAKt76pnv/",
+    "title_en": "Procreditor",
+    "subtitle_en": "A company, clearly introduced.",
+    "description_en": "A light website concept with services and a calculator, designed for a 1920px desktop canvas."
+  },
+  {
+    "id": "event-nft",
+    "title": "Event & NFT",
+    "subtitle": "Онбординг, зах зээл, эвент",
+    "description": "Онбординг, market, NFT, эвент, төлбөр — 30+ дэлгэц.",
+    "year": "2025",
+    "types": [
+      "mobile"
+    ],
+    "color": "#e5f5e9",
+    "image": "assets/event-nft.webp",
+    "figma": "https://www.figma.com/design/rRv3sXgYqetNWifopzZVuK/",
+    "title_en": "Event & NFT",
+    "subtitle_en": "Explore events and digital collectibles.",
+    "description_en": "30+ screens spanning onboarding, marketplace, NFTs, events and payments."
+  }
+]

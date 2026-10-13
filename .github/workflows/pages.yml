@@ -1,0 +1,58 @@
+name: Publish portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'projects.json'
+      - 'build.py'
+      - 'dist/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check whether Pages is enabled
+        id: pages-state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          enabled=$(gh api repos/${{ github.repository }} --jq .has_pages)
+          echo "enabled=$enabled" >> "$GITHUB_OUTPUT"
+          if [ "$enabled" != "true" ]; then
+            echo 'The portfolio is live at https://ankhbayar-design.rightbirch64.chatgpt.site.' >> "$GITHUB_STEP_SUMMARY"
+            echo 'For an additional GitHub Pages URL, select GitHub Actions in Settings → Pages, then run this workflow.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Checkout
+        if: steps.pages-state.outputs.enabled == 'true'
+        uses: actions/checkout@v6
+      - name: Generate static portfolio
+        if: steps.pages-state.outputs.enabled == 'true'
+        run: python3 build.py
+      - name: Configure GitHub Pages
+        if: steps.pages-state.outputs.enabled == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload website
+        if: steps.pages-state.outputs.enabled == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: Deploy to GitHub Pages
+        if: steps.pages-state.outputs.enabled == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4

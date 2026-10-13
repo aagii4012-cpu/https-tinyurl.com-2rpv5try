@@ -11,7 +11,7 @@ The website uses plain HTML, CSS and JavaScript. There are no runtime packages o
 - `projects.json` contains project titles, descriptions, categories and original Figma links.
 - `src/index.html`, `src/styles.css` and `src/app.js` are the editable source.
 - `dist/` is the complete website ready for static hosting.
-- `dist/assets/Ankhbayar-CV.pdf` contains professional information for public sharing.
+- Personal CV records, contact details and portrait are kept out of this public repository. The public code links to the live portfolio for that information.
 
 After editing content or source, regenerate the HTML:
 
