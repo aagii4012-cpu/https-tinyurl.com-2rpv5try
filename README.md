@@ -38,7 +38,7 @@ Validation: Python build, JavaScript syntax, local resource paths, data counts, 
 
 Eleven original A4 posters from the supplied Figma file are self-hosted. Posters 01, 08 and 06 lead the dedicated section; two identical groups move right-to-left in a seamless transform loop. The gallery links each selected poster to its exact Figma frame. Offscreen, hidden-tab, modal and manual motion pauses are supported.
 
-The first section presents the designer with the supplied full-resolution portrait, experience and education, plus a short statement about advanced Claude and ChatGPT use. The contact section uses four visible email, phone, Instagram and GitHub cards. Mobile project covers use a layered metal rim, glass screen, camera island and hardware details.
+The opening section pairs the designer’s name with three moving artwork columns. A separate about section contains the supplied full-resolution portrait, experience, education and advanced Claude and ChatGPT use. The poster section precedes the project grid; the interactive TG Sport concept section follows selected work. Supporting text uses a clearer 13–16 px scale. The contact section uses four visible email, phone, Instagram and GitHub cards. Mobile project covers use a layered metal rim, glass screen, camera island and hardware details.
 
 Illustrative cover photography: John Karlo Mendoza, https://unsplash.com/photos/idzUojjazCg ; Edward Ji, https://unsplash.com/photos/pZeP-szcWTU . Used under the Unsplash License, https://unsplash.com/license . The accompanying miniature interfaces show the actual concept artwork.
 
