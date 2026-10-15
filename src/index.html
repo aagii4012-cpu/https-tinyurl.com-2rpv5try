@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="mn">
+<html lang="mn" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -18,13 +18,13 @@
     (() => {
       let saved = null;
       try { saved = localStorage.getItem('portfolio-theme'); } catch (_) {}
-      const theme = saved === 'dark' || saved === 'light' ? saved : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const theme = saved === 'dark' || saved === 'light' ? saved : 'light';
       document.documentElement.dataset.theme = theme;
       document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#141713' : '#f5f4ef';
     })();
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20261015-9">
-  <script defer src="assets/app.js?v=20261015-9"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20261015-10">
+  <script defer src="assets/app.js?v=20261015-10"></script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>

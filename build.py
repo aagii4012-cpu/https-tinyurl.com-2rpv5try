@@ -102,8 +102,10 @@ def scope_chart(counts):
     start = 0
     for index,(key,color) in enumerate(zip(['web','mobile','multi','print'],colors)):
         share = counts[key] / len(DATA) * 100
-        visible = max(0,share - 1.5)
-        parts.append(f'<circle class="scope-ring-segment" data-scope-key="{key}" data-share="{share:g}" cx="100" cy="100" r="84" pathLength="100" stroke-dasharray="{visible:g} {100-visible:g}" stroke-dashoffset="{-start:g}" style="--scope-color:{color};--segment-index:{index}"/>')
+        # Reserve room for both round stroke caps at each segment boundary.
+        gap = 3.8
+        visible = max(0,share - gap)
+        parts.append(f'<circle class="scope-ring-segment" data-scope-key="{key}" data-share="{share:g}" cx="100" cy="100" r="84" pathLength="100" stroke-dasharray="{visible:g} {100-visible:g}" stroke-dashoffset="{-(start+gap/2):g}" style="--scope-color:{color};--segment-index:{index}"/>')
         start += share
     return ''.join(parts)+'</svg>'
 
@@ -119,7 +121,7 @@ def filters_markup():
     for key,label_key,label,hint_key,hint,color,icon in items:
         count = sum(key=='all' or (bool(p.get('concept')) if key=='concept' else key in p['types']) for p in DATA)
         active=key=='all'
-        buttons.append(f'<button class="filter'+(' is-active' if active else '')+f'" type="button" data-filter="{key}" aria-pressed="{str(active).lower()}" aria-controls="project-grid" style="--filter-accent:{color}"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{icon}</svg></span><span class="filter-copy"><strong data-i18n="{label_key}">{label}</strong><small data-i18n="{hint_key}">{hint}</small></span><span class="filter-count">{count}</span></button>')
+        buttons.append(f'<button class="filter'+(' is-active' if active else '')+f'" type="button" data-filter="{key}" aria-pressed="{str(active).lower()}" aria-controls="project-grid" style="--filter-accent:{color}"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{icon}</svg></span><span class="filter-copy"><strong data-i18n="{label_key}">{label}</strong></span><span class="filter-count">{count}</span></button>')
     return ''.join(buttons)
 
 def posters_markup():

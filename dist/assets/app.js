@@ -81,7 +81,6 @@
   const categoryOf = p => p.types.map(t => copy[lang][categoryKeys[t]]).join(' + ');
   const canAnimate = () => !motionPaused && !reduce.matches;
   const themeButton = $('#theme-toggle');
-  const themeMedia = matchMedia('(prefers-color-scheme: dark)');
   let themeSetting = null;
   try {
     const saved = localStorage.getItem('portfolio-theme');
@@ -103,16 +102,15 @@
     }
     updateThemeButton();
   }
-  setTheme(themeSetting || (themeMedia.matches ? 'dark' : 'light'));
+  setTheme(themeSetting || 'light');
   themeButton.addEventListener('click', () => {
     document.documentElement.classList.add('theme-ready');
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true);
   });
-  themeMedia.addEventListener('change', e => {if (!themeSetting) setTheme(e.matches ? 'dark' : 'light');});
   window.addEventListener('storage', e => {
     if (e.key !== 'portfolio-theme') return;
     themeSetting = e.newValue === 'dark' || e.newValue === 'light' ? e.newValue : null;
-    setTheme(themeSetting || (themeMedia.matches ? 'dark' : 'light'));
+    setTheme(themeSetting || 'light');
   });
   const filterBar = $('#project-filters');
   function updateLayoutMetrics() {
