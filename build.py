@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT / 'dist'
 DATA = json.loads((ROOT / 'projects.json').read_text())
+ARROW_NE = '<svg class="ui-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>'
 
 def esc(value):
     return html.escape(str(value), quote=True)
@@ -55,7 +56,7 @@ def card(project, index):
     if cover: styles += f';--showcase-bg:{esc(cover["background"])};--showcase-accent:{esc(cover["accent"])};--browser-ratio:{esc(cover["ratio"])}'
     demo_link = f'<a class="project-demo-link" href="{esc(p["demo"])}" target="_blank" rel="noopener noreferrer"><span data-i18n="openDemo">Демо нээх</span> ↗</a>' if p.get('demo') else ''
     return f'''<article class="project-card reveal {extra}" id="project-{esc(p['id'])}" style="{styles}">
-      <button class="project-visual" data-open-project="{esc(p['id'])}" aria-label="Төсөл үзэх: {esc(p['title'])}" aria-haspopup="dialog">{visual}<span class="project-badge">{esc(tags)}</span><span class="project-open"><span data-i18n="viewProject">Төсөл үзэх</span><span aria-hidden="true">↗</span></span></button>
+      <button class="project-visual" data-open-project="{esc(p['id'])}" aria-label="Төсөл үзэх: {esc(p['title'])}" aria-haspopup="dialog">{visual}<span class="project-badge">{esc(tags)}</span><span class="project-open"><span data-i18n="viewProject">Төсөл үзэх</span><span aria-hidden="true">{ARROW_NE}</span></span></button>
       <div class="project-info"><h3 class="project-title"><button data-open-project="{esc(p['id'])}" aria-haspopup="dialog">{esc(p['title'])}</button></h3><span class="project-year">{esc(p['year'])}</span><p class="project-subtitle">{esc(p['subtitle'])}</p><div class="project-tags">{disciplines}</div>{demo_link}</div>
     </article>'''
 

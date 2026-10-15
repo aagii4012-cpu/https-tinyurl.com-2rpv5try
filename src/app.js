@@ -67,6 +67,9 @@
     capabilityTitle5:'3D & interactive experiences',capabilityBody5:'A 360° sportswear concept with custom colours, names and numbers.',capabilityProject5:'TG Sport · Interactive 3D studio'
   });
 
+  Object.assign(copy.mn,{capabilityScene0:'ИНТЕРФЭЙС ДИЗАЙН',capabilityScene1:'ВЭБ ТУРШЛАГА',capabilityScene2:'БРЭНДИЙН СИСТЕМ',capabilityScene3:'ВИЗУАЛ ЗОХИОМЖ',capabilityScene4:'ХӨДӨЛГӨӨН & ВИДЕО',capabilityScene5:'ИНТЕРАКТИВ 3D'});
+  Object.assign(copy.en,{capabilityScene0:'INTERFACE DESIGN',capabilityScene1:'WEB EXPERIENCES',capabilityScene2:'BRAND SYSTEMS',capabilityScene3:'VISUAL COMPOSITION',capabilityScene4:'MOTION & VIDEO',capabilityScene5:'INTERACTIVE 3D'});
+
 
   Object.assign(copy.mn,{publicDetailsTitle:'Дэлгэрэнгүй танилцуулга',publicDetailsBody:'Миний ажлын туршлага болон холбоо барих мэдээлэлтэй портфолио сайтаас танилцаарай.',publicDetailsLink:'Портфолио үзэх'});
   Object.assign(copy.en,{publicDetailsTitle:'More about me',publicDetailsBody:'Explore my background and contact details on the live portfolio.',publicDetailsLink:'Explore the portfolio'});
@@ -104,13 +107,26 @@
   const canAnimate = () => !motionPaused && !reduce.matches;
 
   const capabilityVisual = $('#capability-visual');
+  const capabilityVideo = $('#capability-video');
   const capabilityTargets = [
     {project:'petcare',gallery:1},{project:'nuudel',gallery:0},
     {project:'proplus',gallery:0},{project:'poster-collection',gallery:0},
     {project:'petcare',gallery:0},{project:'tg-sport-concept',gallery:0}
   ];
-  let capability = 0, capabilityVisible = false, capabilityManual = false, capabilityTimer = null;
+  const capabilityDuration = 7200;
+  let capability = 0, capabilityVisible = false, capabilityManual = false, capabilityPaused = false;
+  let capabilityFrame = null, capabilityPreviousTime = null, capabilityElapsed = 0;
   let capabilityAnimations = [];
+  capabilityVideo.muted = true;
+  function syncCapabilityMedia(active) {
+    if (active && capability === 4) {
+      if (!capabilityVideo.getAttribute('src')) {
+        capabilityVideo.src = capabilityVideo.dataset.src;
+        capabilityVideo.load();
+      }
+      if (capabilityVideo.paused) capabilityVideo.play()?.catch(()=>{});
+    } else capabilityVideo.pause();
+  }
   function updateCapability() {
     const text = copy[lang];
     const title = $('#capability-title');
@@ -118,7 +134,9 @@
     title.textContent = text['capabilityTitle'+capability];
     $('#capability-description').textContent = text['capabilityBody'+capability];
     $('#capability-project-label').textContent = text['capabilityProject'+capability];
+    $('#capability-scene-label').textContent = text['capabilityScene'+capability];
     $('#capability-count').textContent = '0'+(capability+1)+' / 06';
+    capabilityVisual.dataset.capabilityActive = String(capability);
     const target = capabilityTargets[capability];
     const evidence = $('#capability-evidence');
     evidence.dataset.openProject = target.project;
@@ -131,33 +149,68 @@
       button.setAttribute('aria-label',text['capabilityTitle'+button.dataset.capability]);
     });
     $$('[data-capability-path]').forEach(path=>path.classList.toggle('is-current',Number(path.dataset.capabilityPath) === capability));
+    $$('[data-capability-scene]').forEach(scene=>scene.classList.toggle('is-current',Number(scene.dataset.capabilityScene) === capability));
+    $$('[data-capability-progress]').forEach(mark=>{
+      const index=Number(mark.dataset.capabilityProgress);
+      mark.classList.toggle('is-current',index===capability);
+      mark.classList.toggle('is-complete',index<capability);
+    });
+    capabilityVisual.style.setProperty('--capability-progress',String(capabilityElapsed/capabilityDuration));
     capabilityAnimations.forEach(animation=>animation.cancel());
     capabilityAnimations=[];
-    if(changed && canAnimate() && capabilityVisible && !document.hidden && typeof title.animate === 'function') {
-      capabilityAnimations=[title,$('#capability-description'),$('#capability-project-label')].map(el=>el.animate(
-        [{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],
-        {duration:600,easing:'cubic-bezier(.22,1,.36,1)'}
+    if(changed && canAnimate() && !capabilityPaused && capabilityVisible && !document.hidden && typeof title.animate === 'function') {
+      capabilityAnimations=[title,$('#capability-description'),$('#capability-project-label')].map((el,index)=>el.animate(
+        [{opacity:0,transform:'translateY(7px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:650,delay:index*55,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'}
       ));
     }
+    syncCapabilityMedia(capabilityVisual.classList.contains('is-animating'));
+  }
+  function tickCapability(now) {
+    if(capabilityPreviousTime !== null) capabilityElapsed += Math.min(Math.max(now-capabilityPreviousTime,0),100);
+    capabilityPreviousTime = now;
+    if(capabilityElapsed >= capabilityDuration) {
+      capabilityElapsed %= capabilityDuration;
+      capability = (capability+1)%capabilityTargets.length;
+      updateCapability();
+    }
+    capabilityVisual.style.setProperty('--capability-progress',String(capabilityElapsed/capabilityDuration));
+    capabilityFrame = requestAnimationFrame(tickCapability);
   }
   function syncCapabilityMotion() {
-    clearInterval(capabilityTimer);capabilityTimer=null;
     const disabled = !canAnimate();
-    const running = !disabled && capabilityVisible && !document.hidden && !dialog.open && !capabilityManual;
+    const active = !disabled && capabilityVisible && !document.hidden && !dialog.open && !capabilityPaused;
+    const running = active && !capabilityManual;
+    capabilityVisual.classList.toggle('is-animating',active);
     capabilityVisual.classList.toggle('is-cycling',running);
+    if(running && capabilityFrame === null) capabilityFrame = requestAnimationFrame(tickCapability);
+    else if(!running) {
+      if(capabilityFrame !== null) cancelAnimationFrame(capabilityFrame);
+      capabilityFrame = null; capabilityPreviousTime = null;
+    }
     const button=$('#capability-toggle');
     button.disabled=disabled;
-    button.setAttribute('aria-pressed',String(capabilityManual || disabled));
-    $('#capability-toggle-label').textContent=copy[lang][disabled?'capabilityOff':capabilityManual?'capabilityPlay':'capabilityPause'];
-    $('#capability-toggle-icon').textContent=disabled?'−':capabilityManual?'▷':'Ⅱ';
-    if(running)capabilityTimer=setInterval(()=>{capability=(capability+1)%capabilityTargets.length;updateCapability();},6000);
+    button.setAttribute('aria-pressed',String(capabilityPaused || disabled));
+    $('#capability-toggle-label').textContent=copy[lang][disabled?'capabilityOff':capabilityPaused?'capabilityPlay':'capabilityPause'];
+    $('#capability-toggle-icon').textContent=disabled?'−':capabilityPaused?'▷':'Ⅱ';
+    syncCapabilityMedia(active);
   }
   $$('[data-capability]').forEach(button=>button.addEventListener('click',()=>{
-    capability=Number(button.dataset.capability);capabilityManual=true;updateCapability();syncCapabilityMotion();
+    capability=Number(button.dataset.capability); capabilityElapsed=0; capabilityPreviousTime=null;
+    capabilityManual=document.activeElement === button;
+    updateCapability(); syncCapabilityMotion();
   }));
-  $('#capability-toggle').addEventListener('click',()=>{capabilityManual=!capabilityManual;syncCapabilityMotion();});
+  [...$$('[data-capability]'),$('#capability-evidence')].forEach(button=>{
+    button.addEventListener('focus',()=>{capabilityManual=true;syncCapabilityMotion();});
+    button.addEventListener('blur',()=>{capabilityManual=false;syncCapabilityMotion();});
+  });
+  $('#capability-toggle').addEventListener('click',()=>{
+    capabilityPaused=!capabilityPaused;
+    if(!capabilityPaused)capabilityManual=false;
+    syncCapabilityMotion();
+  });
   if('IntersectionObserver' in window) {
-    new IntersectionObserver(entries=>{capabilityVisible=entries[0].isIntersecting;syncCapabilityMotion();},{threshold:.2}).observe(capabilityVisual);
+    new IntersectionObserver(entries=>{capabilityVisible=entries[0].isIntersecting;syncCapabilityMotion();},{threshold:.15}).observe(capabilityVisual);
   } else capabilityVisible=true;
 
   const themeButton = $('#theme-toggle');
