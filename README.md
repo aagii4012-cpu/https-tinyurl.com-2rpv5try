@@ -44,6 +44,8 @@ All 15 opening-column tiles now present the designer’s actual work. UI screens
 
 The work overview links to all projects equally. Its segmented SVG chart and percentages derive from the current project counts. The four-stage process diagram connects completed stages, changes its title and explanation with a short fade, and shares one timing constant with the animated progress indicator. Background, offscreen, modal and reduced-motion handling keep animation bounded.
 
+The work library uses five prominent icon-and-count category controls. They stay below the fixed header while browsing the project grid; the mobile strip scrolls horizontally. Header and toolbar measurements set scroll offsets so filtered results remain visible. The global sun/moon control is always available, with a complete light/dark palette for navigation, content cards, charts, galleries and contact. The initial theme follows the device unless a remembered choice exists, and a small pre-paint initializer prevents a light flash when opening in dark mode.
+
 Illustrative cover photography: John Karlo Mendoza, https://unsplash.com/photos/idzUojjazCg ; Edward Ji, https://unsplash.com/photos/pZeP-szcWTU . Used under the Unsplash License, https://unsplash.com/license . The accompanying miniature interfaces show the actual concept artwork.
 
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.

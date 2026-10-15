@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f4ef">
   <title>Цогбаяр Анхбаяр — UI/UX &amp; Visual Designer</title>
-  <meta name="description" content="Цогбаяр Анхбаярын UI/UX болон визуал дизайны портфолио. Вэб, апп, лого, брэндийн удирдамж, хэвлэлийн дизайны 14 төсөл.">
+  <meta name="description" content="Цогбаяр Анхбаярын UI/UX болон визуал дизайны портфолио. Вэб, апп, лого, брэндийн удирдамж, хэвлэлийн дизайны 20 төсөл.">
   <meta property="og:title" content="Цогбаяр Анхбаяр — UI/UX &amp; Visual Designer">
   <meta property="og:description" content="Хэрэглэгчээс эхэлж, ойлгомжтой шийдэл бүтээдэг. Вэб, апп, лого, брэндинг болон хэвлэлийн сонгосон бүтээлүүд.">
   <meta property="og:type" content="website">
@@ -14,8 +14,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/portfolio-sans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="assets/styles.css?v=20261015-8">
-  <script defer src="assets/app.js?v=20261015-8"></script>
+  <script>
+    (() => {
+      let saved = null;
+      try { saved = localStorage.getItem('portfolio-theme'); } catch (_) {}
+      const theme = saved === 'dark' || saved === 'light' ? saved : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#141713' : '#f5f4ef';
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles.css?v=20261015-9">
+  <script defer src="assets/app.js?v=20261015-9"></script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
@@ -28,15 +37,14 @@
     </div>
     <div class="nav-row">
       <a class="wordmark" href="#home" aria-label="Анхбаяр — Эхлэл"><strong>ANKHBAYAR<span>.</span></strong><small>UI/UX &amp; VISUAL DESIGN · 2026</small></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Цэс нээх"><span></span><span></span></button>
       <nav class="main-nav" id="main-nav" aria-label="Үндсэн цэс">
         <a href="#work" data-i18n="navWork">Бүтээлүүд</a>
         <a href="#posters" data-i18n="navPosters">Постер</a>
         <a href="#about" data-i18n="navAbout">Миний тухай</a>
         <a href="#process" data-i18n="navProcess">Процесс</a>
-        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button>
         <a class="nav-cta" href="#contact"><span data-i18n="navContact">Холбогдох</span><span class="circle-arrow" aria-hidden="true">↗</span></a>
       </nav>
+      <div class="header-tools"><button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Шөнийн горимд шилжих" title="Шөнийн горимд шилжих"><svg class="theme-moon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.8 8.8 0 0 1 9.8 3.5a8.8 8.8 0 1 0 10.7 10.7Z"></path></svg><svg class="theme-sun" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg></button><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Цэс нээх"><span></span><span></span></button></div>
     </div>
   </header>
 
@@ -72,7 +80,9 @@
       <div class="poster-bottom"><p><span class="poster-direction" aria-hidden="true">←</span><span data-i18n="posterRailNote">Бусад бүтээлүүд · Баруунаас зүүн тийш урсана</span></p><span data-i18n="posterClickHint">Постер дээр дарж томруулан үзээрэй.</span></div>
     </section>
 
-    <div class="filter-row"><div class="filters" role="group" aria-label="Төсөл шүүх"><button class="filter is-active" data-filter="all" aria-pressed="true" data-i18n="filterAll">Бүгд</button><button class="filter" data-filter="web" aria-pressed="false" data-i18n="filterWeb">Вэб</button><button class="filter" data-filter="mobile" aria-pressed="false" data-i18n="filterMobile">Мобайл</button><button class="filter" data-filter="concept" aria-pressed="false" data-i18n="filterConcept">Санаачилгын концепц</button><button class="filter" data-filter="graphic" aria-pressed="false" data-i18n="filterGraphic">График / Хэвлэл</button></div><p class="project-count" role="status" aria-live="polite"><span id="project-count">20</span> <span data-i18n="projectCount">төсөл</span></p></div>
+      <div class="work-explorer" id="work-explorer">
+        <div class="explorer-heading"><div><p class="eyebrow" data-i18n="explorerEyebrow">БҮТЭЭЛИЙН САН</p><h3 data-i18n="explorerTitle">Төрлөөр нь нээж үзээрэй.</h3><p data-i18n="explorerHint">Сонирхсон чиглэлээ сонгоод, бүтээлүүдтэй дэлгэрэнгүй танилцаарай.</p></div><p class="project-count" role="status" aria-live="polite"><span id="project-count">20</span><span data-i18n="projectCount">төсөл</span></p></div>
+        <div class="filter-row" id="project-filters"><div class="filters" role="group" aria-label="Төсөл шүүх"><button class="filter is-active" type="button" data-filter="all" aria-pressed="true" aria-controls="project-grid" style="--filter-accent:#dfebc8"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></span><span class="filter-copy"><strong data-i18n="filterAll">Бүгд</strong><small data-i18n="filterAllHint">Бүх чиглэл</small></span><span class="filter-count">20</span></button><button class="filter" type="button" data-filter="web" aria-pressed="false" aria-controls="project-grid" style="--filter-accent:#c8def2"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2.5"/><path d="M8 21h8m-4-4v4M3 8h18"/></svg></span><span class="filter-copy"><strong data-i18n="filterWeb">Вэб</strong><small data-i18n="filterWebHint">Дижитал туршлага</small></span><span class="filter-count">13</span></button><button class="filter" type="button" data-filter="mobile" aria-pressed="false" aria-controls="project-grid" style="--filter-accent:#f2cfbf"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4m-4 14h4"/></svg></span><span class="filter-copy"><strong data-i18n="filterMobile">Мобайл</strong><small data-i18n="filterMobileHint">Апп интерфэйс</small></span><span class="filter-count">8</span></button><button class="filter" type="button" data-filter="concept" aria-pressed="false" aria-controls="project-grid" style="--filter-accent:#ded2f3"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.8 7.2L22 12l-7.2 2.8L12 22l-2.8-7.2L2 12l7.2-2.8L12 2Z"/></svg></span><span class="filter-copy"><strong data-i18n="filterConcept">Концепц</strong><small data-i18n="filterConceptHint">Өөрийн санаачилга</small></span><span class="filter-count">5</span></button><button class="filter" type="button" data-filter="graphic" aria-pressed="false" aria-controls="project-grid" style="--filter-accent:#f0dfaa"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m14 3 7 7-10 10H4v-7L14 3Zm-3 3 7 7M4 20l5-5"/><circle cx="10" cy="14" r="1"/></svg></span><span class="filter-copy"><strong data-i18n="filterGraphic">График / Хэвлэл</strong><small data-i18n="filterGraphicHint">Лого · Постер · Цэс</small></span><span class="filter-count">3</span></button></div></div>
       <div class="project-grid" id="project-grid"><article class="project-card reveal project-card--print" id="project-kamila-garden" style="--project-bg:#e7dcc4">
       <button class="project-visual" data-open-project="kamila-garden" aria-label="Төсөл үзэх: Kamila Garden" aria-haspopup="dialog"><span class="menu-spread"><img class="menu-page menu-page-left" src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-salad.webp" width="855" height="1200" loading="lazy" decoding="async" alt=""><img class="project-image menu-page menu-page-cover" src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-cover.webp" width="998" height="1400" loading="lazy" decoding="async" alt="Kamila Garden цэсний нүүр"><img class="menu-page menu-page-right" src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-soup.webp" width="855" height="1200" loading="lazy" decoding="async" alt=""></span><span class="print-edition">KAMILA GARDEN / MENU DESIGN / 2026</span><span class="project-badge">График / Хэвлэл</span><span class="project-open"><span data-i18n="viewProject">Төсөл үзэх</span><span aria-hidden="true">↗</span></span></button>
       <div class="project-info"><h3 class="project-title"><button data-open-project="kamila-garden" aria-haspopup="dialog">Kamila Garden</button></h3><span class="project-year">2026</span><p class="project-subtitle">Логоны хувилбарууд &amp; рестораны цэс</p><div class="project-tags"><span>Logo & Visual Identity</span><span>Editorial & Print</span></div></div>
@@ -153,6 +163,7 @@
       <button class="project-visual" data-open-project="event-nft" aria-label="Төсөл үзэх: Event &amp; NFT" aria-haspopup="dialog"><span class="showcase-orbit" aria-hidden="true"></span><span class="device-pair"><span class="phone phone-main"><span class="phone-screen"><img class="project-image" src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/event-home.webp" loading="lazy" decoding="async" alt="Event &amp; NFT — үндсэн дэлгэц"></span><span class="phone-island" aria-hidden="true"><i></i></span><span class="phone-home" aria-hidden="true"></span><span class="phone-keys" aria-hidden="true"></span></span><span class="phone phone-secondary"><span class="phone-screen"><img src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/event-detail.webp" loading="lazy" decoding="async" alt=""></span><span class="phone-island" aria-hidden="true"><i></i></span><span class="phone-home" aria-hidden="true"></span><span class="phone-keys" aria-hidden="true"></span></span></span><span class="project-badge">Мобайл</span><span class="project-open"><span data-i18n="viewProject">Төсөл үзэх</span><span aria-hidden="true">↗</span></span></button>
       <div class="project-info"><h3 class="project-title"><button data-open-project="event-nft" aria-haspopup="dialog">Event &amp; NFT</button></h3><span class="project-year">2025</span><p class="project-subtitle">Онбординг, зах зээл, эвент</p><div class="project-tags"><span>UI/UX Design</span><span>Mobile App</span></div></div>
     </article></div>
+      </div>
     </section>
 
     <section class="explorations section-shell reveal" id="explorations" aria-labelledby="explorations-title">

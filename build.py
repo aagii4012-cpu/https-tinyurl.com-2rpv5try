@@ -107,6 +107,21 @@ def scope_chart(counts):
         start += share
     return ''.join(parts)+'</svg>'
 
+def filters_markup():
+    items = [
+        ('all','filterAll','Бүгд','filterAllHint','Бүх чиглэл','#dfebc8','<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>'),
+        ('web','filterWeb','Вэб','filterWebHint','Дижитал туршлага','#c8def2','<rect x="2.5" y="4" width="19" height="13" rx="2.5"/><path d="M8 21h8m-4-4v4M3 8h18"/>'),
+        ('mobile','filterMobile','Мобайл','filterMobileHint','Апп интерфэйс','#f2cfbf','<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4m-4 14h4"/>'),
+        ('concept','filterConcept','Концепц','filterConceptHint','Өөрийн санаачилга','#ded2f3','<path d="m12 2 2.8 7.2L22 12l-7.2 2.8L12 22l-2.8-7.2L2 12l7.2-2.8L12 2Z"/>'),
+        ('graphic','filterGraphic','График / Хэвлэл','filterGraphicHint','Лого · Постер · Цэс','#f0dfaa','<path d="m14 3 7 7-10 10H4v-7L14 3Zm-3 3 7 7M4 20l5-5"/><circle cx="10" cy="14" r="1"/>')
+    ]
+    buttons=[]
+    for key,label_key,label,hint_key,hint,color,icon in items:
+        count = sum(key=='all' or (bool(p.get('concept')) if key=='concept' else key in p['types']) for p in DATA)
+        active=key=='all'
+        buttons.append(f'<button class="filter'+(' is-active' if active else '')+f'" type="button" data-filter="{key}" aria-pressed="{str(active).lower()}" aria-controls="project-grid" style="--filter-accent:{color}"><span class="filter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{icon}</svg></span><span class="filter-copy"><strong data-i18n="{label_key}">{label}</strong><small data-i18n="{hint_key}">{hint}</small></span><span class="filter-count">{count}</span></button>')
+    return ''.join(buttons)
+
 def posters_markup():
     collection=next(p for p in DATA if p.get('presentation')=='poster');pages=collection['gallery']
     def piece(page,index,featured=False):
@@ -133,7 +148,7 @@ if (ROOT/'demos').is_dir(): shutil.copytree(ROOT/'demos',DIST/'demos',dirs_exist
 template = (ROOT / 'src/index.html').read_text()
 project_json = json.dumps(DATA, ensure_ascii=False).replace('<', '\\u003c')
 counts = {'web':sum(p['types']==['web'] for p in DATA), 'mobile':sum(p['types']==['mobile'] for p in DATA), 'multi':sum('web' in p['types'] and 'mobile' in p['types'] for p in DATA), 'print':sum('graphic' in p['types'] for p in DATA)}
-output = template.replace('{{MOSAIC}}',mosaic).replace('{{SCOPE_CHART}}',scope_chart(counts)).replace('{{POSTERS}}',posters_markup()).replace('{{PROJECTS}}','\n'.join(card(p,i) for i,p in enumerate(DATA))).replace('{{PROJECT_DATA}}',project_json).replace('{{PROJECT_TOTAL}}',str(len(DATA)))
+output = template.replace('{{MOSAIC}}',mosaic).replace('{{FILTERS}}',filters_markup()).replace('{{SCOPE_CHART}}',scope_chart(counts)).replace('{{POSTERS}}',posters_markup()).replace('{{PROJECTS}}','\n'.join(card(p,i) for i,p in enumerate(DATA))).replace('{{PROJECT_DATA}}',project_json).replace('{{PROJECT_TOTAL}}',str(len(DATA)))
 for key, value in counts.items():
     output = output.replace('{{COUNT_'+key.upper()+'}}',str(value))
     output = output.replace('{{SHARE_'+key.upper()+'}}',f'{value/len(DATA)*100:g}')

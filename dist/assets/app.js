@@ -35,6 +35,16 @@
 
   Object.assign(copy.mn,{openFigmaShort:'Figma-д үзэх',openGuideShort:'Удирдамж үзэх',openImageShort:'Зураг үзэх',});
   Object.assign(copy.en,{openFigmaShort:'View in Figma',openGuideShort:'View guide',openImageShort:'View image',});
+  Object.assign(copy.mn, {
+    explorerEyebrow:'БҮТЭЭЛИЙН САН',explorerTitle:'Төрлөөр нь нээж үзээрэй.',explorerHint:'Сонирхсон чиглэлээ сонгоод, бүтээлүүдтэй дэлгэрэнгүй танилцаарай.',
+    filterConcept:'Концепц',filterAllHint:'Бүх чиглэл',filterWebHint:'Дижитал туршлага',filterMobileHint:'Апп интерфэйс',filterConceptHint:'Өөрийн санаачилга',filterGraphicHint:'Лого · Постер · Цэс',
+    switchDark:'Шөнийн горимд шилжих',switchLight:'Өдрийн горимд шилжих'
+  });
+  Object.assign(copy.en, {
+    explorerEyebrow:'THE WORK LIBRARY',explorerTitle:'Find your kind of design.',explorerHint:'Choose a discipline and explore the details behind each project.',
+    filterConcept:'Concepts',filterAllHint:'Every discipline',filterWebHint:'Digital experiences',filterMobileHint:'App interfaces',filterConceptHint:'Self-initiated work',filterGraphicHint:'Logo · Poster · Print',
+    switchDark:'Switch to dark mode',switchLight:'Switch to light mode'
+  });
 
   Object.assign(copy.mn,{publicDetailsTitle:'Дэлгэрэнгүй танилцуулга',publicDetailsBody:'Миний ажлын туршлага болон холбоо барих мэдээлэлтэй портфолио сайтаас танилцаарай.',publicDetailsLink:'Портфолио үзэх'});
   Object.assign(copy.en,{publicDetailsTitle:'More about me',publicDetailsBody:'Explore my background and contact details on the live portfolio.',publicDetailsLink:'Explore the portfolio'});
@@ -70,6 +80,51 @@
   const categoryKeys = {web:'filterWeb', mobile:'filterMobile', graphic:'filterGraphic'};
   const categoryOf = p => p.types.map(t => copy[lang][categoryKeys[t]]).join(' + ');
   const canAnimate = () => !motionPaused && !reduce.matches;
+  const themeButton = $('#theme-toggle');
+  const themeMedia = matchMedia('(prefers-color-scheme: dark)');
+  let themeSetting = null;
+  try {
+    const saved = localStorage.getItem('portfolio-theme');
+    if (saved === 'light' || saved === 'dark') themeSetting = saved;
+  } catch (_) {}
+  function updateThemeButton() {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    const label = copy[lang][dark ? 'switchLight' : 'switchDark'];
+    themeButton.setAttribute('aria-pressed', String(dark));
+    themeButton.setAttribute('aria-label', label);
+    themeButton.title = label;
+  }
+  function setTheme(theme, remember = false) {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#141713' : '#f5f4ef';
+    if (remember) {
+      themeSetting = theme;
+      try {localStorage.setItem('portfolio-theme', theme);} catch (_) {}
+    }
+    updateThemeButton();
+  }
+  setTheme(themeSetting || (themeMedia.matches ? 'dark' : 'light'));
+  themeButton.addEventListener('click', () => {
+    document.documentElement.classList.add('theme-ready');
+    setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true);
+  });
+  themeMedia.addEventListener('change', e => {if (!themeSetting) setTheme(e.matches ? 'dark' : 'light');});
+  window.addEventListener('storage', e => {
+    if (e.key !== 'portfolio-theme') return;
+    themeSetting = e.newValue === 'dark' || e.newValue === 'light' ? e.newValue : null;
+    setTheme(themeSetting || (themeMedia.matches ? 'dark' : 'light'));
+  });
+  const filterBar = $('#project-filters');
+  function updateLayoutMetrics() {
+    document.documentElement.style.setProperty('--header-edge', Math.ceil(header.getBoundingClientRect().bottom) + 'px');
+    document.documentElement.style.setProperty('--filter-height', Math.ceil(filterBar.getBoundingClientRect().height) + 'px');
+  }
+  updateLayoutMetrics();
+  if ('ResizeObserver' in window) {
+    const layoutObserver = new ResizeObserver(updateLayoutMetrics);
+    layoutObserver.observe(header); layoutObserver.observe(filterBar);
+  }
+  window.addEventListener('resize', updateLayoutMetrics, {passive:true});
   const featureFrame = $('#tg-feature-frame');
   let featureVisible = false;
   const posterSection = $('#posters');
@@ -92,8 +147,8 @@
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entries=>{postersVisible=entries[0].isIntersecting;if(postersVisible)posterSection.querySelectorAll('img').forEach(img=>img.loading='eager');syncPosterMotion();},{rootMargin:'160px 0px'}).observe(posterSection);
   } else postersVisible=true;
-  Object.assign(copy.mn, {conceptEyebrow:'ӨӨРИЙН САНААЧИЛГЫН КОНЦЕПЦУУД',conceptTitle:'Сонирхлоос эхэлсэн<br>шинэ хувилбарууд.',conceptIntro:'Одоо байгаа вэбүүдийг өөрийн сонирхлоор дахин загварчилсан 4 ажил. Namu Coffee нь «би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн концепц.',tgKicker:'TG SPORT / ӨӨРИЙН САНААЧИЛГЫН REDESIGN',tgIntro:'Хувцасны дизайныг хардаг байсан бол одоо өөрөө бүтээ. Өнгөө сонгоод, нэр болон дугаараа өмсгөл дээрээ тавиарай.',tgRotate:'Чирж эргүүлнэ',tgCustomize:'Өнгө · Нэр · Дугаар',openStudio:'Бүрэн 3D студи нээх',tgNote:'Одоо байгаа вэбийг өөрийн санаагаар сайжруулсан хувийн концепц.',tgDragHint:'Чирж эргүүлээд, доороос нь өөрчилж үзээрэй.',load3d:'3D харагдац нээх',conceptCollection:'TITEM · barber.mn · Таван хошуу · Namu Coffee',showConcepts:'5 концепцийг үзэх',filterConcept:'Санаачилгын концепц',openDemo:'Демо нээх',conceptOriginal:'Шинэ вэб концепц',conceptRedesign:'Өөрийн санаачилгын redesign',conceptNote:'Өөрийн сонирхлоор хийсэн redesign концепц. Албан ёсны захиалгат ажил биш; үйлдлүүд нь демо.',conceptNoteOriginal:'«Би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн Namu Coffee вэб концепц. Үйлдлүүд нь демо.'});
-  Object.assign(copy.en, {conceptEyebrow:'SELF-INITIATED CONCEPTS',conceptTitle:'A little curiosity.<br>A new perspective.',conceptIntro:'Four personal redesigns of existing websites. Namu Coffee is an original “if I designed their website” concept.',tgKicker:'TG SPORT / SELF-INITIATED REDESIGN',tgIntro:'Go from viewing a kit to making it your own. Choose a colour, then add your name and number to the uniform.',tgRotate:'Drag to rotate',tgCustomize:'Colour · Name · Number',openStudio:'Open the full 3D studio',tgNote:'An independent, personal redesign of the existing website.',tgDragHint:'Drag to rotate. Use the controls below to make it yours.',load3d:'Explore the 3D kit',conceptCollection:'TITEM · barber.mn · Tavan Khoshuu · Namu Coffee',showConcepts:'Explore all 5 concepts',filterConcept:'Personal concepts',openDemo:'Open live demo',conceptOriginal:'Original website concept',conceptRedesign:'Self-initiated redesign',conceptNote:'An independently created personal redesign concept. Actions in this demonstration are simulated.',conceptNoteOriginal:'An original “if I designed their website” concept for Namu Coffee. Actions in this demonstration are simulated.'});
+  Object.assign(copy.mn, {conceptEyebrow:'ӨӨРИЙН САНААЧИЛГЫН КОНЦЕПЦУУД',conceptTitle:'Сонирхлоос эхэлсэн<br>шинэ хувилбарууд.',conceptIntro:'Одоо байгаа вэбүүдийг өөрийн сонирхлоор дахин загварчилсан 4 ажил. Namu Coffee нь «би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн концепц.',tgKicker:'TG SPORT / ӨӨРИЙН САНААЧИЛГЫН REDESIGN',tgIntro:'Хувцасны дизайныг хардаг байсан бол одоо өөрөө бүтээ. Өнгөө сонгоод, нэр болон дугаараа өмсгөл дээрээ тавиарай.',tgRotate:'Чирж эргүүлнэ',tgCustomize:'Өнгө · Нэр · Дугаар',openStudio:'Бүрэн 3D студи нээх',tgNote:'Одоо байгаа вэбийг өөрийн санаагаар сайжруулсан хувийн концепц.',tgDragHint:'Чирж эргүүлээд, доороос нь өөрчилж үзээрэй.',load3d:'3D харагдац нээх',conceptCollection:'TITEM · barber.mn · Таван хошуу · Namu Coffee',showConcepts:'5 концепцийг үзэх',filterConcept:'Концепц',openDemo:'Демо нээх',conceptOriginal:'Шинэ вэб концепц',conceptRedesign:'Өөрийн санаачилгын redesign',conceptNote:'Өөрийн сонирхлоор хийсэн redesign концепц. Албан ёсны захиалгат ажил биш; үйлдлүүд нь демо.',conceptNoteOriginal:'«Би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн Namu Coffee вэб концепц. Үйлдлүүд нь демо.'});
+  Object.assign(copy.en, {conceptEyebrow:'SELF-INITIATED CONCEPTS',conceptTitle:'A little curiosity.<br>A new perspective.',conceptIntro:'Four personal redesigns of existing websites. Namu Coffee is an original “if I designed their website” concept.',tgKicker:'TG SPORT / SELF-INITIATED REDESIGN',tgIntro:'Go from viewing a kit to making it your own. Choose a colour, then add your name and number to the uniform.',tgRotate:'Drag to rotate',tgCustomize:'Colour · Name · Number',openStudio:'Open the full 3D studio',tgNote:'An independent, personal redesign of the existing website.',tgDragHint:'Drag to rotate. Use the controls below to make it yours.',load3d:'Explore the 3D kit',conceptCollection:'TITEM · barber.mn · Tavan Khoshuu · Namu Coffee',showConcepts:'Explore all 5 concepts',filterConcept:'Concepts',openDemo:'Open live demo',conceptOriginal:'Original website concept',conceptRedesign:'Self-initiated redesign',conceptNote:'An independently created personal redesign concept. Actions in this demonstration are simulated.',conceptNoteOriginal:'An original “if I designed their website” concept for Namu Coffee. Actions in this demonstration are simulated.'});
   function syncFeatureMotion() {
     if (!featureFrame.getAttribute('src')) return;
     featureFrame.contentWindow?.postMessage({type:'portfolio-motion',active:featureVisible && !document.hidden && !dialog.open,auto:canAnimate()},new URL(featureFrame.dataset.src,location.href).origin);
@@ -239,6 +294,7 @@
     });
     $('#language-toggle').textContent = lang === 'mn' ? 'EN' : 'MN';
     $('#language-toggle').setAttribute('aria-label', lang === 'mn' ? 'Switch to English' : 'Монгол хэл рүү шилжих');
+    updateThemeButton();
     document.title = lang === 'mn' ? 'Цогбаяр Анхбаяр — UI/UX & Visual Designer' : 'Ankhbayar Tsogbayar — UI/UX & Visual Designer';
     menuButton.setAttribute('aria-label', copy[lang][header.classList.contains('is-open') ? 'menuClose' : 'menuOpen']);
     $('.filters').setAttribute('aria-label', copy[lang].filterLabel);
@@ -279,7 +335,7 @@
   $$('#main-nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('click', e => {if (header.classList.contains('is-open') && !header.contains(e.target)) setMenu(false);});
   document.addEventListener('keydown', e => {if (e.key === 'Escape' && header.classList.contains('is-open')) {setMenu(false);menuButton.focus();}});
-  matchMedia('(min-width: 851px)').addEventListener('change', () => setMenu(false));
+  matchMedia('(min-width: 1001px)').addEventListener('change', () => setMenu(false));
   $('#language-toggle').addEventListener('click', () => {
     lang = lang === 'mn' ? 'en' : 'mn'; applyLanguage();
     try { localStorage.setItem('portfolio-language',lang); } catch (_) {}
@@ -300,9 +356,18 @@
     });
     $('#project-count').textContent = String(count);
   }
-  $$('.filter').forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.filter)));
+  function exploreFilter(filter) {
+    filterProjects(filter);
+    requestAnimationFrame(() => {
+      $('#project-grid').scrollIntoView({behavior:canAnimate() ? 'smooth' : 'auto',block:'start'});
+      const active = $('.filter.is-active');
+      const list = $('.filters');
+      list.scrollTo({left:list.scrollLeft + active.getBoundingClientRect().left - list.getBoundingClientRect().left - list.clientWidth/2 + active.offsetWidth/2,behavior:canAnimate() ? 'smooth' : 'auto'});
+    });
+  }
+  $$('.filter').forEach(button => button.addEventListener('click', () => exploreFilter(button.dataset.filter)));
   $('.scope-feature-link').addEventListener('click', () => filterProjects('all'));
-  $('#show-concepts').addEventListener('click',()=>{filterProjects('concept');$('.filter-row').scrollIntoView({behavior:canAnimate()?'smooth':'auto',block:'start'});$('.filter[data-filter="concept"]').focus({preventScroll:true});});
+  $('#show-concepts').addEventListener('click',()=>{exploreFilter('concept');$('.filter[data-filter="concept"]').focus({preventScroll:true});});
   $$('[data-open-project]').forEach(button => button.addEventListener('click', () => {
     selectedProject = projects.find(p => p.id === button.dataset.openProject);
     if (!selectedProject) return;

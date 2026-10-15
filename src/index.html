@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f4ef">
   <title>Цогбаяр Анхбаяр — UI/UX &amp; Visual Designer</title>
-  <meta name="description" content="Цогбаяр Анхбаярын UI/UX болон визуал дизайны портфолио. Вэб, апп, лого, брэндийн удирдамж, хэвлэлийн дизайны 14 төсөл.">
+  <meta name="description" content="Цогбаяр Анхбаярын UI/UX болон визуал дизайны портфолио. Вэб, апп, лого, брэндийн удирдамж, хэвлэлийн дизайны {{PROJECT_TOTAL}} төсөл.">
   <meta property="og:title" content="Цогбаяр Анхбаяр — UI/UX &amp; Visual Designer">
   <meta property="og:description" content="Хэрэглэгчээс эхэлж, ойлгомжтой шийдэл бүтээдэг. Вэб, апп, лого, брэндинг болон хэвлэлийн сонгосон бүтээлүүд.">
   <meta property="og:type" content="website">
@@ -14,8 +14,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/portfolio-sans.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="assets/styles.css?v=20261015-8">
-  <script defer src="assets/app.js?v=20261015-8"></script>
+  <script>
+    (() => {
+      let saved = null;
+      try { saved = localStorage.getItem('portfolio-theme'); } catch (_) {}
+      const theme = saved === 'dark' || saved === 'light' ? saved : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#141713' : '#f5f4ef';
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles.css?v=20261015-9">
+  <script defer src="assets/app.js?v=20261015-9"></script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
@@ -28,15 +37,14 @@
     </div>
     <div class="nav-row">
       <a class="wordmark" href="#home" aria-label="Анхбаяр — Эхлэл"><strong>ANKHBAYAR<span>.</span></strong><small>UI/UX &amp; VISUAL DESIGN · 2026</small></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Цэс нээх"><span></span><span></span></button>
       <nav class="main-nav" id="main-nav" aria-label="Үндсэн цэс">
         <a href="#work" data-i18n="navWork">Бүтээлүүд</a>
         <a href="#posters" data-i18n="navPosters">Постер</a>
         <a href="#about" data-i18n="navAbout">Миний тухай</a>
         <a href="#process" data-i18n="navProcess">Процесс</a>
-        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button>
         <a class="nav-cta" href="#contact"><span data-i18n="navContact">Холбогдох</span><span class="circle-arrow" aria-hidden="true">↗</span></a>
       </nav>
+      <div class="header-tools"><button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Шөнийн горимд шилжих" title="Шөнийн горимд шилжих"><svg class="theme-moon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.8 8.8 0 0 1 9.8 3.5a8.8 8.8 0 1 0 10.7 10.7Z"></path></svg><svg class="theme-sun" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg></button><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Цэс нээх"><span></span><span></span></button></div>
     </div>
   </header>
 
@@ -72,8 +80,11 @@
       <div class="poster-bottom"><p><span class="poster-direction" aria-hidden="true">←</span><span data-i18n="posterRailNote">Бусад бүтээлүүд · Баруунаас зүүн тийш урсана</span></p><span data-i18n="posterClickHint">Постер дээр дарж томруулан үзээрэй.</span></div>
     </section>
 
-    <div class="filter-row"><div class="filters" role="group" aria-label="Төсөл шүүх"><button class="filter is-active" data-filter="all" aria-pressed="true" data-i18n="filterAll">Бүгд</button><button class="filter" data-filter="web" aria-pressed="false" data-i18n="filterWeb">Вэб</button><button class="filter" data-filter="mobile" aria-pressed="false" data-i18n="filterMobile">Мобайл</button><button class="filter" data-filter="concept" aria-pressed="false" data-i18n="filterConcept">Санаачилгын концепц</button><button class="filter" data-filter="graphic" aria-pressed="false" data-i18n="filterGraphic">График / Хэвлэл</button></div><p class="project-count" role="status" aria-live="polite"><span id="project-count">{{PROJECT_TOTAL}}</span> <span data-i18n="projectCount">төсөл</span></p></div>
+      <div class="work-explorer" id="work-explorer">
+        <div class="explorer-heading"><div><p class="eyebrow" data-i18n="explorerEyebrow">БҮТЭЭЛИЙН САН</p><h3 data-i18n="explorerTitle">Төрлөөр нь нээж үзээрэй.</h3><p data-i18n="explorerHint">Сонирхсон чиглэлээ сонгоод, бүтээлүүдтэй дэлгэрэнгүй танилцаарай.</p></div><p class="project-count" role="status" aria-live="polite"><span id="project-count">{{PROJECT_TOTAL}}</span><span data-i18n="projectCount">төсөл</span></p></div>
+        <div class="filter-row" id="project-filters"><div class="filters" role="group" aria-label="Төсөл шүүх">{{FILTERS}}</div></div>
       <div class="project-grid" id="project-grid">{{PROJECTS}}</div>
+      </div>
     </section>
 
     <section class="explorations section-shell reveal" id="explorations" aria-labelledby="explorations-title">
