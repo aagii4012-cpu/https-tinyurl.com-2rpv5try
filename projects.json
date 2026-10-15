@@ -1,5 +1,177 @@
 [
   {
+    "id": "kamila-garden",
+    "title": "Kamila Garden",
+    "subtitle": "Логоны хувилбарууд & рестораны цэс",
+    "description": "Логоны гурван чиглэлийн хувилбар болон 17 хуудаст рестораны цэсний дизайн. Алтан шаргал, гүн ногоон өнгө, ургамлын дүрслэл, бичвэрийн шатлалыг ашиглан брэндийн таних тэмдгээс дотор хуудасны зохиомж хүртэл нэг хэв маяг бүрдүүлсэн.",
+    "year": "2026",
+    "types": [
+      "graphic"
+    ],
+    "color": "#e7dcc4",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-cover.webp",
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-logo-board.webp",
+        "label": "Логоны A / B / C хувилбарууд",
+        "label_en": "Logo explorations A / B / C"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-cover.webp",
+        "label": "Нүүр дизайн",
+        "label_en": "Cover design"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-salad.webp",
+        "label": "Салатны цэс",
+        "label_en": "Salad menu"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-main.webp",
+        "label": "Үндсэн хоол",
+        "label_en": "Main courses"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-pizza.webp",
+        "label": "Пиццаны цэс",
+        "label_en": "Pizza menu"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-soup.webp",
+        "label": "Шөлний цэс",
+        "label_en": "Soup menu"
+      }
+    ],
+    "title_en": "Kamila Garden",
+    "subtitle_en": "Logo explorations & restaurant menu",
+    "description_en": "Three logo directions and a 17-page restaurant menu. Gold, deep green, botanical imagery and a clear type hierarchy connect the identity explorations with the editorial layouts.",
+    "presentation": "menu"
+  },
+  {
+    "id": "proplus",
+    "title": "PROPLUS",
+    "subtitle": "Лого, визуал систем & брэндийн удирдамж",
+    "description": "Зээлийн удирдлага, мэдээллийн платформын логоны хэрэглээ, өнгө, фонт, график элемент, дижитал болон хэвлэлийн хэрэглээг нэг системд оруулсан брэндийн ажил. 26 хуудаст удирдамжид логоны бүтэц, чөлөөт зай, хувилбарууд болон хэрэглээний жишээнүүд багтсан.",
+    "year": "2026",
+    "types": [
+      "graphic"
+    ],
+    "presentation": "brand",
+    "color": "#edf2fa",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-cover.webp",
+    "document": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/PROPLUS-Brand-Guidelines.pdf",
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-primary.webp",
+        "label": "Үндсэн лого",
+        "label_en": "Primary logo"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-colors.webp",
+        "label": "Өнгөний систем",
+        "label_en": "Colour system"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-application.webp",
+        "label": "Брэндийн хэрэглээ",
+        "label_en": "Brand applications"
+      }
+    ],
+    "title_en": "PROPLUS",
+    "subtitle_en": "Logo, visual system & brand guidelines",
+    "description_en": "A cohesive identity system for a loan management and credit information platform. The 26-page guide defines logo usage, colour, typography, graphic elements and digital and print applications, with construction rules, clear space, variations and application examples."
+  },
+  {
+    "id": "tg-sport-concept",
+    "title": "TG Sport · 3D Studio",
+    "title_en": "TG Sport · 3D Studio",
+    "subtitle": "Өөрийн санаачилгын redesign · 3D хувцас загварчлал",
+    "subtitle_en": "Personal redesign · Interactive 3D clothing",
+    "description": "Одоо байгаа TG Sport вэбийг өөрийн сонирхлоор сайжруулсан концепц. Өмсгөлийг 360° эргүүлж, өнгө, хээ, нэр, дугаар, лого болон багийн бүрэлдэхүүнээ тохируулах 3D студи, дэлгүүрийн урсгалыг нэгтгэсэн. Хувийн санаачилгын ажил; албан ёсны захиалгат төсөл биш.",
+    "description_en": "A self-initiated redesign of the existing TG Sport website. An interactive 3D studio lets visitors rotate a kit and customize colours, patterns, names, numbers and crests, alongside the shop and team roster flow. A personal concept, independently created rather than commissioned.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#e3e7ed",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tg-sport-concept.webp",
+    "demo": "https://ankhbayar-design.rightbirch64.chatgpt.site/demos/tg-sport/index.html#/3d-design",
+    "concept": "redesign",
+    "presentation": "concept"
+  },
+  {
+    "id": "titem-concept",
+    "title": "TITEM",
+    "title_en": "TITEM",
+    "subtitle": "Өөрийн санаачилгын redesign · Гоёл чимэглэлийн дэлгүүр",
+    "subtitle_en": "Personal redesign · Jewellery storefront",
+    "description": "Одоо байгаа TITEM дэлгүүрийн вэбийг өөрийн сонирхлоор дахин загварчилсан концепц. Premium болон Classic цуглуулга, бүтээгдэхүүний шүүлтүүр, бэлэг сонгох, хадгалах болон сагсны урсгалыг илүү ойлгомжтой болгохоор ажилласан. Албан ёсны захиалгат ажил биш.",
+    "description_en": "A self-initiated redesign of the existing TITEM shop. The concept explores a clearer Premium and Classic catalogue, product filters, gift discovery, saved items and cart flow. An independent personal exploration.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#eee7dc",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/titem-concept.webp",
+    "demo": "https://ankhbayar-design.rightbirch64.chatgpt.site/demos/titem/index.html",
+    "concept": "redesign",
+    "presentation": "concept"
+  },
+  {
+    "id": "barber-concept",
+    "title": "barber.mn",
+    "title_en": "barber.mn",
+    "subtitle": "Өөрийн санаачилгын redesign · Цаг захиалгын платформ",
+    "subtitle_en": "Personal redesign · Booking experience",
+    "description": "Одоо байгаа barber.mn платформын интерфэйс, цаг захиалах урсгалыг өөрийн сонирхлоор сайжруулсан концепц. Салон, үйлчилгээ, ажилтан болон тохирох цагийг сонгох алхмуудыг нэг цэгцтэй туршлага болгон туршсан. Демо дахь захиалга нь бодит салонд илгээгдэхгүй.",
+    "description_en": "A self-initiated redesign of the existing barber.mn platform, exploring salon discovery and a clearer service, stylist and time selection flow. Bookings in this demonstration stay within the concept.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#e4e3f1",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/barber-concept.webp",
+    "demo": "https://ankhbayar-design.rightbirch64.chatgpt.site/demos/barber/index.html",
+    "concept": "redesign",
+    "presentation": "concept"
+  },
+  {
+    "id": "tavan-hoshuu",
+    "title": "Таван хошуу",
+    "title_en": "Tavan Khoshuu · 3D Field Guide",
+    "subtitle": "Өөрийн санаачилгын redesign · 3D танин мэдэхүй",
+    "subtitle_en": "Personal redesign · Interactive 3D field guide",
+    "description": "Өөрийн сонирхлоор сайжруулж хийсэн танин мэдэхүйн вэб концепц. Адуу, үхэр, тэмээ, хонь, ямааны 3D дүрсийг эргүүлж, онцлог шинж, ашиг шим болон тайлбартай нь харьцуулан үзэх интерактив хөтөч.",
+    "description_en": "An independently reimagined educational web concept. Visitors can explore and rotate 3D models of the five traditional Mongolian livestock and compare their traits, uses and descriptions.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#ddd9cb",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tavan-hoshuu-concept.webp",
+    "demo": "https://ankhbayar-design.rightbirch64.chatgpt.site/demos/tavan-hoshuu/index.html",
+    "concept": "redesign",
+    "presentation": "concept"
+  },
+  {
+    "id": "namu-coffee",
+    "title": "Namu Coffee",
+    "title_en": "Namu Coffee",
+    "subtitle": "Шинэ вэб концепц · «Би вэбийг нь хийвэл…»",
+    "subtitle_en": "Original website concept · “If I designed their website…”",
+    "description": "Namu Coffee-д одоо байгаа вэбийг сайжруулсан ажил биш. «Би вэбийг нь хийвэл ийм байж болно» гэсэн санаагаар өөрөө төсөөлж хийсэн шинэ концепц. Кофе, бялууны цэс, салбар сонгох, урьдчилан захиалах болон захиалгын төлөвийг нэг дулаан визуал шийдэлд оруулсан. Үйлдлүүд нь зөвхөн демо.",
+    "description_en": "An original, speculative website concept for Namu Coffee, created as a personal “if I designed their website” exploration. It brings a coffee and cake menu, branch selection, preorders and order status into a warm visual experience. All transactions are demonstrations.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#e7dac8",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/namu-coffee-concept.webp",
+    "demo": "https://ankhbayar-design.rightbirch64.chatgpt.site/demos/namu-coffee/index.html",
+    "concept": "original",
+    "presentation": "concept"
+  },
+  {
     "id": "petcare",
     "title": "PetCare",
     "subtitle": "Тэжээвэр амьтны асаргааны апп",
@@ -9,11 +181,39 @@
       "mobile"
     ],
     "color": "#34353a",
-    "image": "assets/petcare.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
     "figma": "https://www.figma.com/design/36iVosYz1YtLDbzsFElblz/-1?node-id=40-109136",
     "title_en": "PetCare",
     "subtitle_en": "Pet care, made simpler.",
-    "description_en": "Vaccination schedules, vet appointments, location tracking and chat. Designed from wireframes to the final UI, component library and promotional video."
+    "description_en": "Vaccination schedules, vet appointments, location tracking and chat. Designed from wireframes to the final UI, component library and promotional video.",
+    "cover": {
+      "kind": "app",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-profile.webp",
+      "accent": "#159e94",
+      "background": "#dcece8",
+      "ratio": 0.46127
+    },
+    "gallery": [
+      {
+        "type": "video",
+        "video": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo.mp4",
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo-poster.webp",
+        "label": "PetCare · Promo видео",
+        "label_en": "PetCare · Promo video"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-profile.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
+      }
+    ],
+    "video": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo.mp4"
   },
   {
     "id": "nuudel",
@@ -25,11 +225,65 @@
       "web"
     ],
     "color": "#f7e5c9",
-    "image": "assets/nuudel.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/nuudel-web-cover.webp",
     "figma": "https://www.figma.com/design/0EzHfmgsBhrAWuLTHfyA8x/",
     "title_en": "Nuudel",
     "subtitle_en": "Discover and book Mongolia.",
-    "description_en": "A complete journey from finding a tour to booking it, across 9 pages. An interactive prototype with 154 connections."
+    "description_en": "A complete journey from finding a tour to booking it, across 9 pages. An interactive prototype with 154 connections.",
+    "cover": {
+      "kind": "web",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/nuudel-web-cover.webp",
+      "accent": "#e7a32d",
+      "background": "#f1e6d2",
+      "ratio": 1.56522
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/nuudel-web-cover.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/nuudel-web-full.webp",
+        "label": "Бүтэн вэб хуудас",
+        "label_en": "Complete web page"
+      }
+    ]
+  },
+  {
+    "id": "jiguur",
+    "title": "Жигүүр · Гадаад аялал",
+    "subtitle": "Гадаад аялал сонгох, захиалах вэб",
+    "description": "Гадаад аяллын чиглэл, аяллын багц, нислэг ба буудал, визийн хөтөч болон захиалгын урсгалыг нэгтгэсэн вэбийн UI/UX концепц. Нүүр хуудаснаас аяллын дэлгэрэнгүй, захиалга, баталгаажуулалт хүртэл нэгэн жигд визуал системээр боловсруулсан.",
+    "year": "2026",
+    "types": [
+      "web"
+    ],
+    "color": "#e6defc",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/jiguur-web-cover.webp",
+    "figma": "https://www.figma.com/design/0EzHfmgsBhrAWuLTHfyA8x/?node-id=57-26",
+    "title_en": "Jiguur · International Travel",
+    "subtitle_en": "Discover and book trips abroad.",
+    "description_en": "A UI/UX website concept bringing together international destinations, tour packages, flights and hotels, a visa guide and booking flows. A consistent visual system connects the home page, trip details, booking and confirmation.",
+    "cover": {
+      "kind": "web",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/jiguur-web-cover.webp",
+      "accent": "#5d54ff",
+      "background": "#e6defc",
+      "ratio": 1.44
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/jiguur-web-cover.webp",
+        "label": "Гадаад аяллын нүүр",
+        "label_en": "International travel home"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/jiguur-web-full.webp",
+        "label": "Бүтэн вэб хуудас",
+        "label_en": "Complete web page"
+      }
+    ]
   },
   {
     "id": "park",
@@ -42,11 +296,36 @@
       "mobile"
     ],
     "color": "#daf0ed",
-    "image": "assets/park.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/park-web-cover.webp",
     "figma": "https://www.figma.com/design/PiIhgqY3LS0eVVj62NuAZn/",
     "title_en": "Park of Mongolia",
     "subtitle_en": "Plan a day at the park.",
-    "description_en": "Attractions, maps, an event calendar, a price calculator and a trip planner. 17 web and 9 mobile screens with 390+ prototype connections."
+    "description_en": "Attractions, maps, an event calendar, a price calculator and a trip planner. 17 web and 9 mobile screens with 390+ prototype connections.",
+    "cover": {
+      "kind": "dual",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/park-web-cover.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/park-map.webp",
+      "accent": "#239880",
+      "background": "#dce8df",
+      "ratio": 1.69811
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/park-web-cover.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/park-map.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/park-web-full.webp",
+        "label": "Бүтэн вэб хуудас",
+        "label_en": "Complete web page"
+      }
+    ]
   },
   {
     "id": "tusla",
@@ -59,11 +338,31 @@
       "mobile"
     ],
     "color": "#111d59",
-    "image": "assets/tusla.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tusla-home.webp",
     "figma": "https://www.figma.com/design/ZzJVZS5xW76XcWguaoMGHZ/",
     "title_en": "Tusla · Mongolia Helper",
     "subtitle_en": "A local companion for travellers.",
-    "description_en": "An “I need…” home, four-step eSIM setup, taxis, nomadic experiences and travel buddies. 46 mobile and 11 web screens."
+    "description_en": "An “I need…” home, four-step eSIM setup, taxis, nomadic experiences and travel buddies. 46 mobile and 11 web screens.",
+    "cover": {
+      "kind": "app",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tusla-home.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tusla-experience.webp",
+      "accent": "#375bff",
+      "background": "#dde5fd",
+      "ratio": 0.46209
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tusla-home.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tusla-experience.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
+      }
+    ]
   },
   {
     "id": "mono",
@@ -76,11 +375,31 @@
       "mobile"
     ],
     "color": "#e8f4ef",
-    "image": "assets/mono.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/mono-home.webp",
     "figma": "https://www.figma.com/design/nogbmNeuQxECo1yxD6L8o6/",
     "title_en": "MONO Pharmacy",
     "subtitle_en": "One system, web and mobile.",
-    "description_en": "Medicine ordering, digital prescriptions, pharmacist consultations and medicine reminders. 11 web pages and 22 app screens within one design system."
+    "description_en": "Medicine ordering, digital prescriptions, pharmacist consultations and medicine reminders. 11 web pages and 22 app screens within one design system.",
+    "cover": {
+      "kind": "app",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/mono-home.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/mono-detail.webp",
+      "accent": "#0b9b83",
+      "background": "#d8ece3",
+      "ratio": 0.46209
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/mono-home.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/mono-detail.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
+      }
+    ]
   },
   {
     "id": "khuvaaya",
@@ -93,11 +412,30 @@
       "mobile"
     ],
     "color": "#ede5fb",
-    "image": "assets/khuvaaya.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/khuvaaya-web-cover.webp",
     "figma": "https://www.figma.com/design/cVAHn3o5ugRk2puzrohrcn/",
     "title_en": "Khuvaaya",
     "subtitle_en": "Share expenses with clarity.",
-    "description_en": "A marketing website, an 11-screen system and a 35-screen mobile app with QPay flows."
+    "description_en": "A marketing website, an 11-screen system and a 35-screen mobile app with QPay flows.",
+    "cover": {
+      "kind": "web",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/khuvaaya-web-cover.webp",
+      "accent": "#7054d9",
+      "background": "#e9e0f6",
+      "ratio": 1.56522
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/khuvaaya-web-cover.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/khuvaaya-web-full.webp",
+        "label": "Бүтэн вэб хуудас",
+        "label_en": "Complete web page"
+      }
+    ]
   },
   {
     "id": "bizflow",
@@ -109,11 +447,25 @@
       "web"
     ],
     "color": "#eef0fc",
-    "image": "assets/bizflow.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/bizflow-screen.webp",
     "figma": "https://www.figma.com/design/ByIo6Z7xlv1vZlH86zxL0b/",
     "title_en": "BizFlow",
     "subtitle_en": "A clearer view of small business.",
-    "description_en": "Orders, products, finances and customers in a 10-screen business dashboard."
+    "description_en": "Orders, products, finances and customers in a 10-screen business dashboard.",
+    "cover": {
+      "kind": "web",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/bizflow-screen.webp",
+      "accent": "#4f62df",
+      "background": "#dce1f2",
+      "ratio": 1.22034
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/bizflow-screen.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      }
+    ]
   },
   {
     "id": "recipes",
@@ -125,11 +477,31 @@
       "mobile"
     ],
     "color": "#ffebe0",
-    "image": "assets/recipes.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/recipes-home.webp",
     "figma": "https://www.figma.com/design/0tRg8T2iBtpgiLWRBdzA3S/ank",
     "title_en": "Recipe Planner",
     "subtitle_en": "Cook, plan and organise.",
-    "description_en": "38 screens for adding recipes, planning a week of meals and keeping a shopping list."
+    "description_en": "38 screens for adding recipes, planning a week of meals and keeping a shopping list.",
+    "cover": {
+      "kind": "app",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/recipes-home.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/recipes-detail.webp",
+      "accent": "#ff6535",
+      "background": "#f9e4d6",
+      "ratio": 0.46182
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/recipes-home.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/recipes-detail.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
+      }
+    ]
   },
   {
     "id": "furniture",
@@ -141,27 +513,71 @@
       "mobile"
     ],
     "color": "#f0ebff",
-    "image": "assets/furniture.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/furniture-home.webp",
     "figma": "https://www.figma.com/design/DIPocfvsckmsVLrO5XhyAB/",
     "title_en": "Furniture Store",
     "subtitle_en": "Find the right piece.",
-    "description_en": "360° views, colour selection, cart, payment and order history."
+    "description_en": "360° views, colour selection, cart, payment and order history.",
+    "cover": {
+      "kind": "app",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/furniture-home.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/furniture-detail.webp",
+      "accent": "#10a5d4",
+      "background": "#e2e7df",
+      "ratio": 0.4622
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/furniture-home.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/furniture-detail.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
+      }
+    ]
   },
   {
     "id": "procreditor",
     "title": "Procreditor вэб",
-    "subtitle": "Байгууллагын танилцуулга",
-    "description": "1920px өргөнтэй light хувилбар. Үйлчилгээ, тооцоолуур.",
+    "subtitle": "Байгууллагын вэб & лого дизайн",
+    "description": "1920px өргөнтэй light хувилбар. Үйлчилгээ, тооцоолуур. Procreditor логоны эх SVG хувилбарыг мөн бүтээлд оруулав.",
     "year": "2025",
     "types": [
       "web"
     ],
     "color": "#e8f4fd",
-    "image": "assets/procreditor.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/procreditor-web-cover.webp",
     "figma": "https://www.figma.com/design/rwth87OBXwIw0cAKt76pnv/",
     "title_en": "Procreditor",
-    "subtitle_en": "A company, clearly introduced.",
-    "description_en": "A light website concept with services and a calculator, designed for a 1920px desktop canvas."
+    "subtitle_en": "Company website & logo design",
+    "description_en": "A light website concept with services and a calculator, designed for a 1920px desktop canvas. The original Procreditor SVG logo is included in the project gallery.",
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/procreditor-web-cover.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/procreditor-web-full.webp",
+        "label": "Бүтэн вэб хуудас",
+        "label_en": "Complete web page"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/procreditor-logo.svg",
+        "label": "Лого дизайн · SVG",
+        "label_en": "Logo design · SVG"
+      }
+    ],
+    "cover": {
+      "kind": "web",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/procreditor-web-cover.webp",
+      "accent": "#0aa1de",
+      "background": "#e0edf4",
+      "ratio": 1.19427
+    }
   },
   {
     "id": "event-nft",
@@ -173,10 +589,30 @@
       "mobile"
     ],
     "color": "#e5f5e9",
-    "image": "assets/event-nft.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/event-home.webp",
     "figma": "https://www.figma.com/design/rRv3sXgYqetNWifopzZVuK/",
     "title_en": "Event & NFT",
     "subtitle_en": "Explore events and digital collectibles.",
-    "description_en": "30+ screens spanning onboarding, marketplace, NFTs, events and payments."
+    "description_en": "30+ screens spanning onboarding, marketplace, NFTs, events and payments.",
+    "cover": {
+      "kind": "app",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/event-home.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/event-detail.webp",
+      "accent": "#e7548b",
+      "background": "#ddd9ed",
+      "ratio": 0.46209
+    },
+    "gallery": [
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/event-home.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
+      },
+      {
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/event-detail.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
+      }
+    ]
   }
 ]
