@@ -617,7 +617,10 @@ body { font-size:16px; }
 .section-top > .eyebrow { font-size:12px; }
 .section-note { font-size:14px; line-height:1.7; max-width:370px; }
 .section-top { align-items:center; }
-.hero { min-height:max(880px,100svh); height:auto; max-height:none; }
+/* Keep the duplicated artwork tracks out of the hero's intrinsic height. */
+.hero { min-height:880px; height:100svh; max-height:1120px; }
+.hero-art { min-height:0; }
+.mosaic { position:absolute; inset:0; }
 .hero .eyebrow { font-size:12px; letter-spacing:1.3px; }
 .hero-description { font-size:16px; line-height:1.8; max-width:370px; }
 .hero-role { font-size:20px; }
@@ -734,7 +737,7 @@ body { font-size:16px; }
   .experience-list li { grid-template-columns:175px 1fr; }
 }
 @media(max-width:700px) {
-  .hero { min-height:0; max-height:none; }
+  .hero { height:auto; min-height:0; max-height:none; }
   .hero-copy { padding-bottom:36px; }
   .hero .eyebrow { font-size:11px; }
   .hero-description { font-size:16px; max-width:100%; }
