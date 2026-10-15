@@ -48,38 +48,48 @@
     "presentation": "menu"
   },
   {
-    "id": "proplus",
-    "title": "PROPLUS",
-    "subtitle": "Лого, визуал систем & брэндийн удирдамж",
-    "description": "Зээлийн удирдлага, мэдээллийн платформын логоны хэрэглээ, өнгө, фонт, график элемент, дижитал болон хэвлэлийн хэрэглээг нэг системд оруулсан брэндийн ажил. 26 хуудаст удирдамжид логоны бүтэц, чөлөөт зай, хувилбарууд болон хэрэглээний жишээнүүд багтсан.",
-    "year": "2026",
+    "id": "petcare",
+    "title": "PetCare",
+    "subtitle": "Тэжээвэр амьтны асаргааны апп",
+    "description": "Вакцины хуваарь, эмчийн цаг захиалга, байршил хянах, чат. Wireframe-ээс эцсийн UI, компонентын сан, промо видео хүртэл би хийсэн.",
+    "year": "2025",
     "types": [
-      "graphic"
+      "mobile"
     ],
-    "presentation": "brand",
-    "color": "#edf2fa",
-    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-cover.webp",
-    "document": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/PROPLUS-Brand-Guidelines.pdf",
+    "color": "#34353a",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
+    "figma": "https://www.figma.com/design/36iVosYz1YtLDbzsFElblz/-1?node-id=40-109136",
+    "title_en": "PetCare",
+    "subtitle_en": "Pet care, made simpler.",
+    "description_en": "Vaccination schedules, vet appointments, location tracking and chat. Designed from wireframes to the final UI, component library and promotional video.",
+    "cover": {
+      "kind": "app",
+      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
+      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-profile.webp",
+      "accent": "#159e94",
+      "background": "#dcece8",
+      "ratio": 0.46127
+    },
     "gallery": [
       {
-        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-primary.webp",
-        "label": "Үндсэн лого",
-        "label_en": "Primary logo"
+        "type": "video",
+        "video": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo.mp4",
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo-poster.webp",
+        "label": "PetCare · Promo видео",
+        "label_en": "PetCare · Promo video"
       },
       {
-        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-colors.webp",
-        "label": "Өнгөний систем",
-        "label_en": "Colour system"
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
+        "label": "Үндсэн дэлгэц",
+        "label_en": "Main screen"
       },
       {
-        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-application.webp",
-        "label": "Брэндийн хэрэглээ",
-        "label_en": "Brand applications"
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-profile.webp",
+        "label": "Дэлгэрэнгүй дэлгэц",
+        "label_en": "Detail screen"
       }
     ],
-    "title_en": "PROPLUS",
-    "subtitle_en": "Logo, visual system & brand guidelines",
-    "description_en": "A cohesive identity system for a loan management and credit information platform. The 26-page guide defines logo usage, colour, typography, graphic elements and digital and print applications, with construction rules, clear space, variations and application examples."
+    "video": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo.mp4"
   },
   {
     "id": "poster-collection",
@@ -287,48 +297,38 @@
     "presentation": "concept"
   },
   {
-    "id": "petcare",
-    "title": "PetCare",
-    "subtitle": "Тэжээвэр амьтны асаргааны апп",
-    "description": "Вакцины хуваарь, эмчийн цаг захиалга, байршил хянах, чат. Wireframe-ээс эцсийн UI, компонентын сан, промо видео хүртэл би хийсэн.",
-    "year": "2025",
+    "id": "proplus",
+    "title": "PROPLUS",
+    "subtitle": "Лого, визуал систем & брэндийн удирдамж",
+    "description": "Зээлийн удирдлага, мэдээллийн платформын логоны хэрэглээ, өнгө, фонт, график элемент, дижитал болон хэвлэлийн хэрэглээг нэг системд оруулсан брэндийн ажил. 26 хуудаст удирдамжид логоны бүтэц, чөлөөт зай, хувилбарууд болон хэрэглээний жишээнүүд багтсан.",
+    "year": "2026",
     "types": [
-      "mobile"
+      "graphic"
     ],
-    "color": "#34353a",
-    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
-    "figma": "https://www.figma.com/design/36iVosYz1YtLDbzsFElblz/-1?node-id=40-109136",
-    "title_en": "PetCare",
-    "subtitle_en": "Pet care, made simpler.",
-    "description_en": "Vaccination schedules, vet appointments, location tracking and chat. Designed from wireframes to the final UI, component library and promotional video.",
-    "cover": {
-      "kind": "app",
-      "primary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
-      "secondary": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-profile.webp",
-      "accent": "#159e94",
-      "background": "#dcece8",
-      "ratio": 0.46127
-    },
+    "presentation": "brand",
+    "color": "#edf2fa",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-cover.webp",
+    "document": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/PROPLUS-Brand-Guidelines.pdf",
     "gallery": [
       {
-        "type": "video",
-        "video": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo.mp4",
-        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo-poster.webp",
-        "label": "PetCare · Promo видео",
-        "label_en": "PetCare · Promo video"
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-primary.webp",
+        "label": "Үндсэн лого",
+        "label_en": "Primary logo"
       },
       {
-        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp",
-        "label": "Үндсэн дэлгэц",
-        "label_en": "Main screen"
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-colors.webp",
+        "label": "Өнгөний систем",
+        "label_en": "Colour system"
       },
       {
-        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-profile.webp",
-        "label": "Дэлгэрэнгүй дэлгэц",
-        "label_en": "Detail screen"
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-application.webp",
+        "label": "Брэндийн хэрэглээ",
+        "label_en": "Brand applications"
       }
     ],
-    "video": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-promo.mp4"
+    "title_en": "PROPLUS",
+    "subtitle_en": "Logo, visual system & brand guidelines",
+    "description_en": "A cohesive identity system for a loan management and credit information platform. The 26-page guide defines logo usage, colour, typography, graphic elements and digital and print applications, with construction rules, clear space, variations and application examples."
   },
   {
     "id": "nuudel",

@@ -2,7 +2,7 @@
 
 Live portfolio: https://ankhbayar-design.rightbirch64.chatgpt.site
 
-A responsive Mongolian/English portfolio with 20 projects across UI/UX, visual identity and print. The warm editorial layout includes three slow artwork columns, project filters, a data-driven portfolio infographic, a selectable motion graphic of the design process and artwork galleries. The 12 original digital project covers use complete original interface screens in CSS phone or browser mockups, with clear full-size views and complete web pages. The profile covers UI/UX, graphic and brand design, motion graphics and web design.
+A responsive Mongolian/English portfolio with 20 projects across UI/UX, visual identity and print. The warm editorial layout includes three slow artwork columns, project filters, an interactive six-discipline capability map, a selectable motion graphic of the design process and artwork galleries. The 12 original digital project covers use complete original interface screens in CSS phone or browser mockups, with clear full-size views and complete web pages. The profile covers UI/UX, graphic and brand design, motion graphics and web design.
 
 ## Featured work
 
@@ -22,7 +22,7 @@ The header stays visible while scrolling. Project galleries expose their Figma l
 python3 build.py
 ```
 
-Deploy `dist/` as a static website. There are no build dependencies or runtime packages. Artwork, brand documents and promo video use the live portfolio as their media origin. Fonts are included in this repository. Font attribution is in `dist/assets/LICENSE-fonts.txt`.
+Deploy `dist/` as a static website. There are no build dependencies or runtime packages. Artwork, brand documents and promo video use the live portfolio as their media origin. Fonts use the same live media origin; Noto Sans attribution is available at https://ankhbayar-design.rightbirch64.chatgpt.site/assets/LICENSE-noto.txt. Font attribution is in `dist/assets/LICENSE-fonts.txt` and `dist/assets/LICENSE-noto.txt`.
 
 Motion uses CSS transforms, native scroll, requestAnimationFrame and IntersectionObserver. Offscreen and background activity pauses. A motion toggle and reduced-motion support are included; the process steps can also be selected manually.
 
@@ -42,7 +42,9 @@ The opening section pairs the designer’s name with three moving artwork column
 
 All 15 opening-column tiles now present the designer’s actual work. UI screens appear in layered phone and browser frames; Kamila Garden uses a three-page menu spread; PROPLUS and Procreditor show the supplied logos and identity work; posters 01, 08, 06 and the updated iPhone 18 Pro poster appear as full, uncropped paper compositions. TG Sport, TITEM and Namu Coffee retain their original concept artwork. Each column repeats an identical group for a continuous loop, with no large text-only filler tiles.
 
-The work overview links to all projects equally. Its segmented SVG chart and percentages derive from the current project counts. Each arc reserves equal space for both rounded caps so neighbouring colours cannot overlap. The four-stage process diagram connects completed stages, changes its title and explanation with a short fade, and shares one timing constant with the animated progress indicator. Background, offscreen, modal and reduced-motion handling keep animation bounded.
+The capability map presents UI/UX, Web, Branding, Print, Motion and 3D through selectable connected nodes, real deliverables and project evidence. Advanced Claude and ChatGPT use is visible beside the map. Its six-second cycle pauses offscreen, in background tabs, while a project is open, on manual selection and with reduced motion. There are no invented proficiency percentages. The four-stage process diagram remains selectable and uses the same motion gates.
+
+The designer’s correct name is Цогтбаяр Анхбаяр / Ankhbayar Tsogtbayar. PetCare follows the opening Kamila Garden project. Web results lead with Namu Coffee, Nuudel, Jiguur and Park, and end with TG Sport, TITEM, barber.mn and Tavan Khoshuu. Filtering reorders the actual cards for consistent keyboard navigation. The logo collection sits after the project grid and before the interactive 3D concepts. Project actions use larger, explicit Noto Sans lettering with Mongolian Cyrillic support.
 
 The work library uses a single charcoal navigation strip with five clear category labels, line icons, inline counts and one lime active pill. The surrounding heading uses open typography rather than stacked card frames. They stay below the fixed header while browsing the project grid; the mobile strip scrolls horizontally. Header and toolbar measurements set scroll offsets so filtered results remain visible. The global sun/moon control is always available, with a complete light/dark palette for navigation, content cards, charts, galleries and contact. The first visit always starts in light mode; only a visitor’s explicit light/dark choice is remembered. A small pre-paint initializer applies that saved choice before rendering.
 

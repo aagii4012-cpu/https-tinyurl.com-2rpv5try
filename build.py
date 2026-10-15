@@ -47,6 +47,7 @@ def card(project, index):
     disciplines = '<span>Logo & Visual Identity</span><span>Editorial & Print</span>' if is_print else '<span>Brand Identity</span><span>Brand Guidelines</span>' if is_brand else '<span>UI/UX Design</span><span>Logo Design</span>' if p['id']=='procreditor' else '<span>UI/UX Design</span><span>'+('Web & Mobile' if len(p['types'])>1 else 'Web Design' if p['types']==['web'] else 'Mobile App')+'</span>'
     if p.get('presentation')=='poster': disciplines='<span>Poster Design</span><span>Typography & Composition</span>'
     extra = 'project-card--print' if is_print else 'project-card--brand' if is_brand else 'project-card--showcase showcase-'+cover['kind'] if cover else ''
+    if index == 0: extra += ' is-featured'
     if is_concept: extra += ' project-card--concept'
     if p.get('presentation')=='poster': extra+=' project-card--posters'
     if p.get('editorial'): extra+=' project-card--editorial editorial-'+p['editorial']['theme']
@@ -96,19 +97,6 @@ def mosaic_poster(number):
     visual = '<span class="mosaic-poster-paper">'+mosaic_image(page['image'],595,842)+'</span>'
     return mosaic_tile(p,'poster mosaic-poster-'+str(number),backgrounds[number],visual,'POSTER / VISUAL DESIGN',title='Poster '+f'{number:02d}',extra=f'data-mosaic-poster="{number}"')
 
-def scope_chart(counts):
-    colors = ['#76a9c8','#ef5d44','#d8bb52','#9c7c4b']
-    parts = ['<svg class="scope-chart" viewBox="0 0 200 200" fill="none" aria-hidden="true"><circle class="scope-chart-track" cx="100" cy="100" r="84"/>']
-    start = 0
-    for index,(key,color) in enumerate(zip(['web','mobile','multi','print'],colors)):
-        share = counts[key] / len(DATA) * 100
-        # Reserve room for both round stroke caps at each segment boundary.
-        gap = 3.8
-        visible = max(0,share - gap)
-        parts.append(f'<circle class="scope-ring-segment" data-scope-key="{key}" data-share="{share:g}" cx="100" cy="100" r="84" pathLength="100" stroke-dasharray="{visible:g} {100-visible:g}" stroke-dashoffset="{-(start+gap/2):g}" style="--scope-color:{color};--segment-index:{index}"/>')
-        start += share
-    return ''.join(parts)+'</svg>'
-
 def filters_markup():
     items = [
         ('all','filterAll','Бүгд','filterAllHint','Бүх чиглэл','#dfebc8','<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>'),
@@ -149,12 +137,7 @@ DIST.mkdir(parents=True, exist_ok=True)
 if (ROOT/'demos').is_dir(): shutil.copytree(ROOT/'demos',DIST/'demos',dirs_exist_ok=True)
 template = (ROOT / 'src/index.html').read_text()
 project_json = json.dumps(DATA, ensure_ascii=False).replace('<', '\\u003c')
-counts = {'web':sum(p['types']==['web'] for p in DATA), 'mobile':sum(p['types']==['mobile'] for p in DATA), 'multi':sum('web' in p['types'] and 'mobile' in p['types'] for p in DATA), 'print':sum('graphic' in p['types'] for p in DATA)}
-output = template.replace('{{MOSAIC}}',mosaic).replace('{{FILTERS}}',filters_markup()).replace('{{SCOPE_CHART}}',scope_chart(counts)).replace('{{POSTERS}}',posters_markup()).replace('{{PROJECTS}}','\n'.join(card(p,i) for i,p in enumerate(DATA))).replace('{{PROJECT_DATA}}',project_json).replace('{{PROJECT_TOTAL}}',str(len(DATA)))
-for key, value in counts.items():
-    output = output.replace('{{COUNT_'+key.upper()+'}}',str(value))
-    output = output.replace('{{SHARE_'+key.upper()+'}}',f'{value/len(DATA)*100:g}')
-output = output.replace('{{DIGITAL_SHARE}}', str(sum('graphic' not in p['types'] for p in DATA)/len(DATA)*100))
+output = template.replace('{{MOSAIC}}',mosaic).replace('{{FILTERS}}',filters_markup()).replace('{{POSTERS}}',posters_markup()).replace('{{PROJECTS}}','\n'.join(card(p,i) for i,p in enumerate(DATA))).replace('{{PROJECT_DATA}}',project_json).replace('{{PROJECT_TOTAL}}',str(len(DATA)))
 (DIST / 'index.html').write_text(output)
 for filename in ['styles.css','app.js']:
     shutil.copyfile(ROOT / 'src' / filename, DIST / 'assets' / filename)

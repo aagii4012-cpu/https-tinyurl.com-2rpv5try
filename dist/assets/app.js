@@ -3,10 +3,10 @@
   const projects = JSON.parse(document.querySelector('#project-data').textContent);
   const copy = {
     mn: {
-      skip:'Бүтээлүүд рүү очих',location:'Вэб & Мобайл',availability:'Хамтран ажиллах саналд нээлттэй',navWork:'Бүтээлүүд',navAbout:'Миний тухай',navProcess:'Процесс',navContact:'Холбогдох',heroEyebrow:'ХҮНД ЗОРИУЛСАН ДИЗАЙН',heroName1:'ЦОГБАЯР',heroName2:'АНХБАЯР',heroDescription:'Хэрэглэгчийн хэрэгцээнээс эхэлж, ойлгомжтой вэб болон мобайл бүтээгдэхүүн зохиодог.',viewWork:'Бүтээлүүд үзэх',statProjects:'төсөл',statScreens:'дэлгэц',statSystems:'дизайн систем',scrollCue:'Бүтээлүүдтэй танилцах',pauseMotion:'Хөдөлгөөн түр зогсоох',playMotion:'Хөдөлгөөн асаах',selectedWork:'СОНГОСОН БҮТЭЭЛҮҮД',workPeriod:'Вэб · Мобайл · Дизайн систем / 2025–2026',workTitle:'Санаанаас<br>шийдэл хүртэл.',workIntro:'Өөр өөр хэрэгцээ. Нэг зорилго — хэрэглэгчид ойлгомжтой, ашиглахад хялбар туршлага.',filterAll:'Бүгд',filterWeb:'Вэб',filterMobile:'Мобайл',projectCount:'төсөл',aboutEyebrow:'МИНИЙ ТУХАЙ',aboutTitle:'Сайн байна уу,<br>би Анхбаяр.',aboutBody:'Хэрэглэгчийн хэрэгцээ, бодит асуудлыг ойлгож, тэдгээрийг цэгцтэй бүтэц, ойлгомжтой интерфэйс болгон хувиргахыг зорьдог UI/UX дизайнер.',aboutBody2:'Судалгаа, wireframe, UI дизайн, прототип болон хөгжүүлэгчид шилжүүлэх хүртэлх бүх шатанд ажилладаг.',fullName:'Цогбаяр Анхбаяр',skills:'УР ЧАДВАР & ХЭРЭГСЭЛ',processEyebrow:'АЖЛЫН ПРОЦЕСС',processNote:'Тодорхой зорилго. Цэгцтэй шийдэл.',processTitle:'Юу хийж өгөх вэ?',process1:'Судалгаа',processBody1:'Хэрэглэгч, асуудал, өрсөлдөгч болон бүтээгдэхүүний зорилгыг ойлгоно.',process2:'Бүтэц & Wireframe',processBody2:'Мэдээллийн бүтэц, хэрэглэгчийн урсгал, дэлгэцийн зохиомжийг төлөвлөнө.',process3:'UI & Прототип',processBody3:'Нэгдсэн визуал шийдэл, компонент болон дарж үзэх прототип бүтээнэ.',process4:'Туршилт & Handoff',processBody4:'Санал хүсэлтээр сайжруулж, хөгжүүлэгчид хэрэгтэй мэдээллийг бэлтгэнэ.',contactEyebrow:'ДАРААГИЙН ТӨСӨЛ',contactTitle:'Хамтдаа<br>бүтээе.',contactBody:'Шинэ бүтээгдэхүүн, шинэ санаа эсвэл хамтын ажиллагааны тухай ярилцъя.',footerTagline:'Хэрэглэгчээс эхэлдэг дизайн.',backTop:'Дээш',projectDetail:'ТӨСЛИЙН ТАНИЛЦУУЛГА',openFigma:'Figma дизайныг үзэх',backWork:'Бүтээлүүд рүү буцах',viewProject:'Төсөл үзэх',projectLabel:'UI/UX ДИЗАЙН',menuOpen:'Цэс нээх',menuClose:'Цэс хаах',close:'Хаах',filterLabel:'Төсөл шүүх'
+      skip:'Бүтээлүүд рүү очих',location:'Вэб & Мобайл',availability:'Хамтран ажиллах саналд нээлттэй',navWork:'Бүтээлүүд',navAbout:'Миний тухай',navProcess:'Процесс',navContact:'Холбогдох',heroEyebrow:'ХҮНД ЗОРИУЛСАН ДИЗАЙН',heroName1:'ЦОГТБАЯР',heroName2:'АНХБАЯР',heroDescription:'Хэрэглэгчийн хэрэгцээнээс эхэлж, ойлгомжтой вэб болон мобайл бүтээгдэхүүн зохиодог.',viewWork:'Бүтээлүүд үзэх',statProjects:'төсөл',statScreens:'дэлгэц',statSystems:'дизайн систем',scrollCue:'Бүтээлүүдтэй танилцах',pauseMotion:'Хөдөлгөөн түр зогсоох',playMotion:'Хөдөлгөөн асаах',selectedWork:'СОНГОСОН БҮТЭЭЛҮҮД',workPeriod:'Вэб · Мобайл · Дизайн систем / 2025–2026',workTitle:'Санаанаас<br>шийдэл хүртэл.',workIntro:'Өөр өөр хэрэгцээ. Нэг зорилго — хэрэглэгчид ойлгомжтой, ашиглахад хялбар туршлага.',filterAll:'Бүгд',filterWeb:'Вэб',filterMobile:'Мобайл',projectCount:'төсөл',aboutEyebrow:'МИНИЙ ТУХАЙ',aboutTitle:'Сайн байна уу,<br>би Анхбаяр.',aboutBody:'Хэрэглэгчийн хэрэгцээ, бодит асуудлыг ойлгож, тэдгээрийг цэгцтэй бүтэц, ойлгомжтой интерфэйс болгон хувиргахыг зорьдог UI/UX дизайнер.',aboutBody2:'Судалгаа, wireframe, UI дизайн, прототип болон хөгжүүлэгчид шилжүүлэх хүртэлх бүх шатанд ажилладаг.',fullName:'Цогтбаяр Анхбаяр',skills:'УР ЧАДВАР & ХЭРЭГСЭЛ',processEyebrow:'АЖЛЫН ПРОЦЕСС',processNote:'Тодорхой зорилго. Цэгцтэй шийдэл.',processTitle:'Юу хийж өгөх вэ?',process1:'Судалгаа',processBody1:'Хэрэглэгч, асуудал, өрсөлдөгч болон бүтээгдэхүүний зорилгыг ойлгоно.',process2:'Бүтэц & Wireframe',processBody2:'Мэдээллийн бүтэц, хэрэглэгчийн урсгал, дэлгэцийн зохиомжийг төлөвлөнө.',process3:'UI & Прототип',processBody3:'Нэгдсэн визуал шийдэл, компонент болон дарж үзэх прототип бүтээнэ.',process4:'Туршилт & Handoff',processBody4:'Санал хүсэлтээр сайжруулж, хөгжүүлэгчид хэрэгтэй мэдээллийг бэлтгэнэ.',contactEyebrow:'ДАРААГИЙН ТӨСӨЛ',contactTitle:'Хамтдаа<br>бүтээе.',contactBody:'Шинэ бүтээгдэхүүн, шинэ санаа эсвэл хамтын ажиллагааны тухай ярилцъя.',footerTagline:'Хэрэглэгчээс эхэлдэг дизайн.',backTop:'Дээш',projectDetail:'ТӨСЛИЙН ТАНИЛЦУУЛГА',openFigma:'Figma дизайныг үзэх',backWork:'Бүтээлүүд рүү буцах',viewProject:'Төсөл үзэх',projectLabel:'UI/UX ДИЗАЙН',menuOpen:'Цэс нээх',menuClose:'Цэс хаах',close:'Хаах',filterLabel:'Төсөл шүүх'
     },
     en: {
-      skip:'Skip to selected work',location:'Web & Mobile',availability:'Open to collaboration',navWork:'Selected work',navAbout:'About',navProcess:'Process',navContact:'Let’s talk',heroEyebrow:'DESIGN FOR PEOPLE',heroName1:'TSOGBAYAR',heroName2:'ANKHBAYAR',heroDescription:'I start with people’s needs and design clear experiences for web and mobile.',viewWork:'Explore my work',statProjects:'projects',statScreens:'screens',statSystems:'design systems',scrollCue:'Discover the work',pauseMotion:'Pause animation',playMotion:'Play animation',selectedWork:'SELECTED WORK',workPeriod:'Web · Mobile · Design systems / 2025–2026',workTitle:'From an idea<br>to a clear solution.',workIntro:'Different challenges. One purpose: an experience that is clear, thoughtful and easy to use.',filterAll:'All work',filterWeb:'Web',filterMobile:'Mobile',projectCount:'projects',aboutEyebrow:'ABOUT ME',aboutTitle:'Hello,<br>I’m Ankhbayar.',aboutBody:'I’m a UI/UX designer who turns user needs and real problems into clear structures and intuitive interfaces.',aboutBody2:'I work across the full design process, from research and wireframes to UI, prototypes and developer handoff.',fullName:'Ankhbayar Tsogbayar',skills:'SKILLS & TOOLS',processEyebrow:'HOW I WORK',processNote:'A clear purpose. A considered solution.',processTitle:'What I can help with.',process1:'Research',processBody1:'Understand the people, the problem, the competition and the product’s purpose.',process2:'Structure & Wireframes',processBody2:'Plan information architecture, user flows and the hierarchy of each screen.',process3:'UI & Prototypes',processBody3:'Create a consistent visual direction, reusable components and interactive prototypes.',process4:'Testing & Handoff',processBody4:'Refine the experience with feedback and prepare the details developers need.',contactEyebrow:'YOUR NEXT PROJECT',contactTitle:'Let’s<br>create.',contactBody:'Let’s talk about your next product, a new idea or a collaboration.',footerTagline:'Design that starts with people.',backTop:'Back to top',projectDetail:'PROJECT OVERVIEW',openFigma:'Explore the Figma design',backWork:'Back to work',viewProject:'View project',projectLabel:'UI/UX DESIGN',menuOpen:'Open menu',menuClose:'Close menu',close:'Close',filterLabel:'Filter projects'
+      skip:'Skip to selected work',location:'Web & Mobile',availability:'Open to collaboration',navWork:'Selected work',navAbout:'About',navProcess:'Process',navContact:'Let’s talk',heroEyebrow:'DESIGN FOR PEOPLE',heroName1:'TSOGTBAYAR',heroName2:'ANKHBAYAR',heroDescription:'I start with people’s needs and design clear experiences for web and mobile.',viewWork:'Explore my work',statProjects:'projects',statScreens:'screens',statSystems:'design systems',scrollCue:'Discover the work',pauseMotion:'Pause animation',playMotion:'Play animation',selectedWork:'SELECTED WORK',workPeriod:'Web · Mobile · Design systems / 2025–2026',workTitle:'From an idea<br>to a clear solution.',workIntro:'Different challenges. One purpose: an experience that is clear, thoughtful and easy to use.',filterAll:'All work',filterWeb:'Web',filterMobile:'Mobile',projectCount:'projects',aboutEyebrow:'ABOUT ME',aboutTitle:'Hello,<br>I’m Ankhbayar.',aboutBody:'I’m a UI/UX designer who turns user needs and real problems into clear structures and intuitive interfaces.',aboutBody2:'I work across the full design process, from research and wireframes to UI, prototypes and developer handoff.',fullName:'Ankhbayar Tsogtbayar',skills:'SKILLS & TOOLS',processEyebrow:'HOW I WORK',processNote:'A clear purpose. A considered solution.',processTitle:'What I can help with.',process1:'Research',processBody1:'Understand the people, the problem, the competition and the product’s purpose.',process2:'Structure & Wireframes',processBody2:'Plan information architecture, user flows and the hierarchy of each screen.',process3:'UI & Prototypes',processBody3:'Create a consistent visual direction, reusable components and interactive prototypes.',process4:'Testing & Handoff',processBody4:'Refine the experience with feedback and prepare the details developers need.',contactEyebrow:'YOUR NEXT PROJECT',contactTitle:'Let’s<br>create.',contactBody:'Let’s talk about your next product, a new idea or a collaboration.',footerTagline:'Design that starts with people.',backTop:'Back to top',projectDetail:'PROJECT OVERVIEW',openFigma:'Explore the Figma design',backWork:'Back to work',viewProject:'View project',projectLabel:'UI/UX DESIGN',menuOpen:'Open menu',menuClose:'Close menu',close:'Close',filterLabel:'Filter projects'
     }
   };
 
@@ -46,6 +46,28 @@
     switchDark:'Switch to dark mode',switchLight:'Switch to light mode'
   });
 
+  Object.assign(copy.mn,{
+    scopeEyebrow:'ОЛОН ЧИГЛЭЛТ ДИЗАЙНЕР',scopeTitle:'Нэг санаа.<br>Олон хэлбэр.',scopeBody:'Хэрэглэгчийн туршлагаас брэндийн дүр төрх, хөдөлгөөн, 3D хүртэл. Судалж, загварчилж, ажилладаг бүтээл болгодог.',scopeBrowseHint:'Дижитал · Брэнд · Хэвлэл · Хөдөлгөөн',
+    capabilityAI:'Ахисан түвшний AI хэрэглээ',capabilityAIFlow:'Судалгаа → Концепц → Прототип → Код',capabilityMap:'МИНИЙ ХИЙДЭГ АЖЛУУД',capabilityEvidence:'БОДИТ БҮТЭЭЛЭЭР',capabilityPause:'Түр зогсоох',capabilityPlay:'Үргэлжлүүлэх',capabilityOff:'Хөдөлгөөн унтраалттай',
+    capabilityTitle0:'UI/UX & бүтээгдэхүүний дизайн',capabilityBody0:'Хэрэглэгчийн урсгал, wireframe, дизайн систем болон дарж үзэх прототип.',capabilityProject0:'PetCare · Аппын интерфэйс',
+    capabilityTitle1:'Вэб дизайн & хөгжүүлэлт',capabilityBody1:'Ойлгомжтой бүтэц, дэлгэц бүрт тохирох интерфэйс, ажилладаг вэб концепц.',capabilityProject1:'Нүүдэл · Аяллын вэб',
+    capabilityTitle2:'Лого & брэндийн систем',capabilityBody2:'Таних тэмдэг, өнгө, типографик, хэрэглээний нэгдсэн дүрэм болон брэндийн удирдамж.',capabilityProject2:'PROPLUS · Брэндийн удирдамж',
+    capabilityTitle3:'Постер & хэвлэлийн дизайн',capabilityBody3:'Постер, цэс болон хэвлэлийн эхийг агуулга, зураг, типографиктай нь цогцоор шийднэ.',capabilityProject3:'Постер · 11 бүтээлийн цуглуулга',
+    capabilityTitle4:'Motion & видео контент',capabilityBody4:'Аппын promo видео, хөдөлгөөнт график болон интерфэйсийн жижиг хөдөлгөөнүүд.',capabilityProject4:'PetCare · Promo видео',
+    capabilityTitle5:'3D & интерактив туршлага',capabilityBody5:'Өмсгөлийг 360° эргүүлж, өнгө, нэр, дугаар өөрчилж үзэх 3D концепц.',capabilityProject5:'TG Sport · Интерактив 3D студи'
+  });
+  Object.assign(copy.en,{
+    scopeEyebrow:'MULTIDISCIPLINARY DESIGNER',scopeTitle:'One idea.<br>Many forms.',scopeBody:'From user experience to identity, motion and 3D. I research, design and turn ideas into working experiences.',scopeBrowseHint:'Digital · Identity · Print · Motion',
+    capabilityAI:'Advanced AI-assisted workflow',capabilityAIFlow:'Research → Concept → Prototype → Code',capabilityMap:'WHAT I CREATE',capabilityEvidence:'EXPLORE THE WORK',capabilityPause:'Pause',capabilityPlay:'Resume',capabilityOff:'Motion is off',
+    capabilityTitle0:'UI/UX & product design',capabilityBody0:'User flows, wireframes, design systems and interactive prototypes.',capabilityProject0:'PetCare · App interface',
+    capabilityTitle1:'Web design & development',capabilityBody1:'Clear content structures, responsive interfaces and working website concepts.',capabilityProject1:'Nuudel · Travel website',
+    capabilityTitle2:'Logos & brand systems',capabilityBody2:'Distinctive marks, colour, typography, applications and coherent brand guidelines.',capabilityProject2:'PROPLUS · Brand guidelines',
+    capabilityTitle3:'Posters & print design',capabilityBody3:'Posters, menus and print layouts that bring content, photography and typography together.',capabilityProject3:'Posters · A collection of 11 designs',
+    capabilityTitle4:'Motion & video content',capabilityBody4:'App promo videos, motion graphics and considered interface microinteractions.',capabilityProject4:'PetCare · Promo video',
+    capabilityTitle5:'3D & interactive experiences',capabilityBody5:'A 360° sportswear concept with custom colours, names and numbers.',capabilityProject5:'TG Sport · Interactive 3D studio'
+  });
+
+
   Object.assign(copy.mn,{publicDetailsTitle:'Дэлгэрэнгүй танилцуулга',publicDetailsBody:'Миний ажлын туршлага болон холбоо барих мэдээлэлтэй портфолио сайтаас танилцаарай.',publicDetailsLink:'Портфолио үзэх'});
   Object.assign(copy.en,{publicDetailsTitle:'More about me',publicDetailsBody:'Explore my background and contact details on the live portfolio.',publicDetailsLink:'Explore the portfolio'});
   const $ = selector => document.querySelector(selector);
@@ -80,6 +102,64 @@
   const categoryKeys = {web:'filterWeb', mobile:'filterMobile', graphic:'filterGraphic'};
   const categoryOf = p => p.types.map(t => copy[lang][categoryKeys[t]]).join(' + ');
   const canAnimate = () => !motionPaused && !reduce.matches;
+
+  const capabilityVisual = $('#capability-visual');
+  const capabilityTargets = [
+    {project:'petcare',gallery:1},{project:'nuudel',gallery:0},
+    {project:'proplus',gallery:0},{project:'poster-collection',gallery:0},
+    {project:'petcare',gallery:0},{project:'tg-sport-concept',gallery:0}
+  ];
+  let capability = 0, capabilityVisible = false, capabilityManual = false, capabilityTimer = null;
+  let capabilityAnimations = [];
+  function updateCapability() {
+    const text = copy[lang];
+    const title = $('#capability-title');
+    const changed = title.textContent !== text['capabilityTitle'+capability];
+    title.textContent = text['capabilityTitle'+capability];
+    $('#capability-description').textContent = text['capabilityBody'+capability];
+    $('#capability-project-label').textContent = text['capabilityProject'+capability];
+    $('#capability-count').textContent = '0'+(capability+1)+' / 06';
+    const target = capabilityTargets[capability];
+    const evidence = $('#capability-evidence');
+    evidence.dataset.openProject = target.project;
+    evidence.dataset.galleryStart = target.gallery;
+    evidence.setAttribute('aria-label',text.viewProject+': '+text['capabilityProject'+capability]);
+    $$('[data-capability]').forEach(button=>{
+      const current = Number(button.dataset.capability) === capability;
+      button.classList.toggle('is-current',current);
+      button.setAttribute('aria-pressed',String(current));
+      button.setAttribute('aria-label',text['capabilityTitle'+button.dataset.capability]);
+    });
+    $$('[data-capability-path]').forEach(path=>path.classList.toggle('is-current',Number(path.dataset.capabilityPath) === capability));
+    capabilityAnimations.forEach(animation=>animation.cancel());
+    capabilityAnimations=[];
+    if(changed && canAnimate() && capabilityVisible && !document.hidden && typeof title.animate === 'function') {
+      capabilityAnimations=[title,$('#capability-description'),$('#capability-project-label')].map(el=>el.animate(
+        [{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:600,easing:'cubic-bezier(.22,1,.36,1)'}
+      ));
+    }
+  }
+  function syncCapabilityMotion() {
+    clearInterval(capabilityTimer);capabilityTimer=null;
+    const disabled = !canAnimate();
+    const running = !disabled && capabilityVisible && !document.hidden && !dialog.open && !capabilityManual;
+    capabilityVisual.classList.toggle('is-cycling',running);
+    const button=$('#capability-toggle');
+    button.disabled=disabled;
+    button.setAttribute('aria-pressed',String(capabilityManual || disabled));
+    $('#capability-toggle-label').textContent=copy[lang][disabled?'capabilityOff':capabilityManual?'capabilityPlay':'capabilityPause'];
+    $('#capability-toggle-icon').textContent=disabled?'−':capabilityManual?'▷':'Ⅱ';
+    if(running)capabilityTimer=setInterval(()=>{capability=(capability+1)%capabilityTargets.length;updateCapability();},6000);
+  }
+  $$('[data-capability]').forEach(button=>button.addEventListener('click',()=>{
+    capability=Number(button.dataset.capability);capabilityManual=true;updateCapability();syncCapabilityMotion();
+  }));
+  $('#capability-toggle').addEventListener('click',()=>{capabilityManual=!capabilityManual;syncCapabilityMotion();});
+  if('IntersectionObserver' in window) {
+    new IntersectionObserver(entries=>{capabilityVisible=entries[0].isIntersecting;syncCapabilityMotion();},{threshold:.2}).observe(capabilityVisual);
+  } else capabilityVisible=true;
+
   const themeButton = $('#theme-toggle');
   let themeSetting = null;
   try {
@@ -213,6 +293,7 @@
     syncProcessTimer();
     syncFeatureMotion();
     syncPosterMotion();
+    syncCapabilityMotion();
   }
   function showGalleryPage(index) {
     const p = selectedProject;
@@ -293,7 +374,7 @@
     $('#language-toggle').textContent = lang === 'mn' ? 'EN' : 'MN';
     $('#language-toggle').setAttribute('aria-label', lang === 'mn' ? 'Switch to English' : 'Монгол хэл рүү шилжих');
     updateThemeButton();
-    document.title = lang === 'mn' ? 'Цогбаяр Анхбаяр — UI/UX & Visual Designer' : 'Ankhbayar Tsogbayar — UI/UX & Visual Designer';
+    document.title = lang === 'mn' ? 'Цогтбаяр Анхбаяр — UI/UX & Visual Designer' : 'Ankhbayar Tsogtbayar — UI/UX & Visual Designer';
     menuButton.setAttribute('aria-label', copy[lang][header.classList.contains('is-open') ? 'menuClose' : 'menuOpen']);
     $('.filters').setAttribute('aria-label', copy[lang].filterLabel);
     $('#dialog-close').setAttribute('aria-label', copy[lang].close);
@@ -303,8 +384,6 @@
     $('.wordmark').setAttribute('aria-label', lang === 'en' ? 'Ankhbayar — Home' : 'Анхбаяр — Эхлэл');
     $('.contact-arrow').setAttribute('aria-label', lang === 'en' ? 'Email Ankhbayar' : 'Анхбаярт имэйл бичих');
     canvas.setAttribute('aria-label', lang === 'en' ? 'Animated design process diagram' : 'Дизайны процессын хөдөлгөөнт зураглал');
-    const counts = [projects.filter(p=>p.types.length===1&&p.types[0]==='web').length,projects.filter(p=>p.types.length===1&&p.types[0]==='mobile').length,projects.filter(p=>p.types.includes('web')&&p.types.includes('mobile')).length,projects.filter(p=>p.types.includes('graphic')).length];
-    $('.scope-ring').setAttribute('aria-label', projects.length + ' ' + copy[lang].projectCount + ': ' + counts.map((n,i) => n + ' ' + copy[lang][['scopeWeb','scopeMobile','scopeMulti','scopePrint'][i]]).join(', '));
     $$('[data-open-project]').forEach(button => {const p=projects.find(p=>p.id===button.dataset.openProject);if(p)button.setAttribute('aria-label',copy[lang].viewProject+': '+titleOf(p));});
     projects.forEach(p => {
       const card = document.getElementById('project-' + p.id);
@@ -320,7 +399,7 @@
     $$('[data-poster-caption]').forEach(el=>{const page=posterCollection.gallery[Number(el.dataset.posterCaption)];el.textContent=(lang==='en'?page.label_en:page.label).split(' · ').slice(1).join(' · ');});
     $$('[data-editorial-heading]').forEach(el=>{const p=projects.find(x=>x.id===el.dataset.editorialHeading);el.innerHTML=lang==='en'?p.editorial.heading_en:p.editorial.heading;});
     if (selectedProject) populateDialog(selectedProject);
-    updatePhase(); updateMotion();
+    updateCapability(); updatePhase(); updateMotion();
   }
   function setMenu(open, focusFirst = false) {
     header.classList.toggle('is-open', open);
@@ -339,12 +418,23 @@
     try { localStorage.setItem('portfolio-language',lang); } catch (_) {}
   });
 
+  function orderedProjects(filter) {
+    if (filter !== 'web') return projects;
+    const first = ['namu-coffee','nuudel','jiguur','park'];
+    const last = ['tg-sport-concept','titem-concept','barber-concept','tavan-hoshuu'];
+    const edge = [...first,...last];
+    const middle = projects.filter(p=>p.types.includes('web') && !edge.includes(p.id)).map(p=>p.id);
+    const ids = [...first,...middle,...last];
+    return [...ids.map(id=>projects.find(p=>p.id===id)),...projects.filter(p=>!ids.includes(p.id))];
+  }
   function filterProjects(filter) {
     $$('.filter').forEach(b => {const active = b.dataset.filter === filter;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active));});
     let count = 0;
-    projects.forEach(p => {
+    orderedProjects(filter).forEach(p => {
       const card = document.getElementById('project-' + p.id);
       const visible = filter === 'all' || (filter==='concept' ? !!p.concept : p.types.includes(filter));
+      $('#project-grid').append(card);
+      card.classList.toggle('is-featured',filter === 'all' && p.id === projects[0].id);
       card.hidden = !visible;
       if (visible) {
         count++;
@@ -374,6 +464,7 @@
     dialog.showModal(); dialog.scrollTop = 0; document.body.classList.add('has-dialog');
     syncFeatureMotion();
     syncPosterMotion();
+    syncCapabilityMotion();
     syncProcessTimer();
   }));
   $('#dialog-close').addEventListener('click', () => dialog.close());
@@ -396,6 +487,7 @@
     if (returnFocus?.isConnected) returnFocus.focus({preventScroll:true});
     syncFeatureMotion();
     syncPosterMotion();
+    syncCapabilityMotion();
     syncProcessTimer();
   });
   $$('[data-phase-select]').forEach(button => button.addEventListener('click', () => {
@@ -406,7 +498,7 @@
     try {localStorage.setItem('portfolio-motion',motionPaused ? 'paused' : 'playing');} catch (_) {}
   });
   reduce.addEventListener('change', () => {motionPaused = reduce.matches;updateMotion();});
-  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();syncPosterMotion();});
+  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();syncPosterMotion();syncCapabilityMotion();});
 
   // A native scroll, one frame update, and transforms only. No scroll interception.
   let scrollQueued = false;
