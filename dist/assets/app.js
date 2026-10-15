@@ -69,6 +69,26 @@
   const canAnimate = () => !motionPaused && !reduce.matches;
   const featureFrame = $('#tg-feature-frame');
   let featureVisible = false;
+  const posterSection = $('#posters');
+  const posterCollection = projects.find(p=>p.presentation==='poster');
+  let postersVisible = false;
+  let postersPaused = false;
+  Object.assign(copy.mn,{aboutBody:'UI/UX, вэб, апп, лого ба брэндинг, хэвлэл болон motion дизайн хийдэг.',aboutBody2:'Claude, ChatGPT-ийг ахисан түвшинд ашиглаж, судалгаа, концепц, прототип, вэб код болон motion контент бүтээдэг.',profileEyebrow:'ТУРШЛАГА & БОЛОВСРОЛ',navPosters:'Постер',posterEyebrow:'ПОСТЕР & ВИЗУАЛ ЗОХИОМЖ',posterTitle:'Постер дизайн<span>.</span>',posterIntro:'Өөр өөр агуулга. Өөрийн өнгө төрх. Типографик, фото болон мэдээллийн зохиомжийн цуглуулга.',posterFeatured:'ОНЦЛОХ ПОСТЕРУУД',allPosters:'Бүх 11 постер үзэх',posterRailNote:'Бусад бүтээлүүд · Баруунаас зүүн тийш урсана',posterClickHint:'Постер дээр дарж томруулан үзээрэй.',pausePosters:'Урсгал зогсоох',playPosters:'Урсгал асаах',posterMotionOff:'Хөдөлгөөн унтраалттай',viewPoster:'Постер үзэх',contactEmail:'Имэйл',contactPhone:'Утас',contactInstagram:'Instagram',contactGithub:'GitHub',writeEmail:'Имэйл бичих'});
+  Object.assign(copy.en,{aboutBody:'I design interfaces for websites and apps, logos and brand identities, print layouts and motion graphics.',aboutBody2:'I use Claude and ChatGPT at an advanced level for research, concepts, prototypes, web code and motion content.',profileEyebrow:'EXPERIENCE & EDUCATION',navPosters:'Posters',posterEyebrow:'POSTERS & VISUAL COMPOSITION',posterTitle:'Poster design<span>.</span>',posterIntro:'Different subjects. Distinct visual voices. A collection of typography, photography and considered composition.',posterFeatured:'FEATURED POSTERS',allPosters:'Explore all 11 posters',posterRailNote:'More from the collection · Moving right to left',posterClickHint:'Select a poster to explore it in detail.',pausePosters:'Pause the flow',playPosters:'Play the flow',posterMotionOff:'Motion is off',viewPoster:'View poster',contactEmail:'Email',contactPhone:'Phone',contactInstagram:'Instagram',contactGithub:'GitHub',writeEmail:'Write an email'});
+  function syncPosterMotion() {
+    const disabled=motionPaused || reduce.matches;
+    const running=!disabled && !postersPaused && postersVisible && !document.hidden && !dialog.open;
+    posterSection.classList.toggle('is-paused',!running);
+    const button=$('#poster-motion-toggle');
+    button.disabled=disabled;
+    button.setAttribute('aria-pressed',String(postersPaused || disabled));
+    $('#poster-motion-label').textContent=copy[lang][disabled?'posterMotionOff':postersPaused?'playPosters':'pausePosters'];
+    $('#poster-motion-icon').textContent=disabled?'−':postersPaused?'▷':'Ⅱ';
+  }
+  $('#poster-motion-toggle').addEventListener('click',()=>{postersPaused=!postersPaused;syncPosterMotion();});
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries=>{postersVisible=entries[0].isIntersecting;if(postersVisible)posterSection.querySelectorAll('img').forEach(img=>img.loading='eager');syncPosterMotion();},{rootMargin:'160px 0px'}).observe(posterSection);
+  } else postersVisible=true;
   Object.assign(copy.mn, {conceptEyebrow:'ӨӨРИЙН САНААЧИЛГЫН КОНЦЕПЦУУД',conceptTitle:'Сонирхлоос эхэлсэн<br>шинэ хувилбарууд.',conceptIntro:'Одоо байгаа вэбүүдийг өөрийн сонирхлоор дахин загварчилсан 4 ажил. Namu Coffee нь «би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн концепц.',tgKicker:'TG SPORT / ӨӨРИЙН САНААЧИЛГЫН REDESIGN',tgIntro:'Хувцасны дизайныг хардаг байсан бол одоо өөрөө бүтээ. Өнгөө сонгоод, нэр болон дугаараа өмсгөл дээрээ тавиарай.',tgRotate:'Чирж эргүүлнэ',tgCustomize:'Өнгө · Нэр · Дугаар',openStudio:'Бүрэн 3D студи нээх',tgNote:'Одоо байгаа вэбийг өөрийн санаагаар сайжруулсан хувийн концепц.',tgDragHint:'Чирж эргүүлээд, доороос нь өөрчилж үзээрэй.',load3d:'3D харагдац нээх',conceptCollection:'TITEM · barber.mn · Таван хошуу · Namu Coffee',showConcepts:'5 концепцийг үзэх',filterConcept:'Санаачилгын концепц',openDemo:'Демо нээх',conceptOriginal:'Шинэ вэб концепц',conceptRedesign:'Өөрийн санаачилгын redesign',conceptNote:'Өөрийн сонирхлоор хийсэн redesign концепц. Албан ёсны захиалгат ажил биш; үйлдлүүд нь демо.',conceptNoteOriginal:'«Би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн Namu Coffee вэб концепц. Үйлдлүүд нь демо.'});
   Object.assign(copy.en, {conceptEyebrow:'SELF-INITIATED CONCEPTS',conceptTitle:'A little curiosity.<br>A new perspective.',conceptIntro:'Four personal redesigns of existing websites. Namu Coffee is an original “if I designed their website” concept.',tgKicker:'TG SPORT / SELF-INITIATED REDESIGN',tgIntro:'Go from viewing a kit to making it your own. Choose a colour, then add your name and number to the uniform.',tgRotate:'Drag to rotate',tgCustomize:'Colour · Name · Number',openStudio:'Open the full 3D studio',tgNote:'An independent, personal redesign of the existing website.',tgDragHint:'Drag to rotate. Use the controls below to make it yours.',load3d:'Explore the 3D kit',conceptCollection:'TITEM · barber.mn · Tavan Khoshuu · Namu Coffee',showConcepts:'Explore all 5 concepts',filterConcept:'Personal concepts',openDemo:'Open live demo',conceptOriginal:'Original website concept',conceptRedesign:'Self-initiated redesign',conceptNote:'An independently created personal redesign concept. Actions in this demonstration are simulated.',conceptNoteOriginal:'An original “if I designed their website” concept for Namu Coffee. Actions in this demonstration are simulated.'});
   function syncFeatureMotion() {
@@ -107,7 +127,7 @@
     phaseTimer = null;
     const running = canAnimate() && processVisible && !document.hidden && !processManual;
     canvas.classList.toggle('is-cycling', running);
-    if (running) phaseTimer = setInterval(() => { phase = (phase + 1) % 4; updatePhase(); }, 4800);
+    if (running) phaseTimer = setInterval(() => { phase = (phase + 1) % 4; updatePhase(); }, 6400);
   }
   function updateMotion() {
     art.classList.toggle('is-paused', motionPaused);
@@ -119,6 +139,7 @@
     motionButton.querySelector('.motion-icon').textContent = motionPaused ? '▷' : 'Ⅱ';
     syncProcessTimer();
     syncFeatureMotion();
+    syncPosterMotion();
   }
   function showGalleryPage(index) {
     const p = selectedProject;
@@ -126,6 +147,7 @@
     const pages = p.gallery || [{image:p.image}];
     galleryIndex = (index + pages.length) % pages.length;
     const page = pages[galleryIndex];
+    const figma = page.figma || p.figma;
     const label = (lang === 'en' ? page.label_en : page.label) || subtitleOf(p);
     const image = $('#dialog-image');
     const video = $('#dialog-video');
@@ -140,17 +162,20 @@
     image.alt = titleOf(p) + ' — ' + label;
     $('#gallery-caption').textContent = (galleryIndex + 1) + ' / ' + pages.length + ' · ' + label;
     $$('[data-gallery-page]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.galleryPage) === galleryIndex)));
-    $('#dialog-image-link').href = p.figma || page.image;
-    $('#dialog-image-link').setAttribute('aria-label',(p.figma ? copy[lang].openFigma : copy[lang].viewFullSize) + ': ' + label);
-    $('#dialog-figma').href = p.demo || p.figma || p.document || page.image;
-    $('#dialog-figma-top').href=p.demo || p.figma || p.document || page.image;
-    $('#dialog-top-label').textContent=copy[lang][p.figma?'openFigmaShort':p.document?'openGuideShort':'openImageShort'];
-    $('#dialog-link-label').textContent = p.figma ? copy[lang].openFigma : p.document ? copy[lang].openGuidelines : copy[lang].viewFullSize;
+    $('#dialog-image-link').href = figma || page.image;
+    $('#dialog-image-link').setAttribute('aria-label',(figma ? copy[lang].openFigma : copy[lang].viewFullSize) + ': ' + label);
+    $('#dialog-figma').href = p.demo || figma || p.document || page.image;
+    $('#dialog-figma-top').href=p.demo || figma || p.document || page.image;
+    $('#dialog-top-label').textContent=copy[lang][figma?'openFigmaShort':p.document?'openGuideShort':'openImageShort'];
+    $('#dialog-link-label').textContent = figma ? copy[lang].openFigma : p.document ? copy[lang].openGuidelines : copy[lang].viewFullSize;
+    const selected=$('[data-gallery-page="'+galleryIndex+'"]');
+    if(selected){const strip=$('#gallery-thumbs');strip.scrollTo({left:strip.scrollLeft+selected.getBoundingClientRect().left-strip.getBoundingClientRect().left-strip.clientWidth/2+selected.offsetWidth/2,behavior:canAnimate()?'smooth':'auto'});}
   }
   function populateDialog(p) {
     $('#dialog-visual').style.setProperty('--project-bg', p.color);
     dialog.classList.toggle('is-print-project', !!p.gallery);
     dialog.classList.toggle('is-demo-preview',!!p.demo);
+    dialog.classList.toggle('is-poster-project',p.presentation==='poster');
     const frame=$('#dialog-demo');
     frame.hidden=!p.demo;
     $('#dialog-concept-note').hidden=!p.concept;
@@ -217,6 +242,9 @@
       if(conceptLabel)conceptLabel.textContent=copy[lang][p.concept==='original'?'conceptOriginal':'conceptRedesign'];
       card.querySelectorAll('[data-open-project]').forEach(b => b.setAttribute('aria-label', copy[lang].viewProject + ': ' + titleOf(p)));
     });
+    $$('[data-poster-page]').forEach(button=>{const page=posterCollection.gallery[Number(button.dataset.posterPage)];button.setAttribute('aria-label',copy[lang].viewPoster+': '+(lang==='en'?page.label_en:page.label));});
+    $$('[data-poster-caption]').forEach(el=>{const page=posterCollection.gallery[Number(el.dataset.posterCaption)];el.textContent=(lang==='en'?page.label_en:page.label).split(' · ').slice(1).join(' · ');});
+    $$('[data-editorial-heading]').forEach(el=>{const p=projects.find(x=>x.id===el.dataset.editorialHeading);el.innerHTML=lang==='en'?p.editorial.heading_en:p.editorial.heading;});
     if (selectedProject) populateDialog(selectedProject);
     updatePhase(); updateMotion();
   }
@@ -259,9 +287,10 @@
     selectedProject = projects.find(p => p.id === button.dataset.openProject);
     if (!selectedProject) return;
     if (typeof dialog.showModal !== 'function') {window.open(selectedProject.demo || selectedProject.figma || selectedProject.document || selectedProject.image,'_blank','noopener');return;}
-    returnFocus = button; galleryIndex = 0; populateDialog(selectedProject);
+    returnFocus = button; galleryIndex = Number(button.dataset.galleryStart || 0); populateDialog(selectedProject);
     dialog.showModal(); dialog.scrollTop = 0; document.body.classList.add('has-dialog');
     syncFeatureMotion();
+    syncPosterMotion();
   }));
   $('#dialog-close').addEventListener('click', () => dialog.close());
   $('#dialog-done').addEventListener('click', () => dialog.close());
@@ -282,6 +311,7 @@
     document.body.classList.remove('has-dialog'); selectedProject = null; $('#gallery-thumbs').replaceChildren();
     if (returnFocus?.isConnected) returnFocus.focus({preventScroll:true});
     syncFeatureMotion();
+    syncPosterMotion();
   });
   $$('[data-phase-select]').forEach(button => button.addEventListener('click', () => {
     phase = Number(button.dataset.phaseSelect); processManual = true; updatePhase(); syncProcessTimer();
@@ -291,7 +321,7 @@
     try {localStorage.setItem('portfolio-motion',motionPaused ? 'paused' : 'playing');} catch (_) {}
   });
   reduce.addEventListener('change', () => {motionPaused = reduce.matches;updateMotion();});
-  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();});
+  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();syncPosterMotion();});
 
   // A native scroll, one frame update, and transforms only. No scroll interception.
   let scrollQueued = false;

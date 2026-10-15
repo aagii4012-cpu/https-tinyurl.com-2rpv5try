@@ -2,7 +2,7 @@
 
 Live portfolio: https://ankhbayar-design.rightbirch64.chatgpt.site
 
-A responsive Mongolian/English portfolio with 19 projects across UI/UX, visual identity and print. The warm editorial layout includes three slow artwork columns, project filters, a data-driven portfolio infographic, a selectable motion graphic of the design process and artwork galleries. The 12 original digital project covers use complete original interface screens in CSS phone or browser mockups, with clear full-size views and complete web pages. The profile covers UI/UX, graphic and brand design, motion graphics and web design.
+A responsive Mongolian/English portfolio with 20 projects across UI/UX, visual identity and print. The warm editorial layout includes three slow artwork columns, project filters, a data-driven portfolio infographic, a selectable motion graphic of the design process and artwork galleries. The 12 original digital project covers use complete original interface screens in CSS phone or browser mockups, with clear full-size views and complete web pages. The profile covers UI/UX, graphic and brand design, motion graphics and web design.
 
 ## Featured work
 
@@ -33,6 +33,14 @@ The included GitHub Pages workflow publishes when Pages is enabled for the repos
 The supplied concepts are retained under `demos/`; the build copies them to `dist/demos/`. Their original catalogue pictures and Three.js dependencies are cached locally. New concept covers use the supplied artwork, product photography and original livestock geometry. The TG Sport preview loads near the viewport; background/offscreen 3D activity pauses and small screens use its lighter renderer.
 
 Validation: Python build, JavaScript syntax, local resource paths, data counts, ARIA references and retained behaviour checks. Browser QA was unavailable in this environment.
+
+## Poster collection and profile
+
+Eleven original A4 posters from the supplied Figma file are self-hosted. Posters 01, 08 and 06 lead the dedicated section; two identical groups move right-to-left in a seamless transform loop. The gallery links each selected poster to its exact Figma frame. Offscreen, hidden-tab, modal and manual motion pauses are supported.
+
+The first section presents the designer with the supplied full-resolution portrait, experience and education, plus a short statement about advanced Claude and ChatGPT use. The contact section uses four visible email, phone, Instagram and GitHub cards. Mobile project covers use a layered metal rim, glass screen, camera island and hardware details.
+
+Illustrative cover photography: John Karlo Mendoza, https://unsplash.com/photos/idzUojjazCg ; Edward Ji, https://unsplash.com/photos/pZeP-szcWTU . Used under the Unsplash License, https://unsplash.com/license . The accompanying miniature interfaces show the actual concept artwork.
 
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.
 

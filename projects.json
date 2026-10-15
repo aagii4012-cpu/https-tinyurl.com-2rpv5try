@@ -82,6 +82,107 @@
     "description_en": "A cohesive identity system for a loan management and credit information platform. The 26-page guide defines logo usage, colour, typography, graphic elements and digital and print applications, with construction rules, clear space, variations and application examples."
   },
   {
+    "id": "poster-collection",
+    "title": "Постер дизайн",
+    "title_en": "Poster collection",
+    "subtitle": "Типографик, фото зохиомж & сурталчилгааны 11 постер",
+    "subtitle_en": "11 posters across typography, photography & promotion",
+    "description": "Үл хөдлөх, ресторан, концерт, худалдаа болон үйлчилгээний зориулалттай A4 постеруудын цуглуулга. Гарчгийн шатлал, бичвэр ба дүрсний харьцаа, контраст болон мэдээллийн зохион байгуулалтаар төрөл бүрийн агуулгад тохирсон визуал шийдэл боловсруулсан.",
+    "description_en": "A collection of A4 posters for real estate, restaurants, concerts, retail and services. Typography, image-to-text balance, contrast and clear information hierarchy give each subject its own visual direction.",
+    "year": "2026",
+    "types": [
+      "graphic"
+    ],
+    "presentation": "poster",
+    "color": "#ebe7dd",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-08.webp",
+    "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster",
+    "featured_numbers": [
+      1,
+      8,
+      6
+    ],
+    "gallery": [
+      {
+        "number": 1,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-01.webp",
+        "label": "01 · Орон сууц худалдана",
+        "label_en": "01 · Real estate",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=5-2"
+      },
+      {
+        "number": 2,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-02.webp",
+        "label": "02 · Машин худалдана",
+        "label_en": "02 · Car sale",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=5-51"
+      },
+      {
+        "number": 3,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-03.webp",
+        "label": "03 · Ажилд авна",
+        "label_en": "03 · Recruitment",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=6-2"
+      },
+      {
+        "number": 4,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-04.webp",
+        "label": "04 · Намрын хямдрал",
+        "label_en": "04 · Autumn sale",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=6-61"
+      },
+      {
+        "number": 5,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-05.webp",
+        "label": "05 · Байр түрээслүүлнэ",
+        "label_en": "05 · Apartment rental",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=7-2"
+      },
+      {
+        "number": 6,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-06.webp",
+        "label": "06 · Концерт · Намрын аялгуу",
+        "label_en": "06 · Concert · Autumn Melody",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=7-64"
+      },
+      {
+        "number": 7,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-07.webp",
+        "label": "07 · Сургалтын элсэлт",
+        "label_en": "07 · Course enrolment",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=8-2"
+      },
+      {
+        "number": 8,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-08.webp",
+        "label": "08 · Рестораны нээлт · Saruul Bistro",
+        "label_en": "08 · Restaurant opening · Saruul Bistro",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=8-49"
+      },
+      {
+        "number": 9,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-09.webp",
+        "label": "09 · Фитнесс гишүүнчлэл",
+        "label_en": "09 · Fitness membership",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=10-2"
+      },
+      {
+        "number": 10,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-10.webp",
+        "label": "10 · Цэвэрлэгээний үйлчилгээ",
+        "label_en": "10 · Cleaning service",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=12-2"
+      },
+      {
+        "number": 11,
+        "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/posters/poster-11.webp",
+        "label": "11 · iPhone худалдаа",
+        "label_en": "11 · iPhone promotion",
+        "figma": "https://www.figma.com/design/yZfpi0oHAlzD38lqiy1XV7/poster?node-id=19-2"
+      }
+    ]
+  },
+  {
     "id": "tg-sport-concept",
     "title": "TG Sport · 3D Studio",
     "title_en": "TG Sport · 3D Studio",
@@ -130,10 +231,17 @@
       "web"
     ],
     "color": "#e4e3f1",
-    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/barber-concept.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/barber-editorial.webp",
     "demo": "https://ankhbayar-design.rightbirch64.chatgpt.site/demos/barber/index.html",
     "concept": "redesign",
-    "presentation": "concept"
+    "presentation": "editorial",
+    "editorial": {
+      "theme": "barber",
+      "eyebrow": "BARBER.MN / BOOKING EXPERIENCE",
+      "heading": "ӨӨРИЙН<br>ХЭМНЭЛЭЭР.",
+      "heading_en": "LOOK GOOD.<br>FEEL GOOD.",
+      "preview": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/barber-concept.webp"
+    }
   },
   {
     "id": "tavan-hoshuu",
@@ -148,10 +256,17 @@
       "web"
     ],
     "color": "#ddd9cb",
-    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tavan-hoshuu-concept.webp",
+    "image": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tavan-editorial.webp",
     "demo": "https://ankhbayar-design.rightbirch64.chatgpt.site/demos/tavan-hoshuu/index.html",
     "concept": "redesign",
-    "presentation": "concept"
+    "presentation": "editorial",
+    "editorial": {
+      "theme": "steppe",
+      "eyebrow": "ТАВАН ХОШУУ / INTERACTIVE FIELD GUIDE",
+      "heading": "ТАЛЫН<br>АМЬДРАЛ.",
+      "heading_en": "LIFE ON<br>THE STEPPE.",
+      "preview": "https://ankhbayar-design.rightbirch64.chatgpt.site/assets/tavan-hoshuu-concept.webp"
+    }
   },
   {
     "id": "namu-coffee",
