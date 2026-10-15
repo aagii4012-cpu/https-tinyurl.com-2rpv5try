@@ -16,7 +16,7 @@
     workIntro:'Аппын дэлгэцээс рестораны цэс хүртэл. Агуулга, бүтэц, өнгө болон дүрслэлийг нэг ойлгомжтой туршлага болгодог.',
     aboutBody2:'Судалгаа, wireframe, UI дизайн, прототип, хөгжүүлэгчид шилжүүлэх болон хэвлэлийн зохиомж дээр ажилладаг.',
     directionsTitle:'МЭРГЭЖЛИЙН ЧИГЛЭЛҮҮД',aboutBody:'Дижитал бүтээгдэхүүн, лого ба брэндинг, хэвлэлийн визуал болон motion дизайны чиглэлээр ажилладаг. Агуулга, бүтэц, өнгө, хөдөлгөөнийг нэг ойлгомжтой шийдэл болгохыг зорьдог.',filterGraphic:'График / Хэвлэл',scopeEyebrow:'DESIGN IN MANY FORMS',scopeTitle:'Дэлгэцээс<br>хэвлэл хүртэл.',
-    scopeBody:'Нэг цуглуулга. Дөрвөн төрлийн дизайн. Миний ажлуудын хүрээг нэг дороос.',scopeFeatured:'Онцлох хэвлэлийн ажил · 17 хуудаст цэс',
+    scopeBody:'Нэг цуглуулга. Дөрвөн төрлийн дизайн. Миний ажлуудын хүрээг нэг дороос.',scopeBrowse:'Бүх бүтээлтэй танилцах',scopeBrowseHint:'Вэб · Мобайл · График · Хэвлэл',
     scopeTotal:'сонгосон төсөл',scopeWeb:'Вэб дизайн',scopeMobile:'Мобайл апп',scopeMulti:'Вэб + Мобайл',scopePrint:'График / Хэвлэл',identityTitle:'ЛОГО & БРЭНДИЙН ДИЗАЙН',identityHint:'Таних тэмдгээс нэгдсэн визуал системд.',identityGuidelines:'Лого & брэндийн удирдамж',identityLogo:'Лого дизайн',identityExplorations:'Логоны хувилбарууд & цэс',openGuidelines:'Брэндийн удирдамж үзэх · PDF',
     processCanvasLabel:'САНАА → БҮТЭЭЛ',viewFullSize:'Томруулж үзэх',previousPage:'Өмнөх зураг',nextPage:'Дараах зураг',
     galleryLabel:'Төслийн зургууд',choosePhase:'Энэ алхмыг үзэх',pauseMotion:'Хөдөлгөөн зогсоох',playMotion:'Хөдөлгөөн асаах'
@@ -27,7 +27,7 @@
     workIntro:'From an app screen to a restaurant menu. I bring content, structure, colour and imagery into one clear experience.',
     aboutBody2:'My work spans research, wireframes, UI, prototypes, developer handoff and editorial layouts for print.',
     directionsTitle:'DESIGN DISCIPLINES',aboutBody:'I work across digital products, logos and brand identities, editorial layouts and motion design, bringing content, structure, colour and movement into a coherent experience.',filterGraphic:'Graphic / Print',scopeEyebrow:'DESIGN IN MANY FORMS',scopeTitle:'From screen<br>to print.',
-    scopeBody:'One collection. Four formats. A visual overview of the work I make.',scopeFeatured:'Featured print project · 17-page menu',
+    scopeBody:'One collection. Four formats. A visual overview of the work I make.',scopeBrowse:'Explore all projects',scopeBrowseHint:'Web · Mobile · Graphic · Print',
     scopeTotal:'selected projects',scopeWeb:'Web design',scopeMobile:'Mobile apps',scopeMulti:'Web + Mobile',scopePrint:'Graphic / Print',identityTitle:'LOGOS & BRAND IDENTITIES',identityHint:'From a mark to a coherent visual system.',identityGuidelines:'Logo & brand guidelines',identityLogo:'Logo design',identityExplorations:'Logo explorations & menu',openGuidelines:'View brand guidelines · PDF',
     processCanvasLabel:'IDEA → OUTCOME',viewFullSize:'View full size',previousPage:'Previous image',nextPage:'Next image',
     galleryLabel:'Project images',choosePhase:'Explore this step',pauseMotion:'Pause motion',playMotion:'Play motion'
@@ -62,6 +62,9 @@
   let processVisible = false;
   let processManual = false;
   let phaseTimer = null;
+  const phaseDuration = 6400;
+  let phaseTextAnimations = [];
+  canvas.style.setProperty('--phase-duration', phaseDuration + 'ms');
   const titleOf = p => lang === 'en' ? p.title_en : p.title;
   const subtitleOf = p => lang === 'en' ? p.subtitle_en : p.subtitle;
   const categoryKeys = {web:'filterWeb', mobile:'filterMobile', graphic:'filterGraphic'};
@@ -111,10 +114,27 @@
   } else {featureVisible=true;loadFeature();}
 
   function updatePhase() {
-    $('#phase-title').textContent = copy[lang]['process' + (phase + 1)];
-    $('#phase-body').textContent = copy[lang]['processBody' + (phase + 1)];
+    const title = $('#phase-title');
+    const body = $('#phase-body');
+    const nextTitle = copy[lang]['process' + (phase + 1)];
+    const changed = title.textContent !== nextTitle;
+    title.textContent = nextTitle;
+    body.textContent = copy[lang]['processBody' + (phase + 1)];
     $('#phase-count').textContent = '0' + (phase + 1) + ' / 04';
-    $$('[data-phase-node]').forEach(el => el.classList.toggle('is-current', Number(el.dataset.phaseNode) === phase));
+    canvas.style.setProperty('--phase-line', String(phase / 3 * 100));
+    $$('[data-phase-node]').forEach(el => {
+      const step = Number(el.dataset.phaseNode);
+      el.classList.toggle('is-current', step === phase);
+      el.classList.toggle('is-complete', step < phase);
+    });
+    phaseTextAnimations.forEach(animation => animation.cancel());
+    phaseTextAnimations = [];
+    if (changed && canAnimate() && processVisible && !document.hidden && typeof title.animate === 'function') {
+      phaseTextAnimations = [title,body].map(el => el.animate(
+        [{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:550,easing:'cubic-bezier(.22,1,.36,1)'}
+      ));
+    }
     $$('[data-process-step]').forEach(el => el.classList.toggle('is-current', Number(el.dataset.processStep) === phase));
     $$('[data-phase-select]').forEach(button => {
       const step = Number(button.dataset.phaseSelect);
@@ -125,9 +145,9 @@
   function syncProcessTimer() {
     clearInterval(phaseTimer);
     phaseTimer = null;
-    const running = canAnimate() && processVisible && !document.hidden && !processManual;
+    const running = canAnimate() && processVisible && !document.hidden && !processManual && !dialog.open;
     canvas.classList.toggle('is-cycling', running);
-    if (running) phaseTimer = setInterval(() => { phase = (phase + 1) % 4; updatePhase(); }, 6400);
+    if (running) phaseTimer = setInterval(() => { phase = (phase + 1) % 4; updatePhase(); }, phaseDuration);
   }
   function updateMotion() {
     art.classList.toggle('is-paused', motionPaused);
@@ -291,6 +311,7 @@
     dialog.showModal(); dialog.scrollTop = 0; document.body.classList.add('has-dialog');
     syncFeatureMotion();
     syncPosterMotion();
+    syncProcessTimer();
   }));
   $('#dialog-close').addEventListener('click', () => dialog.close());
   $('#dialog-done').addEventListener('click', () => dialog.close());
@@ -312,6 +333,7 @@
     if (returnFocus?.isConnected) returnFocus.focus({preventScroll:true});
     syncFeatureMotion();
     syncPosterMotion();
+    syncProcessTimer();
   });
   $$('[data-phase-select]').forEach(button => button.addEventListener('click', () => {
     phase = Number(button.dataset.phaseSelect); processManual = true; updatePhase(); syncProcessTimer();

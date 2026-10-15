@@ -40,6 +40,10 @@ Eleven original A4 posters from the supplied Figma file are self-hosted. Posters
 
 The opening section pairs the designer’s name with three moving artwork columns. A separate about section contains the supplied full-resolution portrait, experience, education and advanced Claude and ChatGPT use. The poster section precedes the project grid; the interactive TG Sport concept section follows selected work. Supporting text uses a clearer 13–16 px scale. The contact section uses four visible email, phone, Instagram and GitHub cards. Mobile project covers use a layered metal rim, glass screen, camera island and hardware details.
 
+All 15 opening-column tiles now present the designer’s actual work. UI screens appear in layered phone and browser frames; Kamila Garden uses a three-page menu spread; PROPLUS and Procreditor show the supplied logos and identity work; posters 01, 08, 06 and the updated iPhone 18 Pro poster appear as full, uncropped paper compositions. TG Sport, TITEM and Namu Coffee retain their original concept artwork. Each column repeats an identical group for a continuous loop, with no large text-only filler tiles.
+
+The work overview links to all projects equally. Its segmented SVG chart and percentages derive from the current project counts. The four-stage process diagram connects completed stages, changes its title and explanation with a short fade, and shares one timing constant with the animated progress indicator. Background, offscreen, modal and reduced-motion handling keep animation bounded.
+
 Illustrative cover photography: John Karlo Mendoza, https://unsplash.com/photos/idzUojjazCg ; Edward Ji, https://unsplash.com/photos/pZeP-szcWTU . Used under the Unsplash License, https://unsplash.com/license . The accompanying miniature interfaces show the actual concept artwork.
 
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.

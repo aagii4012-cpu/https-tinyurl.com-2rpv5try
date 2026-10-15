@@ -58,17 +58,54 @@ def card(project, index):
       <div class="project-info"><h3 class="project-title"><button data-open-project="{esc(p['id'])}" aria-haspopup="dialog">{esc(p['title'])}</button></h3><span class="project-year">{esc(p['year'])}</span><p class="project-subtitle">{esc(p['subtitle'])}</p><div class="project-tags">{disciplines}</div>{demo_link}</div>
     </article>'''
 
+def mosaic_image(src, width, height):
+    return f'<img src="{esc(src)}" width="{width}" height="{height}" decoding="async" alt="">'
+
+def mosaic_tile(project, kind, background, visual, discipline, title=None, extra=''):
+    caption = esc(title or project['title'])
+    return f'<div class="mosaic-tile mosaic-work mosaic-{kind}" data-mosaic-project="{esc(project["id"])}" style="--tile-bg:{esc(background)}" {extra}><span class="mosaic-discipline">{esc(discipline)}</span>{visual}<span class="tile-caption">{caption}</span></div>'
+
 def photo(project_id):
     p = next(p for p in DATA if p['id'] == project_id)
+    if project_id == 'kamila-garden':
+        pages = [('left','https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-pizza.webp'),('right','https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-main.webp'),('front','https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-cover.webp')]
+        visual = '<span class="mosaic-menu-papers">'+''.join(f'<span class="mosaic-menu-paper mosaic-menu-{position}">{mosaic_image(src,999,1400)}</span>' for position,src in pages)+'</span>'
+        return mosaic_tile(p,'menu','#e9dcc0',visual,'EDITORIAL / MENU DESIGN')
+    if project_id == 'proplus':
+        visual = '<span class="mosaic-brand-grid"></span><span class="mosaic-logo-card">'+mosaic_image('https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-logo.webp',570,174)+'</span><span class="mosaic-brand-sheets"><span>'+mosaic_image('https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-colors.webp',990,1400)+'</span><span>'+mosaic_image('https://ankhbayar-design.rightbirch64.chatgpt.site/assets/proplus-application.webp',990,1400)+'</span></span>'
+        return mosaic_tile(p,'brand','#12367e',visual,'BRAND IDENTITY',title='PROPLUS · Brand system')
+    if project_id == 'procreditor':
+        visual = '<span class="mosaic-identity-card">'+mosaic_image('https://ankhbayar-design.rightbirch64.chatgpt.site/assets/procreditor-logo.svg',400,60)+'</span><span class="mosaic-identity-colors"><i></i><i></i><i></i><i></i></span><span class="mosaic-identity-web">'+mosaic_image(p['cover']['primary'],1500,1256)+'</span>'
+        return mosaic_tile(p,'identity','#dfeef5',visual,'LOGO / DIGITAL IDENTITY',title='Procreditor · Logo & Web')
     if p.get('concept'):
-        return f'<div class="mosaic-tile interface-tile interface-web" style="--tile-bg:{esc(p["color"])}"><img src="{esc(p["image"])}" width="480" height="329" decoding="async" alt=""><span class="tile-caption">{esc(p["title"])}</span></div>'
-    if p.get('cover'):
-        cover=p['cover']
-        return f'<div class="mosaic-tile interface-tile interface-{esc(cover["kind"])}" style="--tile-bg:{esc(cover["background"])}"><img src="{esc(cover["primary"])}" width="480" height="391" decoding="async" alt=""><span class="tile-caption">{esc(p["title"])}</span></div>'
-    return f'''<div class="mosaic-tile" style="--tile-bg:{esc(p['color'])}"><img src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/{esc(project_id)}-hero.webp" width="480" height="391" decoding="async" alt=""><span class="tile-caption">{esc(p['title'])}</span></div>'''
+        visual = '<span class="mosaic-concept-art">'+mosaic_image(p['image'],1400,960)+'</span>'
+        discipline = '3D / SPORTSWEAR STUDIO' if project_id == 'tg-sport-concept' else 'SELF-INITIATED WEB CONCEPT'
+        return mosaic_tile(p,'concept',p['color'],visual,discipline)
+    cover = p['cover']
+    if cover['kind'] == 'app':
+        primary = phone(mosaic_image(cover['primary'],393,852),'phone-main')
+        secondary = phone(mosaic_image(cover['secondary'],393,852),'phone-secondary')
+        return mosaic_tile(p,'app',cover['background'],'<span class="mosaic-light"></span><span class="mosaic-phone-pair">'+secondary+primary+'</span>','MOBILE APP / UI DESIGN',title='Tusla · Mongolia Helper' if project_id=='tusla' else None)
+    visual = '<span class="mosaic-light"></span><span class="mosaic-browser" style="--mosaic-browser-ratio:'+esc(cover['ratio'])+'"><span class="mosaic-browser-chrome"><i></i><i></i><i></i></span><span class="mosaic-browser-screen">'+mosaic_image(cover['primary'],1440,round(1440/cover['ratio']))+'</span></span>'
+    return mosaic_tile(p,'web',cover['background'],visual,'WEB EXPERIENCE / UI DESIGN')
 
-def solid(color, content, short=False, dark=False):
-    return f'''<div class="mosaic-tile color-tile {'mosaic-short' if short else ''}" style="--tile-bg:{color};{'color:white;' if dark else ''}">{content}</div>'''
+def mosaic_poster(number):
+    p = next(p for p in DATA if p.get('presentation') == 'poster')
+    page = next(page for page in p['gallery'] if page['number'] == number)
+    backgrounds = {1:'#cedbe2',6:'#281c3b',8:'#dce4d8',11:'#301e29'}
+    visual = '<span class="mosaic-poster-paper">'+mosaic_image(page['image'],595,842)+'</span>'
+    return mosaic_tile(p,'poster mosaic-poster-'+str(number),backgrounds[number],visual,'POSTER / VISUAL DESIGN',title='Poster '+f'{number:02d}',extra=f'data-mosaic-poster="{number}"')
+
+def scope_chart(counts):
+    colors = ['#76a9c8','#ef5d44','#d8bb52','#9c7c4b']
+    parts = ['<svg class="scope-chart" viewBox="0 0 200 200" fill="none" aria-hidden="true"><circle class="scope-chart-track" cx="100" cy="100" r="84"/>']
+    start = 0
+    for index,(key,color) in enumerate(zip(['web','mobile','multi','print'],colors)):
+        share = counts[key] / len(DATA) * 100
+        visible = max(0,share - 1.5)
+        parts.append(f'<circle class="scope-ring-segment" data-scope-key="{key}" data-share="{share:g}" cx="100" cy="100" r="84" pathLength="100" stroke-dasharray="{visible:g} {100-visible:g}" stroke-dashoffset="{-start:g}" style="--scope-color:{color};--segment-index:{index}"/>')
+        start += share
+    return ''.join(parts)+'</svg>'
 
 def posters_markup():
     collection=next(p for p in DATA if p.get('presentation')=='poster');pages=collection['gallery']
@@ -80,9 +117,9 @@ def posters_markup():
     return '<div class="poster-featured">'+featured+'</div><div class="poster-marquee" id="poster-marquee"><div class="poster-track"><div class="poster-run">'+group+'</div><div class="poster-run" aria-hidden="true">'+group+'</div></div></div>'
 
 columns = [
-  [solid('#ef5d44','<span class="tile-kicker">UI / UX</span><span class="tile-type">UI.<br>UX.</span>'),photo('petcare'),photo('jiguur'),solid('#a7d9f5','<span class="tile-kicker">WEB & MOBILE</span><span class="tile-type">WEB.<br>APP.</span>',True),photo('proplus')],
-  [solid('#fcdd71','<span class="tile-kicker">THINK. DESIGN. REFINE.</span><span class="tile-star">✳</span>'),photo('park'),solid('#151515','<span class="tile-kicker">A CONSIDERED PROCESS</span><span class="tile-type">FORM.<br>FLOW.</span>',False,True),photo('tusla'),solid('#ef5d44','<span class="tile-kicker">ANKHBAYAR.</span><span class="tile-type">A.</span>',True)],
-  [solid('#a7d9f5',f'<span class="tile-kicker">SELECTED WORK</span><span class="tile-number">{len(DATA)}</span><span class="tile-kicker">DESIGN PROJECTS</span>'),photo('kamila-garden'),photo('tg-sport-concept'),solid('#fcdd71','<span class="tile-kicker">DIGITAL & PRINT</span><span class="tile-type">FORM.<br>FEEL.</span>',True),photo('nuudel')]
+  [photo('petcare'),mosaic_poster(1),photo('jiguur'),photo('proplus'),mosaic_poster(11)],
+  [photo('kamila-garden'),photo('park'),mosaic_poster(6),photo('tusla'),photo('titem-concept')],
+  [photo('tg-sport-concept'),mosaic_poster(8),photo('nuudel'),photo('procreditor'),photo('namu-coffee')]
 ]
 mosaic = ''
 for i, items in enumerate(columns):
@@ -96,10 +133,10 @@ if (ROOT/'demos').is_dir(): shutil.copytree(ROOT/'demos',DIST/'demos',dirs_exist
 template = (ROOT / 'src/index.html').read_text()
 project_json = json.dumps(DATA, ensure_ascii=False).replace('<', '\\u003c')
 counts = {'web':sum(p['types']==['web'] for p in DATA), 'mobile':sum(p['types']==['mobile'] for p in DATA), 'multi':sum('web' in p['types'] and 'mobile' in p['types'] for p in DATA), 'print':sum('graphic' in p['types'] for p in DATA)}
-output = template.replace('{{MOSAIC}}',mosaic).replace('{{POSTERS}}',posters_markup()).replace('{{PROJECTS}}','\n'.join(card(p,i) for i,p in enumerate(DATA))).replace('{{PROJECT_DATA}}',project_json).replace('{{PROJECT_TOTAL}}',str(len(DATA)))
+output = template.replace('{{MOSAIC}}',mosaic).replace('{{SCOPE_CHART}}',scope_chart(counts)).replace('{{POSTERS}}',posters_markup()).replace('{{PROJECTS}}','\n'.join(card(p,i) for i,p in enumerate(DATA))).replace('{{PROJECT_DATA}}',project_json).replace('{{PROJECT_TOTAL}}',str(len(DATA)))
 for key, value in counts.items():
     output = output.replace('{{COUNT_'+key.upper()+'}}',str(value))
-    output = output.replace('{{SHARE_'+key.upper()+'}}',str(value/len(DATA)*100))
+    output = output.replace('{{SHARE_'+key.upper()+'}}',f'{value/len(DATA)*100:g}')
 output = output.replace('{{DIGITAL_SHARE}}', str(sum('graphic' not in p['types'] for p in DATA)/len(DATA)*100))
 (DIST / 'index.html').write_text(output)
 for filename in ['styles.css','app.js']:
