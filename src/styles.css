@@ -1382,3 +1382,16 @@ html[data-theme="dark"] .hero .mosaic-tile.mosaic-work { border-color:#8f9d7f33;
   .tool-run[aria-hidden="true"] { display:none; }
   .tool-rail { mask-image:none; -webkit-mask-image:none; overflow:visible; }
 }
+
+/* BOLD BITE — live animation in featured project card */
+.project-card--motion .project-visual{background:#19c3b3;isolation:isolate}
+.project-card--motion .motion-preview-poster{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover!important;padding:0!important;z-index:0;opacity:.85}
+.project-card--motion .motion-preview-frame{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;display:block;z-index:1;background:#19c3b3}
+.project-card--motion .motion-preview-stamp{position:absolute;left:23px;bottom:21px;z-index:4;padding:9px 13px;border-radius:99px;background:#0d3b2e;color:#c9fa57;font-size:10px;font-weight:800;letter-spacing:.1em;box-shadow:0 10px 28px #06281f42}
+.project-card--motion .motion-preview-stamp span{display:inline-block;animation:boldbite-pulse 2.4s infinite}
+.project-card--motion .project-open,.project-card--motion .project-badge{z-index:5}
+.project-card--motion .project-visual:hover .motion-preview-poster{transform:none}
+.motion-paused .project-card--motion .motion-preview-frame{visibility:hidden}
+@keyframes boldbite-pulse{50%{opacity:.35;transform:scale(.6)}}
+@media(max-width:700px){.project-card--motion .project-visual{aspect-ratio:1.4}.project-card--motion .motion-preview-stamp{left:10px;bottom:10px;font-size:8px;padding:7px 9px}}
+@media(prefers-reduced-motion:reduce){.project-card--motion .motion-preview-frame{visibility:hidden}.project-card--motion .motion-preview-stamp span{animation:none}}

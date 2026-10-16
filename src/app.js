@@ -122,6 +122,16 @@
   const categoryKeys = {web:'filterWeb', mobile:'filterMobile', graphic:'filterGraphic'};
   const categoryOf = p => p.types.map(t => copy[lang][categoryKeys[t]]).join(' + ');
   const canAnimate = () => !motionPaused && !reduce.matches;
+  const boldbiteFrames=[...document.querySelectorAll('.motion-preview-frame')];
+  function syncBoldbiteFrames(){boldbiteFrames.forEach(f=>f.contentWindow?.postMessage({
+    type:'portfolio-motion',active:f.dataset.inview==='true'&&!document.hidden&&!dialog.open,auto:canAnimate()
+  },location.origin));}
+  if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>e.target.dataset.inview=String(e.isIntersecting));syncBoldbiteFrames();
+  },{threshold:.1});boldbiteFrames.forEach(f=>obs.observe(f));}
+  else boldbiteFrames.forEach(f=>f.dataset.inview='true');
+  boldbiteFrames.forEach(f=>f.addEventListener('load',syncBoldbiteFrames));
+
 
   const capabilityVisual = $('#capability-visual');
   const capabilityVideo = $('#capability-video');
@@ -391,6 +401,7 @@
     syncPosterMotion();
     syncCapabilityMotion();
     syncToolkitMotion();
+    syncBoldbiteFrames();
   }
   function showGalleryPage(index) {
     const p = selectedProject;

@@ -41,15 +41,23 @@ def card(project, index):
         else:
             visual = f'<span class="showcase-orbit" aria-hidden="true"></span><span class="browser-mockup"><span class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><b>{esc(p["title"])}</b></span><span class="browser-screen">{primary}</span></span>'
             if cover['kind']=='dual':visual+=phone(secondary,'phone-companion')
+    if p.get('presentation') == 'motion':
+        visual = (
+            '<img class="project-image motion-preview-poster" src="'+esc(p["image"])+ '" width="960" height="1280" loading="lazy" decoding="async" alt="'+esc(p["title"])+ ' — motion poster">'
+            '<iframe class="motion-preview-frame" src="demos/bold-bite/index.html?card=1" title="BOLD BITE: Eight-layer photoreal animation preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>'
+            '<span class="motion-preview-stamp" aria-hidden="true">LIVE MOTION <span>●</span> GSAP / 08 LAYERS</span>'
+        )
     if p.get('video'): visual += '<span class="project-video-badge"><span aria-hidden="true">▶</span> Promo video · 0:30</span>'
     if is_concept:
         label = 'Шинэ вэб концепц' if p['concept']=='original' else 'Өөрийн санаачилгын redesign'
         visual += f'<span class="concept-type" data-concept-label="{esc(p["concept"])}">{label}</span>'
     disciplines = '<span>Logo & Visual Identity</span><span>Editorial & Print</span>' if is_print else '<span>Brand Identity</span><span>Brand Guidelines</span>' if is_brand else '<span>UI/UX Design</span><span>Logo Design</span>' if p['id']=='procreditor' else '<span>UI/UX Design</span><span>'+('Web & Mobile' if len(p['types'])>1 else 'Web Design' if p['types']==['web'] else 'Mobile App')+'</span>'
+    if p.get('presentation') == 'motion': disciplines='<span>Creative Frontend</span><span>Motion Design / GSAP</span>'
     if p.get('presentation')=='poster': disciplines='<span>Poster Design</span><span>Typography & Composition</span>'
     extra = 'project-card--print' if is_print else 'project-card--brand' if is_brand else 'project-card--showcase showcase-'+cover['kind'] if cover else ''
     if index == 0: extra += ' is-featured'
     if is_concept: extra += ' project-card--concept'
+    if p.get('presentation') == 'motion': extra+=' project-card--motion'
     if p.get('presentation')=='poster': extra+=' project-card--posters'
     if p.get('editorial'): extra+=' project-card--editorial editorial-'+p['editorial']['theme']
     styles = f'--project-bg:{esc(p["color"])}'

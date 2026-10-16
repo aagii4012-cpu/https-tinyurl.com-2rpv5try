@@ -1,5 +1,22 @@
 [
   {
+    "id": "bold-bite-motion",
+    "title": "BOLD BITE",
+    "title_en": "BOLD BITE",
+    "subtitle": "8 давхаргат сэндвич · интерактив motion вэб",
+    "subtitle_en": "Motion-first website · interactive eight-layer sandwich",
+    "description": "Ургамлын гаралтай сэндвичний концепц брэндийн интерактив вэб. 8 photoreal орц GSAP-аар салж нийлдэг; scroll storytelling, хөдөлгөөнт typography, responsive бүтээгдэхүүний карт, Монгол хэлтэй цэс ба ₮ үнийн систем. Demo дээр Assemble, Explode, Replay, Scrub удирдлагатай.",
+    "description_en": "A motion-first food brand concept with eight independently animated photoreal ingredient layers, GSAP choreography, scroll storytelling, responsive product cards and Mongolian UI. Try Assemble, Explode, Replay and Scrub in the demo.",
+    "types": [
+      "web"
+    ],
+    "year": "2026",
+    "presentation": "motion",
+    "color": "#17bfae",
+    "image": "demos/bold-bite/cover.png",
+    "demo": "demos/bold-bite/index.html"
+  },
+  {
     "id": "kamila-garden",
     "title": "Kamila Garden",
     "subtitle": "Логоны хувилбарууд & рестораны цэс",
