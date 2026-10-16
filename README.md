@@ -2,7 +2,7 @@
 
 Live portfolio: https://ankhbayar-design.rightbirch64.chatgpt.site
 
-A responsive Mongolian/English portfolio with 20 projects across UI/UX, visual identity and print. The warm editorial layout includes three slow artwork columns, project filters, an interactive six-discipline capability map, a selectable motion graphic of the design process and artwork galleries. The 12 original digital project covers use complete original interface screens in CSS phone or browser mockups, with clear full-size views and complete web pages. The profile covers UI/UX, graphic and brand design, motion graphics and web design.
+A responsive Mongolian/English portfolio with 21 projects across UI/UX, visual identity and print. The warm editorial layout includes three slow artwork columns, project filters, an interactive six-discipline capability map, a selectable motion graphic of the design process and artwork galleries. The 12 original digital project covers use complete original interface screens in CSS phone or browser mockups, with clear full-size views and complete web pages. The profile covers UI/UX, graphic and brand design, motion graphics and web design.
 
 ## Featured work
 
@@ -70,6 +70,17 @@ Toolkit marks: Devicon (MIT), Simple Icons (CC0) and Lobe Icons (MIT). Exact sou
 Cloudflare Web Analytics is configured for `ankhbayar-design.rightbirch64.chatgpt.site`. One official module beacon is placed before the closing body tag in the HTML template and compiled page. Its site token is a public ingestion identifier, not an API or dashboard credential. The application has no dependency on the analytics script succeeding.
 
 Sign in to [Cloudflare Web Analytics](https://dash.cloudflare.com/?to=/:account/web-analytics) and select this hostname to review visits, page views, referrals, devices and performance. The private dashboard requires access to the Cloudflare account; no aggregate or visitor record is exposed through the portfolio UI. Collection begins after installation and the first real visit; earlier traffic is not backfilled. Visits can include repeat people, so they are not a count of distinct individuals. Client blockers can omit some visits. See the [official setup](https://developers.cloudflare.com/web-analytics/get-started/) and [metric definitions](https://developers.cloudflare.com/web-analytics/data-metrics/high-level-metrics/).
+
+
+## BOLD BITE featured motion project
+
+BOLD BITE is the first of 21 projects. Every previous project object is retained. The original eight photoreal WebP layers, cover and bundled GSAP are imported from GitHub commit 03d8971c128aa6c5035cb6042ee84d7b2b7d24a5. demos/bold-bite/SOURCE.json records the extraction hashes. No food assets or animation library are fetched from third-party CDNs at runtime.
+
+The first card embeds a continuously repeating GSAP scene. It loads when visible, pauses offscreen, when filtered out, in a hidden tab, behind a project dialog or under the global/reduced-motion preference, and resumes its existing phase. A static original cover remains available if the scene cannot load. The iframe is a sibling of its accessible project-open button. The opening hero shortcut also points to BOLD BITE.
+
+Opening the project launches its interactive demo with separate Assemble, Explode and Replay buttons plus a Scrub range. It uses the same eight source photos and bundled GSAP, fits the entire stack within its stage, honours reduced motion, and accepts pause messages only from its embedding parent. Manual controls remain usable without motion. Web and concept filters keep BOLD BITE first; existing project content, posters, logos, capability scenes, light/dark themes and analytics are retained.
+
+Validation includes the Python build, JavaScript syntax, the actual bundled GSAP runtime for interactive transitions and loop/pause continuity, viewport geometry, original-project preservation and asset/DOM checks. Browser preview is unavailable in this managed environment because control-browser is not exposed.
 
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.
 

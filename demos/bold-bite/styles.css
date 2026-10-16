@@ -1,0 +1,56 @@
+@font-face{font-family:Portfolio;src:url('https://ankhbayar-design.rightbirch64.chatgpt.site/assets/portfolio-noto-regular.woff') format('woff');font-weight:400;font-display:swap}
+@font-face{font-family:Portfolio;src:url('https://ankhbayar-design.rightbirch64.chatgpt.site/assets/portfolio-noto-bold.woff') format('woff');font-weight:600 900;font-display:swap}
+:root{--teal:#19c3b3;--forest:#083c2d;--cream:#fff9ec;--lime:#d4ef80;--aqua:#a8f2e6}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Portfolio,Arial,system-ui,sans-serif;color:var(--forest)}
+body{background:radial-gradient(ellipse at 73% 40%,#b6f0d8ad,transparent 52%),linear-gradient(135deg,#26c9b4,#10a89c)}
+button,a,input{-webkit-tap-highlight-color:transparent;touch-action:manipulation}button,input{font:inherit}button,a{color:inherit}a{text-decoration:none}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--forest);outline-offset:4px}
+.demo-shell{height:100svh;min-height:550px;max-height:1100px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:0 clamp(16px,4vw,60px);overflow:hidden}
+.demo-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 0}
+.brand{font-size:17px;font-weight:900;letter-spacing:-.7px}.brand span{font-size:9px;vertical-align:top;margin-left:3px}
+.demo-back{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;min-height:36px}
+.demo-back svg{width:15px;height:15px}.header-note{font-size:10px;letter-spacing:1px;font-weight:700}
+.showcase{display:grid;grid-template-columns:42% 58%;min-height:0;align-items:stretch}
+.demo-copy{align-self:center;padding:20px 0;position:relative;z-index:2}
+.kicker{font-size:11px;letter-spacing:1.3px;font-weight:700;margin:0 0 19px;display:flex;gap:8px;align-items:center}
+.kicker:before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+h1{font-size:clamp(54px,10vw,138px);font-weight:900;line-height:.88;letter-spacing:-.075em;margin:0}
+.intro{font-size:14px;line-height:1.8;max-width:290px;margin:24px 0 0}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin:24px 0 0}.tags span{font-size:10px;line-height:1.5;padding:5px 9px;border:1px solid #0b48363d;border-radius:999px;font-weight:700}
+.stage-viewport{position:relative;display:grid;place-items:center;min-width:0;min-height:0;overflow:hidden}
+.stage{position:relative;width:var(--sw,200px);aspect-ratio:1200/var(--sh,2923);flex:none;touch-action:pan-y}
+.layer{position:absolute;left:0;width:100%;top:calc(var(--y)/var(--sh)*100%);height:calc(var(--h)/var(--sh)*100%);will-change:transform}
+.px{position:absolute;inset:0;will-change:transform,opacity}.layer img{position:absolute;inset:0;width:100%;height:100%;display:block;user-select:none;-webkit-user-drag:none;filter:drop-shadow(0 3px 4px #07362c38)}
+.seat{position:absolute;left:13%;right:13%;height:12%;top:calc(var(--seat)*100% - 6%);border-radius:50%;pointer-events:none}
+.seat-crisp{background:radial-gradient(closest-side,#1e0e048c,transparent 80%)}.seat-soft{background:radial-gradient(closest-side,#0a1e1638,transparent);transform:scale(1.25,1.6)}
+.layer[data-id="bun-top"] .seat{display:none}.guide-label{display:none}
+.floor{position:absolute;left:10%;right:10%;bottom:3%;height:4%;border-radius:50%;background:radial-gradient(closest-side,#0628204d,transparent)}
+.controls{border-top:1px solid #0a45302e;padding:18px 0 22px;display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:center}
+.button-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{border:1px solid var(--forest);border-radius:999px;padding:11px 17px;min-height:44px;background:transparent;font-size:12px;font-weight:700;cursor:pointer;transition:background-color .2s,color .2s}
+button[aria-pressed="true"]{background:var(--forest);color:var(--cream)}button:hover{background:#d8f5bc}button[aria-pressed="true"]:hover{background:#145440}
+button:disabled{opacity:.55;cursor:wait}.replay{display:inline-flex;align-items:center;justify-content:center;gap:7px}.replay svg{width:14px;height:14px}
+.scrub{display:flex;gap:10px;align-items:center;font-size:11px;font-weight:700}.scrub input{width:clamp(100px,14vw,200px);height:28px;accent-color:var(--forest);cursor:ew-resize}.scrub output{min-width:36px;font-variant-numeric:tabular-nums}
+.status{font-size:11px;line-height:1.6;grid-column:1/-1;margin:0;opacity:.8}
+.case-notes{background:#0a3b2d;color:var(--cream);padding:70px clamp(24px,6vw,90px)}
+.case-notes>div{max-width:1100px;margin:auto}.case-notes small{font-size:11px;letter-spacing:1.3px;color:var(--lime);font-weight:700}
+.case-notes h2{font-size:clamp(36px,6vw,76px);line-height:1;letter-spacing:-2px;margin:15px 0 32px}
+.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}.case-grid strong{font-size:12px;color:var(--lime)}
+.case-grid p{font-size:13px;line-height:1.85;color:#e3eee6}.case-notes footer{font-size:11px;line-height:1.8;color:#b4c9bc;margin-top:28px}
+body.embedded .case-notes,body.embedded .demo-back{display:none}body.embedded .demo-shell{min-height:0;max-height:none}
+body.card{height:100svh;min-height:0;background:transparent;overflow:hidden}
+body.card .demo-shell{height:100svh;min-height:0;max-height:none;display:block;padding:0}
+body.card .showcase{display:block;height:100%}body.card .stage-viewport{height:100%;width:100%}
+body.card .demo-header,body.card .demo-copy,body.card .controls,body.card .case-notes{display:none}
+body.load-failed .stage{opacity:.45}
+@media(max-width:650px){
+  .demo-shell{min-height:600px;padding:0 18px}.demo-header{padding:14px 0}.header-note{display:none}
+  .showcase{grid-template-columns:38% 62%}.kicker{font-size:9px;letter-spacing:.7px;margin-bottom:14px}
+  h1{font-size:clamp(38px,11vw,68px)}.intro{font-size:11px;line-height:1.8;margin-top:17px}.tags{gap:5px;margin-top:16px}.tags span{font-size:9px;padding:4px 6px}
+  .controls{grid-template-columns:1fr;gap:10px;padding:13px 0 17px}.scrub{justify-content:space-between}.scrub input{flex:1;width:100px}
+  .case-grid{grid-template-columns:1fr;gap:16px}.case-notes{padding:44px 24px}
+  body.embedded .intro,body.embedded .tags{display:none}
+  body.embedded .demo-header{padding:10px 0}.status{font-size:10px}
+}
+@media(max-height:500px){.demo-shell{min-height:0}.intro,.tags{display:none}.demo-header{padding:10px 0}.controls{padding:9px 0;gap:6px}h1{font-size:clamp(34px,9vw,86px)}}
+@media(prefers-reduced-motion:reduce){button{transition:none}.layer,.px{will-change:auto}}

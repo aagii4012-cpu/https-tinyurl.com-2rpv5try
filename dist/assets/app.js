@@ -88,6 +88,10 @@
   });
 
 
+  Object.assign(copy.mn,{boldCardLine:'8 давхарга. Нэг тод санаа.',boldOpenDemo:'Assemble / Explode / Replay',heroSpotlightEyebrow:'ШИНЭ ОНЦЛОХ ТӨСӨЛ',heroSpotlightMeta:'8 давхарга · GSAP motion'});
+  Object.assign(copy.en,{boldCardLine:'Eight layers. One bold idea.',boldOpenDemo:'Assemble / Explode / Replay',heroSpotlightEyebrow:'NEW FEATURED PROJECT',heroSpotlightMeta:'8 photoreal layers · GSAP motion'});
+
+
   Object.assign(copy.mn,{publicDetailsTitle:'Дэлгэрэнгүй танилцуулга',publicDetailsBody:'Миний ажлын туршлага болон холбоо барих мэдээлэлтэй портфолио сайтаас танилцаарай.',publicDetailsLink:'Портфолио үзэх'});
   Object.assign(copy.en,{publicDetailsTitle:'More about me',publicDetailsBody:'Explore my background and contact details on the live portfolio.',publicDetailsLink:'Explore the portfolio'});
   const $ = selector => document.querySelector(selector);
@@ -122,6 +126,50 @@
   const categoryKeys = {web:'filterWeb', mobile:'filterMobile', graphic:'filterGraphic'};
   const categoryOf = p => p.types.map(t => copy[lang][categoryKeys[t]]).join(' + ');
   const canAnimate = () => !motionPaused && !reduce.matches;
+
+  const boldbiteFrames = $$('.motion-preview-frame');
+  function boldbiteOrigin(frame) {
+    try { return new URL(frame.getAttribute('src') || frame.dataset.src, location.href).origin; }
+    catch (_) { return null; }
+  }
+  function postBoldbiteMotion(frame, active) {
+    if (!frame.getAttribute('src')) return;
+    const origin = boldbiteOrigin(frame);
+    if (origin) frame.contentWindow?.postMessage({type:'portfolio-motion', active:!!active, auto:canAnimate()}, origin);
+  }
+  function syncBoldbiteMotion() {
+    boldbiteFrames.forEach(frame => {
+      const visible = frame.dataset.inview === 'true' && !frame.closest('.project-card').hidden;
+      postBoldbiteMotion(frame, visible && !document.hidden && !dialog.open);
+    });
+    if (selectedProject?.presentation === 'motion') {
+      postBoldbiteMotion($('#dialog-demo'), dialog.open && !document.hidden);
+    }
+  }
+  boldbiteFrames.forEach(frame => frame.addEventListener('load', syncBoldbiteMotion));
+  $('#dialog-demo').addEventListener('load', syncBoldbiteMotion);
+  function revealBoldbiteFrame(frame, visible) {
+    frame.dataset.inview = String(visible);
+    if (visible && !frame.getAttribute('src')) frame.src = frame.dataset.src;
+  }
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => revealBoldbiteFrame(entry.target, entry.isIntersecting));
+      syncBoldbiteMotion();
+    }, {threshold:.08});
+    boldbiteFrames.forEach(frame => observer.observe(frame));
+  } else boldbiteFrames.forEach(frame => revealBoldbiteFrame(frame, true));
+  window.addEventListener('message', event => {
+    const frames = selectedProject?.presentation === 'motion' ? [...boldbiteFrames, $('#dialog-demo')] : boldbiteFrames;
+    const frame = frames.find(item => item.contentWindow === event.source && event.origin === boldbiteOrigin(item));
+    if (!frame) return;
+    if (event.data?.type === 'boldbite-ready') {
+      frame.closest('.motion-project-visual')?.classList.add('has-live-motion');
+      syncBoldbiteMotion();
+    } else if (event.data?.type === 'boldbite-error') {
+      frame.closest('.motion-project-visual')?.classList.remove('has-live-motion');
+    }
+  });
 
   const capabilityVisual = $('#capability-visual');
   const capabilityVideo = $('#capability-video');
@@ -321,8 +369,8 @@
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entries=>{postersVisible=entries[0].isIntersecting;if(postersVisible)posterSection.querySelectorAll('img').forEach(img=>img.loading='eager');syncPosterMotion();},{rootMargin:'160px 0px'}).observe(posterSection);
   } else postersVisible=true;
-  Object.assign(copy.mn, {conceptEyebrow:'ӨӨРИЙН САНААЧИЛГЫН КОНЦЕПЦУУД',conceptTitle:'Сонирхлоос эхэлсэн<br>шинэ хувилбарууд.',conceptIntro:'Одоо байгаа вэбүүдийг өөрийн сонирхлоор дахин загварчилсан 4 ажил. Namu Coffee нь «би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн концепц.',tgKicker:'TG SPORT / ӨӨРИЙН САНААЧИЛГЫН REDESIGN',tgIntro:'Хувцасны дизайныг хардаг байсан бол одоо өөрөө бүтээ. Өнгөө сонгоод, нэр болон дугаараа өмсгөл дээрээ тавиарай.',tgRotate:'Чирж эргүүлнэ',tgCustomize:'Өнгө · Нэр · Дугаар',openStudio:'Бүрэн 3D студи нээх',tgNote:'Одоо байгаа вэбийг өөрийн санаагаар сайжруулсан хувийн концепц.',tgDragHint:'Чирж эргүүлээд, доороос нь өөрчилж үзээрэй.',load3d:'3D харагдац нээх',conceptCollection:'TITEM · barber.mn · Таван хошуу · Namu Coffee',showConcepts:'5 концепцийг үзэх',filterConcept:'Концепц',openDemo:'Демо нээх',conceptOriginal:'Шинэ вэб концепц',conceptRedesign:'Өөрийн санаачилгын redesign',conceptNote:'Өөрийн сонирхлоор хийсэн redesign концепц. Албан ёсны захиалгат ажил биш; үйлдлүүд нь демо.',conceptNoteOriginal:'«Би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн Namu Coffee вэб концепц. Үйлдлүүд нь демо.'});
-  Object.assign(copy.en, {conceptEyebrow:'SELF-INITIATED CONCEPTS',conceptTitle:'A little curiosity.<br>A new perspective.',conceptIntro:'Four personal redesigns of existing websites. Namu Coffee is an original “if I designed their website” concept.',tgKicker:'TG SPORT / SELF-INITIATED REDESIGN',tgIntro:'Go from viewing a kit to making it your own. Choose a colour, then add your name and number to the uniform.',tgRotate:'Drag to rotate',tgCustomize:'Colour · Name · Number',openStudio:'Open the full 3D studio',tgNote:'An independent, personal redesign of the existing website.',tgDragHint:'Drag to rotate. Use the controls below to make it yours.',load3d:'Explore the 3D kit',conceptCollection:'TITEM · barber.mn · Tavan Khoshuu · Namu Coffee',showConcepts:'Explore all 5 concepts',filterConcept:'Concepts',openDemo:'Open live demo',conceptOriginal:'Original website concept',conceptRedesign:'Self-initiated redesign',conceptNote:'An independently created personal redesign concept. Actions in this demonstration are simulated.',conceptNoteOriginal:'An original “if I designed their website” concept for Namu Coffee. Actions in this demonstration are simulated.'});
+  Object.assign(copy.mn, {conceptEyebrow:'ӨӨРИЙН САНААЧИЛГЫН КОНЦЕПЦУУД',conceptTitle:'Сонирхлоос эхэлсэн<br>шинэ хувилбарууд.',conceptIntro:'Одоо байгаа вэбүүдийг өөрийн сонирхлоор дахин загварчилсан 4 ажил. Namu Coffee нь «би вэбийг нь хийвэл…» гэж шинээр төсөөлсөн концепц.',tgKicker:'TG SPORT / ӨӨРИЙН САНААЧИЛГЫН REDESIGN',tgIntro:'Хувцасны дизайныг хардаг байсан бол одоо өөрөө бүтээ. Өнгөө сонгоод, нэр болон дугаараа өмсгөл дээрээ тавиарай.',tgRotate:'Чирж эргүүлнэ',tgCustomize:'Өнгө · Нэр · Дугаар',openStudio:'Бүрэн 3D студи нээх',tgNote:'Одоо байгаа вэбийг өөрийн санаагаар сайжруулсан хувийн концепц.',tgDragHint:'Чирж эргүүлээд, доороос нь өөрчилж үзээрэй.',load3d:'3D харагдац нээх',conceptCollection:'TITEM · barber.mn · Таван хошуу · Namu Coffee',showConcepts:'Бүх концепцийг үзэх',filterConcept:'Концепц',openDemo:'Демо нээх',conceptOriginal:'Шинэ вэб концепц',conceptRedesign:'Өөрийн санаачилгын redesign',conceptNote:'Өөрийн сонирхлоор хийсэн redesign концепц. Албан ёсны захиалгат ажил биш; үйлдлүүд нь демо.',conceptNoteOriginal:'Өөрийн санаачилгаар шинээр бүтээсэн вэб концепц. Энэ нь бодит захиалгын үйлчилгээ биш.'});
+  Object.assign(copy.en, {conceptEyebrow:'SELF-INITIATED CONCEPTS',conceptTitle:'A little curiosity.<br>A new perspective.',conceptIntro:'Four personal redesigns of existing websites. Namu Coffee is an original “if I designed their website” concept.',tgKicker:'TG SPORT / SELF-INITIATED REDESIGN',tgIntro:'Go from viewing a kit to making it your own. Choose a colour, then add your name and number to the uniform.',tgRotate:'Drag to rotate',tgCustomize:'Colour · Name · Number',openStudio:'Open the full 3D studio',tgNote:'An independent, personal redesign of the existing website.',tgDragHint:'Drag to rotate. Use the controls below to make it yours.',load3d:'Explore the 3D kit',conceptCollection:'TITEM · barber.mn · Tavan Khoshuu · Namu Coffee',showConcepts:'Explore all concepts',filterConcept:'Concepts',openDemo:'Open live demo',conceptOriginal:'Original website concept',conceptRedesign:'Self-initiated redesign',conceptNote:'An independently created personal redesign concept. Actions in this demonstration are simulated.',conceptNoteOriginal:'An original, self-initiated website concept. This demonstration is not a live commercial service.'});
   function syncFeatureMotion() {
     if (!featureFrame.getAttribute('src')) return;
     featureFrame.contentWindow?.postMessage({type:'portfolio-motion',active:featureVisible && !document.hidden && !dialog.open,auto:canAnimate()},new URL(featureFrame.dataset.src,location.href).origin);
@@ -391,6 +439,7 @@
     syncPosterMotion();
     syncCapabilityMotion();
     syncToolkitMotion();
+    syncBoldbiteMotion();
   }
   function showGalleryPage(index) {
     const p = selectedProject;
@@ -426,6 +475,7 @@
     $('#dialog-visual').style.setProperty('--project-bg', p.color);
     dialog.classList.toggle('is-print-project', !!p.gallery);
     dialog.classList.toggle('is-demo-preview',!!p.demo);
+    dialog.classList.toggle('is-motion-preview',p.presentation==='motion');
     dialog.classList.toggle('is-poster-project',p.presentation==='poster');
     const frame=$('#dialog-demo');
     frame.hidden=!p.demo;
@@ -517,7 +567,7 @@
 
   function orderedProjects(filter) {
     if (filter !== 'web') return projects;
-    const first = ['namu-coffee','nuudel','jiguur','park'];
+    const first = ['bold-bite-motion','namu-coffee','nuudel','jiguur','park'];
     const last = ['tg-sport-concept','titem-concept','barber-concept','tavan-hoshuu'];
     const edge = [...first,...last];
     const middle = projects.filter(p=>p.types.includes('web') && !edge.includes(p.id)).map(p=>p.id);
@@ -527,11 +577,12 @@
   function filterProjects(filter) {
     $$('.filter').forEach(b => {const active = b.dataset.filter === filter;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',String(active));});
     let count = 0;
-    orderedProjects(filter).forEach(p => {
+    orderedProjects(filter).forEach((p, index) => {
       const card = document.getElementById('project-' + p.id);
       const visible = filter === 'all' || (filter==='concept' ? !!p.concept : p.types.includes(filter));
-      $('#project-grid').append(card);
-      card.classList.toggle('is-featured',filter === 'all' && p.id === projects[0].id);
+      const grid = $('#project-grid');
+      if (grid.children[index] !== card) grid.insertBefore(card, grid.children[index] || null);
+      card.classList.toggle('is-featured',(filter === 'all' || filter === 'web' || filter === 'concept') && p.id === projects[0].id);
       card.hidden = !visible;
       if (visible) {
         count++;
@@ -540,6 +591,7 @@
       }
     });
     $('#project-count').textContent = String(count);
+    syncBoldbiteMotion();
   }
   function exploreFilter(filter) {
     filterProjects(filter);
@@ -563,6 +615,7 @@
     syncPosterMotion();
     syncCapabilityMotion();
     syncToolkitMotion();
+    syncBoldbiteMotion();
     syncProcessTimer();
   }));
   $('#dialog-close').addEventListener('click', () => dialog.close());
@@ -587,6 +640,7 @@
     syncPosterMotion();
     syncCapabilityMotion();
     syncToolkitMotion();
+    syncBoldbiteMotion();
     syncProcessTimer();
   });
   $$('[data-phase-select]').forEach(button => button.addEventListener('click', () => {
@@ -597,7 +651,7 @@
     try {localStorage.setItem('portfolio-motion',motionPaused ? 'paused' : 'playing');} catch (_) {}
   });
   reduce.addEventListener('change', () => {motionPaused = reduce.matches;updateMotion();});
-  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();syncPosterMotion();syncCapabilityMotion();syncToolkitMotion();});
+  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();syncPosterMotion();syncCapabilityMotion();syncToolkitMotion();syncBoldbiteMotion();});
 
   // A native scroll, one frame update, and transforms only. No scroll interception.
   let scrollQueued = false;

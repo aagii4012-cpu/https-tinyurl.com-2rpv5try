@@ -1383,15 +1383,35 @@ html[data-theme="dark"] .hero .mosaic-tile.mosaic-work { border-color:#8f9d7f33;
   .tool-rail { mask-image:none; -webkit-mask-image:none; overflow:visible; }
 }
 
-/* BOLD BITE — live animation in featured project card */
-.project-card--motion .project-visual{background:#19c3b3;isolation:isolate}
-.project-card--motion .motion-preview-poster{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover!important;padding:0!important;z-index:0;opacity:.85}
-.project-card--motion .motion-preview-frame{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;display:block;z-index:1;background:#19c3b3}
-.project-card--motion .motion-preview-stamp{position:absolute;left:23px;bottom:21px;z-index:4;padding:9px 13px;border-radius:99px;background:#0d3b2e;color:#c9fa57;font-size:10px;font-weight:800;letter-spacing:.1em;box-shadow:0 10px 28px #06281f42}
-.project-card--motion .motion-preview-stamp span{display:inline-block;animation:boldbite-pulse 2.4s infinite}
-.project-card--motion .project-open,.project-card--motion .project-badge{z-index:5}
-.project-card--motion .project-visual:hover .motion-preview-poster{transform:none}
-.motion-paused .project-card--motion .motion-preview-frame{visibility:hidden}
-@keyframes boldbite-pulse{50%{opacity:.35;transform:scale(.6)}}
-@media(max-width:700px){.project-card--motion .project-visual{aspect-ratio:1.4}.project-card--motion .motion-preview-stamp{left:10px;bottom:10px;font-size:8px;padding:7px 9px}}
-@media(prefers-reduced-motion:reduce){.project-card--motion .motion-preview-frame{visibility:hidden}.project-card--motion .motion-preview-stamp span{animation:none}}
+
+/* BOLD BITE: the first project, with an actual eight-layer GSAP scene. */
+.project-card--motion { grid-column:1/-1; }
+.project-card--motion .motion-project-visual { position:relative; container-type:inline-size; aspect-ratio:16/7.4; min-height:360px; background:radial-gradient(ellipse at 75% 45%,#b8f5d2ab,transparent 52%),linear-gradient(125deg,#25c9b3,#10aa9e); isolation:isolate; }
+.project-card--motion .motion-preview-poster { position:absolute!important; top:4%; right:2%; width:54%!important; height:92%!important; object-fit:contain!important; object-position:center; padding:0!important; transition:opacity .3s; transform:none!important; border-radius:0; }
+.motion-card-copy { position:absolute; left:6%; top:50%; transform:translateY(-50%); z-index:2; width:38%; text-align:left; color:#083c2d; pointer-events:none; }
+.motion-card-copy>span { display:block; font-size:clamp(9px,1.1cqi,13px); font-weight:700; letter-spacing:1.1px; margin-bottom:18px; }
+.motion-card-copy strong { display:block; font-size:clamp(38px,10.6cqi,132px); line-height:.88; font-weight:900; letter-spacing:-.075em; }
+.motion-card-copy p { font-size:clamp(11px,1.5cqi,18px); line-height:1.6; font-weight:700; margin-top:19px; }
+.motion-card-copy small { display:block; font-size:clamp(8px,.85cqi,11px); line-height:1.8; letter-spacing:.6px; margin-top:15px; }
+.motion-preview-frame { position:absolute; inset:0 0 0 auto; width:60%; height:100%; border:0; background:transparent; pointer-events:none; opacity:0; z-index:1; }
+.has-live-motion .motion-preview-frame { opacity:1; }
+.has-live-motion .motion-preview-poster { opacity:0; }
+.motion-card-open { position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:inherit; background:transparent; padding:0; z-index:3; }
+.motion-card-open:focus-visible { outline-offset:-5px; }
+.project-card--motion .concept-type { top:22px; right:22px; bottom:auto; left:auto; background:#fff9ecd9; color:#083c2d; }
+.motion-preview-stamp { position:absolute; left:6%; bottom:23px; display:flex; align-items:center; gap:8px; color:#083c2d; font-size:10px; font-weight:700; letter-spacing:.7px; }
+.motion-preview-stamp i { width:6px; height:6px; border-radius:50%; background:currentColor; }
+.project-card--motion .project-open,.project-card--motion .project-badge { z-index:4; }
+.project-card--motion .project-open { color:#fff9ec; background:#083c2d; }
+.project-card--motion .project-badge { background:#fff9ec; color:#083c2d; }
+.project-dialog.is-motion-preview { width:min(1240px,calc(100vw - 32px)); }
+.is-motion-preview .dialog-visual { height:min(680px,74svh); min-height:330px; padding:0; background:#19c3b3; }
+.is-motion-preview #dialog-demo { width:100%; height:100%; border:0; }
+@media(max-width:700px) {
+  .project-card--motion .motion-project-visual { aspect-ratio:1.18; min-height:300px; }
+  .motion-card-copy { left:5%; width:40%; }.motion-card-copy>span { font-size:8px; letter-spacing:.4px; margin-bottom:13px; }
+  .motion-card-copy p { margin-top:14px; }.motion-card-copy small { font-size:8px; letter-spacing:0; margin-top:10px; max-width:130px; }
+  .project-card--motion .concept-type { right:12px; top:16px; font-size:9px; }
+  .motion-preview-stamp { left:5%; bottom:17px; font-size:8px; letter-spacing:.3px; gap:5px; }
+}
+@media(prefers-reduced-motion:reduce) { .project-card--motion .motion-preview-poster { transition:none; } }

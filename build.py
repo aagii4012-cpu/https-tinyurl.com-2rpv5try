@@ -15,12 +15,26 @@ def esc(value):
 def phone(image, cls, alt=''):
     return f'<span class="phone {cls}"><span class="phone-screen">{image}</span><span class="phone-island" aria-hidden="true"><i></i></span><span class="phone-home" aria-hidden="true"></span><span class="phone-keys" aria-hidden="true"></span></span>'
 
+
+def motion_card(p, tags):
+    preview=p['demo']+'?card=1'
+    return f'''<article class="project-card project-card--motion is-featured reveal" id="project-{esc(p['id'])}" style="--project-bg:{esc(p['color'])}">
+      <div class="project-visual motion-project-visual">
+        <img class="project-image motion-preview-poster" src="{esc(p['image'])}" width="825" height="1100" loading="lazy" decoding="async" alt="BOLD BITE — найман давхаргат сэндвич">
+        <div class="motion-card-copy" aria-hidden="true"><span>MOTION / WEB CONCEPT</span><strong>BOLD<br>BITE.</strong><p data-i18n="boldCardLine">8 давхарга. Нэг тод санаа.</p><small>GSAP · HTML · CSS · JAVASCRIPT</small></div>
+        <iframe class="motion-preview-frame" data-src="{esc(preview)}" title="BOLD BITE — eight photoreal layers, animated with GSAP" loading="lazy" tabindex="-1" aria-hidden="true" sandbox="allow-scripts allow-same-origin" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <button class="motion-card-open" type="button" data-open-project="{esc(p['id'])}" aria-label="Төсөл үзэх: BOLD BITE" aria-haspopup="dialog"><span class="project-badge">{esc(tags)}</span><span class="concept-type" data-concept-label="original">Шинэ вэб концепц</span><span class="motion-preview-stamp" aria-hidden="true"><i></i>08 LAYERS / GSAP MOTION</span><span class="project-open"><span data-i18n="viewProject">Төсөл үзэх</span><span aria-hidden="true">{ARROW_NE}</span></span></button>
+      </div>
+      <div class="project-info"><h3 class="project-title"><button data-open-project="{esc(p['id'])}" aria-haspopup="dialog">BOLD BITE</button></h3><span class="project-year">{esc(p['year'])}</span><p class="project-subtitle">{esc(p['subtitle'])}</p><div class="project-tags"><span>Creative Frontend</span><span>Motion Design / GSAP</span></div><a class="project-demo-link" href="{esc(p['demo'])}" target="_blank" rel="noopener noreferrer"><span data-i18n="boldOpenDemo">Assemble / Explode / Replay</span> ↗</a></div>
+    </article>'''
+
 def card(project, index):
     p = project
     is_print = p.get('presentation') == 'menu'
     is_brand = p.get('presentation') == 'brand'
     is_concept = bool(p.get('concept'))
     tags = ' + '.join({'web':'Вэб', 'mobile':'Мобайл', 'graphic':'График / Хэвлэл'}[t] for t in p['types'])
+    if p.get('presentation') == 'motion': return motion_card(p, tags)
     visual = f'<img class="project-image" src="{esc(p["image"])}" width="800" height="651" loading="lazy" decoding="async" alt="{esc(p["title"])} — дизайны харагдац">'
     if is_print:
         visual = f'''<span class="menu-spread"><img class="menu-page menu-page-left" src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-salad.webp" width="855" height="1200" loading="lazy" decoding="async" alt=""><img class="project-image menu-page menu-page-cover" src="{esc(p['image'])}" width="998" height="1400" loading="lazy" decoding="async" alt="Kamila Garden цэсний нүүр"><img class="menu-page menu-page-right" src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/kamila-soup.webp" width="855" height="1200" loading="lazy" decoding="async" alt=""></span><span class="print-edition">KAMILA GARDEN / MENU DESIGN / 2026</span>'''
@@ -41,23 +55,15 @@ def card(project, index):
         else:
             visual = f'<span class="showcase-orbit" aria-hidden="true"></span><span class="browser-mockup"><span class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><b>{esc(p["title"])}</b></span><span class="browser-screen">{primary}</span></span>'
             if cover['kind']=='dual':visual+=phone(secondary,'phone-companion')
-    if p.get('presentation') == 'motion':
-        visual = (
-            '<img class="project-image motion-preview-poster" src="'+esc(p["image"])+ '" width="960" height="1280" loading="lazy" decoding="async" alt="'+esc(p["title"])+ ' — motion poster">'
-            '<iframe class="motion-preview-frame" src="demos/bold-bite/index.html?card=1" title="BOLD BITE: Eight-layer photoreal animation preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>'
-            '<span class="motion-preview-stamp" aria-hidden="true">LIVE MOTION <span>●</span> GSAP / 08 LAYERS</span>'
-        )
     if p.get('video'): visual += '<span class="project-video-badge"><span aria-hidden="true">▶</span> Promo video · 0:30</span>'
     if is_concept:
         label = 'Шинэ вэб концепц' if p['concept']=='original' else 'Өөрийн санаачилгын redesign'
         visual += f'<span class="concept-type" data-concept-label="{esc(p["concept"])}">{label}</span>'
     disciplines = '<span>Logo & Visual Identity</span><span>Editorial & Print</span>' if is_print else '<span>Brand Identity</span><span>Brand Guidelines</span>' if is_brand else '<span>UI/UX Design</span><span>Logo Design</span>' if p['id']=='procreditor' else '<span>UI/UX Design</span><span>'+('Web & Mobile' if len(p['types'])>1 else 'Web Design' if p['types']==['web'] else 'Mobile App')+'</span>'
-    if p.get('presentation') == 'motion': disciplines='<span>Creative Frontend</span><span>Motion Design / GSAP</span>'
     if p.get('presentation')=='poster': disciplines='<span>Poster Design</span><span>Typography & Composition</span>'
     extra = 'project-card--print' if is_print else 'project-card--brand' if is_brand else 'project-card--showcase showcase-'+cover['kind'] if cover else ''
     if index == 0: extra += ' is-featured'
     if is_concept: extra += ' project-card--concept'
-    if p.get('presentation') == 'motion': extra+=' project-card--motion'
     if p.get('presentation')=='poster': extra+=' project-card--posters'
     if p.get('editorial'): extra+=' project-card--editorial editorial-'+p['editorial']['theme']
     styles = f'--project-bg:{esc(p["color"])}'

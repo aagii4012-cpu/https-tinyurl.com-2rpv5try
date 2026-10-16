@@ -1,0 +1,47 @@
+{
+  "repository": "https://github.com/aagii4012-cpu/https-tinyurl.com-2rpv5try",
+  "commit": "03d8971c128aa6c5035cb6042ee84d7b2b7d24a5",
+  "source": "demos/bold-bite/index.html",
+  "assets": [
+    {
+      "path": "assets/bun-bottom.webp",
+      "sha256": "e3e0873f9db27f852e1e8e2827f9bb691b614a82ee4d8554dd5691e135b2fcfc",
+      "bytes": 143206
+    },
+    {
+      "path": "assets/patty.webp",
+      "sha256": "098e689917934e9d0fa1acf2f890eb246a79723586611742929b28a7572bfa89",
+      "bytes": 181406
+    },
+    {
+      "path": "assets/cheese.webp",
+      "sha256": "1c5255ddfd8f8a7d0cf0f3848120186525139fcd438297e216b1becd9a018553",
+      "bytes": 46078
+    },
+    {
+      "path": "assets/onion.webp",
+      "sha256": "2b4b0815360cfb97d87f705a8e02c8baf82476f9f53b6a2509951109c2a0ffc2",
+      "bytes": 67048
+    },
+    {
+      "path": "assets/avocado.webp",
+      "sha256": "fddaa2e3be087b7a225534051e35a640072b168754d8fbba79447ae497f12d2c",
+      "bytes": 68814
+    },
+    {
+      "path": "assets/tomato.webp",
+      "sha256": "034f17fa60f516dbe8669cb680e2f098ed54f282f24e7166886cc745ac3b2b45",
+      "bytes": 76354
+    },
+    {
+      "path": "assets/lettuce.webp",
+      "sha256": "0fc718cc6370821f0a6d077a29c3881971c97e5cf18f2cd00a363baaa6238223",
+      "bytes": 114198
+    },
+    {
+      "path": "assets/bun-top.webp",
+      "sha256": "43cae08cccb3ecb5986fb08650ab1b7ce8df4a995646e7ec54571ee8d61f5290",
+      "bytes": 171918
+    }
+  ]
+}
