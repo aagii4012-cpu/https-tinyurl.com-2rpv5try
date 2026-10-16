@@ -70,6 +70,9 @@
   Object.assign(copy.mn,{capabilityScene0:'ИНТЕРФЭЙС ДИЗАЙН',capabilityScene1:'ВЭБ ТУРШЛАГА',capabilityScene2:'БРЭНДИЙН СИСТЕМ',capabilityScene3:'ВИЗУАЛ ЗОХИОМЖ',capabilityScene4:'ХӨДӨЛГӨӨН & ВИДЕО',capabilityScene5:'ИНТЕРАКТИВ 3D'});
   Object.assign(copy.en,{capabilityScene0:'INTERFACE DESIGN',capabilityScene1:'WEB EXPERIENCES',capabilityScene2:'BRAND SYSTEMS',capabilityScene3:'VISUAL COMPOSITION',capabilityScene4:'MOTION & VIDEO',capabilityScene5:'INTERACTIVE 3D'});
 
+  Object.assign(copy.mn,{heroContact:'Хамтрая',heroSpotlightEyebrow:'ОНЦЛОХ ТӨСӨЛ',heroSpotlightMeta:'Аппын UI/UX · Promo видео'});
+  Object.assign(copy.en,{heroContact:'Let’s talk',heroSpotlightEyebrow:'FEATURED PROJECT',heroSpotlightMeta:'App UI/UX · Promo video'});
+
 
   Object.assign(copy.mn,{publicDetailsTitle:'Дэлгэрэнгүй танилцуулга',publicDetailsBody:'Миний ажлын туршлага болон холбоо барих мэдээлэлтэй портфолио сайтаас танилцаарай.',publicDetailsLink:'Портфолио үзэх'});
   Object.assign(copy.en,{publicDetailsTitle:'More about me',publicDetailsBody:'Explore my background and contact details on the live portfolio.',publicDetailsLink:'Explore the portfolio'});

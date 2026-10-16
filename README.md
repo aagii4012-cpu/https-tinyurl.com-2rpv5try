@@ -54,6 +54,8 @@ The contact area uses muted sage surfaces and neutral cards. The capability map 
 
 Circular arrow controls use centred SVG geometry so text baselines and font fallback cannot displace the symbol. The shared treatment covers navigation, primary actions, project previews, process selection, the overview link, scrolling and gallery navigation.
 
+The opening composition now uses fluid side padding and full-width artwork columns instead of large viewport-dependent margins and an 880 px art cap. Container-based type scales the name with its text column in both languages. A soft sage glow, structured statistics, a collaboration link and a PetCare project shortcut make the first view more informative. Compact-height and mobile rules keep the header clear of the title, avoid forced empty intro space and retain all fifteen seamless artwork tiles. The existing global motion controls, light-first theme, capability studio, project order and centred SVG arrows are preserved.
+
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.
 
 The public repository contains the application source and compiled HTML/CSS/JS. Media links resolve to the deployed portfolio; the full source, five interactive concept demos and media are retained by the Site project. The public application opens the demos on that live origin.

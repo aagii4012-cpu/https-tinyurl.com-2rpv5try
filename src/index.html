@@ -23,8 +23,8 @@
       document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#141713' : '#f5f4ef';
     })();
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20261015-13">
-  <script defer src="assets/app.js?v=20261015-13"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20261016-14">
+  <script defer src="assets/app.js?v=20261016-14"></script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
@@ -51,15 +51,16 @@
   <main>
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow intro-item"><span class="small-square" aria-hidden="true"></span><span data-i18n="heroEyebrow">ХҮНД ЗОРИУЛСАН ДИЗАЙН</span></p>
+        <div class="hero-topline intro-item"><p class="eyebrow"><span class="small-square" aria-hidden="true"></span><span data-i18n="heroEyebrow">ХҮНД ЗОРИУЛСАН ДИЗАЙН</span></p><span class="hero-edition">PORTFOLIO / 2026</span></div>
         <h1 id="hero-title"><span class="title-mask"><span data-i18n="heroName1">ЦОГТБАЯР</span></span><span class="title-mask"><span><span data-i18n="heroName2">АНХБАЯР</span><b class="name-dot">.</b></span></span></h1>
         <div class="hero-description intro-item"><p class="hero-role">UI/UX · Graphic · Motion Designer</p><p data-i18n="heroDescription">UI/UX, график ба брэндинг, motion graphics болон вэб дизайны чиглэлээр ажилладаг.</p></div>
-        <div class="hero-actions intro-item"><a class="button button-dark" href="#work"><span data-i18n="viewWork">Бүтээлүүд үзэх</span><span class="button-arrow" aria-hidden="true"><svg class="ui-arrow" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"></path></svg></span></a></div>
+        <div class="hero-actions intro-item"><a class="button button-dark" href="#work"><span data-i18n="viewWork">Бүтээлүүд үзэх</span><span class="button-arrow" aria-hidden="true"><svg class="ui-arrow" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"></path></svg></span></a><a class="hero-contact-link" href="#contact"><span data-i18n="heroContact">Хамтрая</span><svg class="ui-arrow" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"></path></svg></a></div>
         <dl class="hero-stats intro-item"><div><dt><span data-count="{{PROJECT_TOTAL}}">{{PROJECT_TOTAL}}</span></dt><dd data-i18n="statProjects">төсөл</dd></div><div><dt><span data-count="800">800</span><b>+</b></dt><dd data-i18n="statScreens">дэлгэц</dd></div><div><dt><span data-count="7">7</span></dt><dd data-i18n="statSystems">дизайн систем</dd></div></dl>
         <a class="scroll-cue" href="#work"><span class="scroll-icon" aria-hidden="true"><svg class="ui-arrow" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14m-6-6 6 6 6-6"></path></svg></span><span data-i18n="scrollCue">Бүтээлүүдтэй танилцах</span></a>
       </div>
       <div class="hero-art" id="hero-art">
         <div class="mosaic" aria-hidden="true">{{MOSAIC}}</div>
+        <button class="hero-spotlight" type="button" data-open-project="petcare" data-gallery-start="1" aria-haspopup="dialog"><span class="hero-spotlight-thumbnail" aria-hidden="true"><img src="https://ankhbayar-design.rightbirch64.chatgpt.site/assets/petcare-home.webp" width="393" height="852" alt="" decoding="async"></span><span class="hero-spotlight-copy"><small data-i18n="heroSpotlightEyebrow">ОНЦЛОХ ТӨСӨЛ</small><strong>PetCare</strong><span data-i18n="heroSpotlightMeta">Аппын UI/UX · Promo видео</span></span><span class="hero-spotlight-arrow" aria-hidden="true"><svg class="ui-arrow" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"></path></svg></span></button>
         <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><span class="motion-icon" aria-hidden="true">Ⅱ</span><span class="motion-label" data-i18n="pauseMotion">Хөдөлгөөн түр зогсоох</span></button>
       </div>
     </section>
