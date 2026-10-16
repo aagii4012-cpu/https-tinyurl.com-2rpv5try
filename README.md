@@ -65,6 +65,12 @@ Local and global pause, reduced motion, offscreen, hidden-tab and project-dialog
 
 Toolkit marks: Devicon (MIT), Simple Icons (CC0) and Lobe Icons (MIT). Exact source URLs and full licenses are self-hosted at `dist/assets/tools/SOURCES.md` and the accompanying `LICENSE-*.txt` files. Brand marks identify the software used and do not imply endorsement.
 
+## Traffic analytics
+
+Cloudflare Web Analytics is configured for `ankhbayar-design.rightbirch64.chatgpt.site`. One official module beacon is placed before the closing body tag in the HTML template and compiled page. Its site token is a public ingestion identifier, not an API or dashboard credential. The application has no dependency on the analytics script succeeding.
+
+Sign in to [Cloudflare Web Analytics](https://dash.cloudflare.com/?to=/:account/web-analytics) and select this hostname to review visits, page views, referrals, devices and performance. The private dashboard requires access to the Cloudflare account; no aggregate or visitor record is exposed through the portfolio UI. Collection begins after installation and the first real visit; earlier traffic is not backfilled. Visits can include repeat people, so they are not a count of distinct individuals. Client blockers can omit some visits. See the [official setup](https://developers.cloudflare.com/web-analytics/get-started/) and [metric definitions](https://developers.cloudflare.com/web-analytics/data-metrics/high-level-metrics/).
+
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.
 
 The public repository contains the application source and compiled HTML/CSS/JS. Media links resolve to the deployed portfolio; the full source, five interactive concept demos and media are retained by the Site project. The public application opens the demos on that live origin.
