@@ -3,10 +3,10 @@
     "id": "bold-bite-motion",
     "title": "BOLD BITE",
     "title_en": "BOLD BITE",
-    "subtitle": "8 давхаргат сэндвич · интерактив motion вэб",
-    "subtitle_en": "Motion-first website · interactive eight-layer sandwich",
-    "description": "Ургамлын гаралтай сэндвичний брэндийн өөрийн санаачилгын motion концепц. GitHub-ийн хамгийн сүүлийн 8 photoreal орц GSAP-аар тус тусдаа хөдөлнө. Assemble, Explode, Replay болон Scrub удирдлагаар нийлүүлж, салгаж, хөдөлгөөнийг өөрөө туршиж үзээрэй.",
-    "description_en": "A self-initiated food-brand motion concept using all eight original photoreal layers from the latest GitHub version. Independently choreographed GSAP animation, contact shadows and pointer parallax. Try Assemble, Explode, Replay and Scrub in the interactive demo.",
+    "subtitle": "БҮТЭН ВЭБ · Photoreal GSAP animation",
+    "subtitle_en": "Full website · Photoreal GSAP motion",
+    "description": "BOLD BITE — бүх хэсэгтэй motion-first сэндвичний концепц вэб. Hero, Our Story, Signature Build, Featured Menu, Fresh Ingredients, Footer, 8 давхаргат photoreal GSAP хөдөлгөөн, Монгол үнийн цэс болон responsive interaction-ыг нэг demo-д бүтнээр нь нээж үзээрэй.",
+    "description_en": "Complete BOLD BITE static website demo: Hero, Our Story, eight-layer GSAP sandwich, Featured Menu, Fresh Ingredients, responsive interactions, Mongolian menu prices and Footer. Not just the sandwich animation test.",
     "types": [
       "web"
     ],

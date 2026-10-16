@@ -2,6 +2,9 @@
 import html
 import json
 import shutil
+import base64
+import io
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -150,6 +153,30 @@ for i, items in enumerate(columns):
 DIST.mkdir(parents=True, exist_ok=True)
 (DIST / 'assets').mkdir(exist_ok=True)
 if (ROOT/'demos').is_dir(): shutil.copytree(ROOT/'demos',DIST/'demos',dirs_exist_ok=True)
+# BOLD BITE: import the complete standalone static website instead of the old
+# sandwich-only animation lab. Committed as 14 base64 text chunks to avoid
+# binary-transfer limitations. All assets stay self-hosted at build time.
+parts = sorted((ROOT/'bundles'/'bold-bite-full').glob('part-*.txt'))
+if parts:
+    if len(parts) != 14:
+        raise RuntimeError(f"BOLD BITE demo incomplete: expected 14 chunks, got {len(parts)}")
+    bundle = base64.b64decode(''.join(part.read_text().strip() for part in parts), validate=True)
+    with zipfile.ZipFile(io.BytesIO(bundle)) as full_demo:
+        failed = full_demo.testzip()
+        if failed:
+            raise RuntimeError(f"BOLD BITE asset integrity error: {failed}")
+        target = (DIST/'demos').resolve()
+        for entry in full_demo.infolist():
+            name = entry.filename
+            dest = (target/name).resolve()
+            if not dest.is_relative_to(target):
+                raise RuntimeError(f"Unsafe BOLD BITE archive path: {name}")
+            if entry.is_dir():
+                dest.mkdir(parents=True, exist_ok=True)
+            else:
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                dest.write_bytes(full_demo.read(entry))
+
 template = (ROOT / 'src/index.html').read_text()
 project_json = json.dumps(DATA, ensure_ascii=False).replace('<', '\\u003c')
 output = template.replace('{{MOSAIC}}',mosaic).replace('{{FILTERS}}',filters_markup()).replace('{{POSTERS}}',posters_markup()).replace('{{PROJECTS}}','\n'.join(card(p,i) for i,p in enumerate(DATA))).replace('{{PROJECT_DATA}}',project_json).replace('{{PROJECT_TOTAL}}',str(len(DATA)))

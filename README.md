@@ -85,3 +85,7 @@ Validation includes the Python build, JavaScript syntax, the actual bundled GSAP
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.
 
 The public repository contains the application source and compiled HTML/CSS/JS. Media links resolve to the deployed portfolio; the full source, five interactive concept demos and media are retained by the Site project. The public application opens the demos on that live origin.
+
+## Complete BOLD BITE website (updated)
+
+The bundled BOLD BITE project is now the **complete six-section static website**, not just the sandwich-only motion lab. The `bundles/bold-bite-full/part-00.txt` to `part-13.txt` files comprise one base64-encoded, verified ZIP. `python3 build.py` unpacks these into `dist/demos/bold-bite/`, replacing the earlier animation-only demo. The featured card loads `demos/bold-bite/index.html?card=1` as a lightweight visual; clicking **Demo** or the project opens the complete standalone site at `demos/bold-bite/index.html`. Its Next.js source is a separate development version; this static version preserves the six main sections, photoreal product assets, navigation, interactive carousel and GSAP motion. This repository's Pages workflow only deploys if GitHub Pages is enabled. Publishing the separate ChatGPT Site must be handled in ChatGPT Work.
