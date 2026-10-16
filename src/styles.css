@@ -1328,3 +1328,57 @@ html[data-theme="dark"] .hero .mosaic-tile.mosaic-work { border-color:#8f9d7f33;
 @media(prefers-reduced-motion:reduce) {
   .hero-spotlight-thumbnail,.hero-spotlight-arrow > .ui-arrow,.hero-contact-link .ui-arrow { transition:none!important; }
 }
+
+
+/* A compact, self-hosted tool collection beside the six-discipline studio. */
+.scope-copy { min-width:0; }
+.capability-ai { gap:14px; margin-top:23px; padding:17px 0; }
+.ai-tool-icons { display:flex; align-items:center; flex-shrink:0; width:59px; padding-left:2px; }
+.ai-tool-icons img { width:34px; height:34px; padding:5px; background:#fff; border:1px solid #e0e3da; border-radius:11px; box-shadow:0 3px 8px -6px #14271966; object-fit:contain; }
+.ai-tool-icons img+img { margin-left:-10px; transform:translateY(12px); }
+.capability-ai p { font-size:14px; line-height:1.65; }
+.capability-ai small { font-size:12px; line-height:1.7; }
+.toolkit { margin-top:21px; max-width:660px; min-width:0; }
+.toolkit-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:44px; margin-bottom:7px; }
+.toolkit-heading h4 { font-size:11px; line-height:1.5; letter-spacing:1.1px; font-weight:700; color:var(--muted); }
+.toolkit-toggle { display:inline-flex; align-items:center; justify-content:center; gap:6px; flex-shrink:0; min-height:44px; padding:7px 0 7px 8px; color:var(--muted); background:transparent; font-size:11px; line-height:1.5; }
+.toolkit-toggle:hover:not(:disabled) { color:var(--ink); }
+.toolkit-toggle:disabled { opacity:.65; }
+.toolkit-toggle svg { flex-shrink:0; }
+.toolkit-rails { display:grid; gap:8px; }
+.tool-rail { overflow:hidden; padding:2px 0; mask-image:linear-gradient(to right,transparent,#000 18px,#000 calc(100% - 18px),transparent); -webkit-mask-image:linear-gradient(to right,transparent,#000 18px,#000 calc(100% - 18px),transparent); }
+.tool-track { display:flex; width:max-content; animation:toolkit-flow 42s linear infinite; animation-play-state:paused; }
+.tool-rail-2 .tool-track { animation-duration:48s; animation-direction:reverse; }
+.toolkit.is-running .tool-track { animation-play-state:running; }
+.motion-paused .tool-track,.is-hidden .tool-track,.has-dialog .tool-track { animation-play-state:paused!important; }
+.tool-run { display:flex; flex-shrink:0; align-items:center; gap:8px; padding-right:8px; }
+.tool-chip { display:flex; align-items:center; gap:9px; min-height:46px; padding:5px 13px 5px 6px; background:var(--surface-raised); border:1px solid var(--line); border-radius:14px; white-space:nowrap; font-size:13px; line-height:1.4; font-weight:700; }
+.tool-logo { display:grid; place-items:center; width:32px; height:32px; background:#fff; border-radius:9px; flex-shrink:0; }
+.tool-logo img { width:25px; height:25px; object-fit:contain; }
+.toolkit-details { list-style:none; display:grid; gap:12px; padding:0; margin:20px 0 0; }
+.toolkit-details li { display:flex; gap:10px; align-items:flex-start; }
+.toolkit-index { font-size:10px; line-height:21px; color:var(--muted); font-variant-numeric:tabular-nums; flex-shrink:0; }
+.toolkit-details strong { display:block; font-size:13px; line-height:1.65; font-weight:700; }
+.toolkit-details p { font-size:13px; line-height:1.75; color:var(--muted); margin-top:2px; }
+.scope-copy .scope-feature-link { margin-top:23px; }
+@keyframes toolkit-flow { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@media(max-width:1000px) {
+  .toolkit { max-width:660px; }
+  .toolkit-details { grid-template-columns:1fr 1fr; gap:14px 22px; }
+  .toolkit-details li:last-child { grid-column:1/-1; }
+}
+@media(max-width:600px) {
+  .toolkit { margin-top:19px; }
+  .toolkit-heading h4 { letter-spacing:.8px; font-size:10px; }
+  .toolkit-toggle { font-size:10px; }
+  .toolkit-details { grid-template-columns:1fr; gap:12px; margin-top:18px; }
+  .toolkit-details strong,.toolkit-details p { font-size:13px; }
+  .toolkit-details li:last-child { grid-column:auto; }
+  .tool-chip { font-size:12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .tool-track { animation:none; width:100%; transform:none; }
+  .tool-run { flex-wrap:wrap; width:100%; padding:0; gap:6px; }
+  .tool-run[aria-hidden="true"] { display:none; }
+  .tool-rail { mask-image:none; -webkit-mask-image:none; overflow:visible; }
+}

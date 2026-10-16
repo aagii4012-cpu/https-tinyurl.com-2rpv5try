@@ -74,6 +74,20 @@
   Object.assign(copy.en,{heroContact:'Let’s talk',heroSpotlightEyebrow:'FEATURED PROJECT',heroSpotlightMeta:'App UI/UX · Promo video'});
 
 
+  Object.assign(copy.mn, {
+    toolkitTitle:'МИНИЙ ХЭРЭГСЛҮҮД', toolkitPause:'Түр зогсоох', toolkitPlay:'Үргэлжлүүлэх', toolkitOff:'Хөдөлгөөн унтраалттай',
+    toolkitUIBody:'UI/UX дизайн, компонентын систем, интерактив прототип.',
+    toolkitVisualBody:'Вектор лого, брэндинг, постер ба хөдөлгөөнт график.',
+    toolkitWebBody:'Responsive вэб, интерактив үйлдэл, кодын хувилбар ба нийтлэлт.'
+  });
+  Object.assign(copy.en, {
+    toolkitTitle:'MY CREATIVE TOOLKIT', toolkitPause:'Pause', toolkitPlay:'Resume', toolkitOff:'Motion is off',
+    toolkitUIBody:'UI/UX design, component systems and interactive prototypes.',
+    toolkitVisualBody:'Vector identities, branding, posters and motion graphics.',
+    toolkitWebBody:'Responsive websites, interactions, version control and publishing.'
+  });
+
+
   Object.assign(copy.mn,{publicDetailsTitle:'Дэлгэрэнгүй танилцуулга',publicDetailsBody:'Миний ажлын туршлага болон холбоо барих мэдээлэлтэй портфолио сайтаас танилцаарай.',publicDetailsLink:'Портфолио үзэх'});
   Object.assign(copy.en,{publicDetailsTitle:'More about me',publicDetailsBody:'Explore my background and contact details on the live portfolio.',publicDetailsLink:'Explore the portfolio'});
   const $ = selector => document.querySelector(selector);
@@ -216,6 +230,32 @@
     new IntersectionObserver(entries=>{capabilityVisible=entries[0].isIntersecting;syncCapabilityMotion();},{threshold:.15}).observe(capabilityVisual);
   } else capabilityVisible=true;
 
+
+  // CSS transforms keep their elapsed position through every pause gate.
+  const toolkit = $('#toolkit');
+  const toolkitToggle = $('#toolkit-toggle');
+  let toolkitVisible = false, toolkitPaused = false;
+  function syncToolkitMotion() {
+    const disabled = !canAnimate();
+    const active = !disabled && toolkitVisible && !toolkitPaused && !document.hidden && !dialog.open;
+    toolkit.classList.toggle('is-running', active);
+    toolkitToggle.disabled = disabled;
+    toolkitToggle.setAttribute('aria-pressed', String(disabled || toolkitPaused));
+    $('#toolkit-toggle-label').textContent = copy[lang][disabled ? 'toolkitOff' : toolkitPaused ? 'toolkitPlay' : 'toolkitPause'];
+    $('.toolkit-pause-icon').toggleAttribute('hidden', disabled || toolkitPaused);
+    $('.toolkit-play-icon').toggleAttribute('hidden', !disabled && !toolkitPaused);
+  }
+  toolkitToggle.addEventListener('click', () => {
+    toolkitPaused = !toolkitPaused;
+    syncToolkitMotion();
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      toolkitVisible = entries[0].isIntersecting;
+      syncToolkitMotion();
+    }, {threshold:.15}).observe(toolkit);
+  } else toolkitVisible = true;
+
   const themeButton = $('#theme-toggle');
   let themeSetting = null;
   try {
@@ -350,6 +390,7 @@
     syncFeatureMotion();
     syncPosterMotion();
     syncCapabilityMotion();
+    syncToolkitMotion();
   }
   function showGalleryPage(index) {
     const p = selectedProject;
@@ -521,6 +562,7 @@
     syncFeatureMotion();
     syncPosterMotion();
     syncCapabilityMotion();
+    syncToolkitMotion();
     syncProcessTimer();
   }));
   $('#dialog-close').addEventListener('click', () => dialog.close());
@@ -544,6 +586,7 @@
     syncFeatureMotion();
     syncPosterMotion();
     syncCapabilityMotion();
+    syncToolkitMotion();
     syncProcessTimer();
   });
   $$('[data-phase-select]').forEach(button => button.addEventListener('click', () => {
@@ -554,7 +597,7 @@
     try {localStorage.setItem('portfolio-motion',motionPaused ? 'paused' : 'playing');} catch (_) {}
   });
   reduce.addEventListener('change', () => {motionPaused = reduce.matches;updateMotion();});
-  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();syncPosterMotion();syncCapabilityMotion();});
+  document.addEventListener('visibilitychange', () => {document.body.classList.toggle('is-hidden',document.hidden);syncProcessTimer();syncFeatureMotion();syncPosterMotion();syncCapabilityMotion();syncToolkitMotion();});
 
   // A native scroll, one frame update, and transforms only. No scroll interception.
   let scrollQueued = false;

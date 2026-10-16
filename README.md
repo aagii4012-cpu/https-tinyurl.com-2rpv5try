@@ -56,6 +56,15 @@ Circular arrow controls use centred SVG geometry so text baselines and font fall
 
 The opening composition now uses fluid side padding and full-width artwork columns instead of large viewport-dependent margins and an 880 px art cap. Container-based type scales the name with its text column in both languages. A soft sage glow, structured statistics, a collaboration link and a PetCare project shortcut make the first view more informative. Compact-height and mobile rules keep the header clear of the title, avoid forced empty intro space and retain all fifteen seamless artwork tiles. The existing global motion controls, light-first theme, capability studio, project order and centred SVG arrows are preserved.
 
+
+## Creative toolkit
+
+The capability overview now includes twelve self-hosted program logos in two seamless, duplicated CSS rails. Figma, Illustrator, Photoshop, After Effects, Adobe XD and Sketch form the design row; Claude, ChatGPT, HTML, CSS, JavaScript and GitHub form the AI and web row. Three concise descriptions explain UI/UX and prototyping, vector/brand/poster/motion work, and responsive web development/version control. The advanced Claude and ChatGPT workflow retains its own explanation with actual tool symbols.
+
+Local and global pause, reduced motion, offscreen, hidden-tab and project-dialog gates control the rails without resetting their animation time. Reduced motion presents a static wrapping collection. Program names and role descriptions remain readable independently of the decorative moving copies. The about-section skills include Illustrator, Adobe XD, Sketch, HTML/CSS, JavaScript and GitHub. The light-first and saved-theme behaviour is retained.
+
+Toolkit marks: Devicon (MIT), Simple Icons (CC0) and Lobe Icons (MIT). Exact source URLs and full licenses are self-hosted at `dist/assets/tools/SOURCES.md` and the accompanying `LICENSE-*.txt` files. Brand marks identify the software used and do not imply endorsement.
+
 Personal Background records, contact details and the portrait are kept on the live portfolio. This public source links to that profile and contains the project work, identities and brand guide.
 
 The public repository contains the application source and compiled HTML/CSS/JS. Media links resolve to the deployed portfolio; the full source, five interactive concept demos and media are retained by the Site project. The public application opens the demos on that live origin.
